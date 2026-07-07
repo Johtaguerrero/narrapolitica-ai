@@ -1,7 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  experimental: {
+    turbopack: {
+      rules: {
+        "*.{ts,tsx}": {
+          ignore: ["turbopack-tracing"],
+        },
+      },
+    },
+  },
 };
 
 export default nextConfig;
