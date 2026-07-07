@@ -32,6 +32,9 @@ yarn-error.log*
 # turso sync script (contains credentials)
 turso-sync.cjs
 
+# generated sql
+prisma/init-turso.sql
+
 # vercel
 .vercel
 
