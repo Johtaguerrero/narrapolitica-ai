@@ -2,6 +2,8 @@ import { notFound } from "next/navigation";
 import { getProfile } from "@/lib/db/profiles";
 import { ProfileForm } from "../profile-form";
 
+export const dynamic = "force-dynamic";
+
 export default async function EditarPerfilPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const profile = await getProfile(id);

@@ -10,6 +10,8 @@ import { labelMap } from "@/data/content-types";
 import { estimateReadingTime } from "@/lib/generators/time-calculator";
 import { DuplicateButton } from "../duplicate-button";
 
+export const dynamic = "force-dynamic";
+
 export default async function ScriptViewPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   const script = await getScript(id) as ScriptWithRelations | null;
