@@ -3,6 +3,8 @@ import { getScripts } from "@/lib/db/scripts";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
+export const dynamic = "force-dynamic";
+
 const quickActions = [
   { href: "/roteiro", title: "Novo Roteiro", desc: "Crie roteiros com base no perfil do político", icon: "▷" },
   { href: "/analise", title: "Analisar Instagram", desc: "Diagnóstico de posicionamento digital", icon: "◎" },

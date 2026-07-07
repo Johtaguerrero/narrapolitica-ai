@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ProfileDeleteButton } from "./profile-delete-button";
 
+export const dynamic = "force-dynamic";
+
 export default async function PerfilPage() {
   const profiles = await getProfiles();
 

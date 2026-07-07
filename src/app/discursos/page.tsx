@@ -6,6 +6,8 @@ import { labelMap } from "@/data/content-types";
 import { DuplicateButton } from "./duplicate-button";
 import { DeleteButton } from "./delete-button";
 
+export const dynamic = "force-dynamic";
+
 const themeKeys = ["cultura","juventude","educacao","saude","seguranca","emprego","moradia","mobilidade","esporte","mulher","familia","empreendedorismo","periferia","transparencia","comunidade","combate_fome","projetos_sociais"];
 const typeKeys = ["reels","discurso_curto","discurso_medio","discurso_longo","texto_instagram","legenda","carrossel","resposta_comentario","fala_bastidor","video_rua","video_institucional","video_emocional","video_prestacao_contas"];
 const styleKeys = ["natural_rua","institucional_leve","popular_direto","emocional","tecnico_acessivel","juventude_cultura","periferia_respeito","fe_familia_comunidade","prestacao_contas","critica_sem_ataque","propositivo","bastidor_real","lideranca_tranquila"];

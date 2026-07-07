@@ -29,6 +29,9 @@ yarn-error.log*
 # logs
 *.log
 
+# turso sync script (contains credentials)
+turso-sync.cjs
+
 # vercel
 .vercel
 

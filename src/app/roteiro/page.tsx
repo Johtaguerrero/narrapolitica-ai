@@ -3,6 +3,8 @@ import { getAnalysis } from "@/lib/db/analysis";
 import { getAnalyses } from "@/lib/db/analysis";
 import { RoteiroContent } from "./roteiro-content";
 
+export const dynamic = "force-dynamic";
+
 export default async function RoteiroPage(props: { searchParams: Promise<{ analiseId?: string; profileId?: string }> }) {
   const searchParams = await props.searchParams;
   let analysisData = null;

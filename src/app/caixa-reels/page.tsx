@@ -1,6 +1,8 @@
 import { getReelCards } from "@/lib/db/reel-cards";
 import { ReelKanban } from "./reel-kanban";
 
+export const dynamic = "force-dynamic";
+
 export default async function CaixaReelsPage() {
   const cards = await getReelCards();
 
