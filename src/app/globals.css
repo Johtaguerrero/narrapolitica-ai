@@ -60,6 +60,7 @@
   --sidebar-accent-foreground: #18181b;
   --sidebar-border: #d4d4d8;
   --sidebar-ring: #18181b;
+  --grid-line: rgba(0, 0, 0, 0.04);
 }
 
 .dark {
@@ -88,6 +89,7 @@
   --sidebar-accent-foreground: #fafafa;
   --sidebar-border: #27272a;
   --sidebar-ring: #fafafa;
+  --grid-line: rgba(255, 255, 255, 0.03);
 }
 
 * {
@@ -99,34 +101,34 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
   background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  background-position: -1px -1px;
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: 0 0;
 }
 
 @media (max-width: 640px) {
   body {
-    background-size: 32px 32px;
+    background-size: 28px 28px;
   }
 }
 
 @media (min-width: 1024px) {
   body {
-    background-size: 56px 56px;
+    background-size: 48px 48px;
   }
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .dark .glass {
-  background: rgba(24, 24, 27, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  background: rgba(24, 24, 27, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
