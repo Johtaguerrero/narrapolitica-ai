@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NarraPolítica AI
 
-## Getting Started
+Plataforma para assessores, comunicadores e políticos criarem roteiros, discursos, textos para Reels, legendas e ideias de postagens com base no perfil público do Instagram do político.
 
-First, run the development server:
+**Comunicação pública responsável, transparente e cidadã.**
+
+## Stack
+
+- **Next.js 16** (App Router, RSC, Server Actions)
+- **TypeScript**
+- **Tailwind CSS v4**
+- **SQLite** (banco local via Prisma)
+- **Prisma ORM**
+- **Shadcn/UI** (componentes)
+- **react-hook-form** (formulários)
+
+## Funcionalidades
+
+1. **Dashboard** - Visão geral com cards de acesso rápido e últimos roteiros
+2. **Cadastro de Perfil Político** - Dados do político para personalização
+3. **Análise de Instagram** - Diagnóstico simulado de posicionamento digital
+4. **Criador de Roteiros** - Geração baseada em tipo, duração, estilo, tema e formato
+5. **Caixa de Reels** - Kanban para gerenciar produção (Ideias → Roteirizado → Gravado → Editado → Publicado → Arquivado)
+6. **Biblioteca de Estilos** - 10 estilos prontos de comunicação
+7. **Discursos Salvos** - Busca e filtros por tema, tipo, estilo
+8. **Calendário Editorial** - Planejamento semanal
+
+## Como Rodar
 
 ```bash
+# 1. Instalar dependências
+npm install
+
+# 2. Configurar banco de dados
+# O arquivo .env já contém DATABASE_URL="file:./dev.db"
+# Apenas execute a migração:
+npx prisma migrate dev --name init
+
+# 3. Iniciar desenvolvimento
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+├── src/
+│   ├── app/           # Páginas (Next.js App Router)
+│   │   ├── dashboard/
+│   │   ├── perfil/
+│   │   ├── analise/
+│   │   ├── roteiro/
+│   │   ├── caixa-reels/
+│   │   ├── biblioteca/
+│   │   ├── discursos/
+│   │   └── calendario/
+│   ├── components/    # Componentes React
+│   │   ├── ui/        # Shadcn/UI
+│   │   └── layout/    # Sidebar
+│   ├── lib/
+│   │   ├── db/        # Server Actions (Prisma)
+│   │   └── generators/# Gerador de roteiros (templates)
+│   ├── data/          # Dados estáticos
+│   └── types/         # Tipos TypeScript
+├── prisma/
+│   └── schema.prisma  # Schema do banco
+└── README.md
+```
 
-## Learn More
+## Modelos do Banco
 
-To learn more about Next.js, take a look at the following resources:
+- `PoliticalProfile` - Perfis de políticos
+- `InstagramAnalysis` - Análises de Instagram
+- `Script` - Roteiros gerados
+- `ReelCard` - Cards do kanban
+- `StylePreset` - Estilos de comunicação
+- `EditorialCalendarItem` - Itens do calendário
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Evolução Futura
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Integração com OpenAI / Gemini / Ollama para geração avançada
+- Autenticação e multiusuário
+- Deploy com PostgreSQL
+- API real do Instagram
+- Exportação de roteiros em PDF
 
-## Deploy on Vercel
+## Subir no GitHub
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+git remote add origin https://github.com/seu-usuario/narrapolitica-ai.git
+git add .
+git commit -m "Initial commit"
+git push -u origin main
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Licença
+
+MIT

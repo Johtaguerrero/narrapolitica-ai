@@ -1,0 +1,125 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model PoliticalProfile {
+  id             String   @id @default(cuid())
+  name           String
+  role           String
+  city           String
+  party          String?
+  instagram      String
+  mainAudience   String
+  mainThemes     String
+  desiredTone    String
+  languageRules  String
+  avoidWords     String
+  useWords       String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  scripts        Script[]
+  analyses       InstagramAnalysis[]
+}
+
+model InstagramAnalysis {
+  id                   String   @id @default(cuid())
+  profileId            String?
+  profileUrl           String
+  username             String
+  publicName           String
+  bioSummary           String
+  detectedTone         String
+  frequentThemes       String
+  probableAudience     String
+  strengths            String
+  weaknesses           String
+  contentOpportunities String
+  reelIdeas            String
+  speechIdeas          String
+  communicationRisks   String
+  captionSuggestions   String
+  hashtagSuggestions   String
+  rawAnalysis          String
+  status               String   @default("pronto")
+  city                 String?
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  profile              PoliticalProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+  scripts              Script[]
+}
+
+model Script {
+  id              String   @id @default(cuid())
+  profileId       String?
+  instagramAnalysisId String?
+  profileName     String?
+  instagramUsername String?
+  title           String
+  type            String
+  duration        String
+  style           String
+  theme           String
+  format          String   @default("gancho_forte")
+  hook            String   @default("")
+  fullScript      String   @default("")
+  pauseMarks      String   @default("")
+  cameraDir       String   @default("")
+  sceneSuggestion String   @default("")
+  captionSuggestion String @default("")
+  ctaSuggestion   String   @default("")
+  hashtags        String   @default("")
+  shortVersion    String   @default("")
+  emotionalVersion String @default("")
+  institutionalVersion String @default("")
+  isPublic        Boolean  @default(false)
+  estimatedWords  Int?
+  objective       String?
+  scriptText      String?
+  captionText     String?
+  cta             String?
+  scenarioSuggestion String?
+  framingSuggestion  String?
+  strategicNotes  String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  profile         PoliticalProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+  analysis        InstagramAnalysis? @relation(fields: [instagramAnalysisId], references: [id], onDelete: SetNull)
+  reelCards       ReelCard[]
+}
+
+model ReelCard {
+  id          String   @id @default(cuid())
+  scriptId    String?
+  title       String
+  theme       String
+  duration    String
+  status      String   @default("ideia")
+  suggestedDate DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  script      Script?  @relation(fields: [scriptId], references: [id], onDelete: SetNull)
+}
+
+model StylePreset {
+  id          String   @id @default(cuid())
+  name        String
+  description String
+  tone        String
+  tips        String
+  example     String
+  createdAt   DateTime @default(now())
+}
+
+model EditorialCalendarItem {
+  id          String   @id @default(cuid())
+  dayOfWeek   Int
+  label       String
+  description String
+  color       String
+  createdAt   DateTime @default(now())
+}
