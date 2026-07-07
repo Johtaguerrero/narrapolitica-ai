@@ -3,37 +3,40 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard", icon: "◈" },
-  { href: "/perfil", label: "Perfil Político", icon: "◇" },
-  { href: "/analise", label: "Análise Instagram", icon: "◎" },
-  { href: "/instagram-profiles", label: "Perfis Salvos", icon: "◆" },
-  { href: "/roteiro", label: "Criar Roteiro", icon: "▷" },
-  { href: "/caixa-reels", label: "Caixa de Reels", icon: "▣" },
-  { href: "/biblioteca", label: "Biblioteca de Estilos", icon: "▤" },
-  { href: "/discursos", label: "Discursos Salvos", icon: "▥" },
-  { href: "/calendario", label: "Calendário Editorial", icon: "▦" },
+  { href: "/dashboard", label: "Dashboard" },
+  { href: "/perfil", label: "Perfil Político" },
+  { href: "/analise", label: "Análise Instagram" },
+  { href: "/instagram-profiles", label: "Perfis Salvos" },
+  { href: "/roteiro", label: "Criar Roteiro" },
+  { href: "/caixa-reels", label: "Caixa de Reels" },
+  { href: "/biblioteca", label: "Biblioteca de Estilos" },
+  { href: "/discursos", label: "Discursos Salvos" },
+  { href: "/calendario", label: "Calendário Editorial" },
 ];
 
 export function Sidebar() {
   const pathname = usePathname();
+  const { theme, setTheme } = useTheme();
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <button
         onClick={() => setOpen(!open)}
-        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-foreground"
+        className="fixed top-4 left-4 z-50 lg:hidden w-10 h-10 rounded-lg bg-card border border-border flex items-center justify-center text-foreground shadow-sm"
         aria-label="Menu"
       >
-        <span className="text-lg">{open ? "✕" : "☰"}</span>
+        {open ? <X size={18} /> : <Menu size={18} />}
       </button>
 
       {open && (
         <div
-          className="fixed inset-0 bg-black/30 z-30 lg:hidden"
+          className="fixed inset-0 bg-black/20 z-30 lg:hidden"
           onClick={() => setOpen(false)}
         />
       )}
@@ -72,17 +75,21 @@ export function Sidebar() {
                     : "text-muted-foreground hover:text-foreground hover:bg-accent"
                 )}
               >
-                <span className="text-base">{item.icon}</span>
                 {item.label}
               </Link>
             );
           })}
         </nav>
 
-        <div className="p-4 border-t border-border">
-          <p className="text-xs text-muted-foreground">
-            Comunicação política responsável
-          </p>
+        <div className="p-4 border-t border-border flex items-center justify-between">
+          <p className="text-xs text-muted-foreground">Comunicação política responsável</p>
+          <button
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="w-8 h-8 rounded-lg flex items-center justify-center text-muted-foreground hover:text-foreground hover:bg-accent transition-all"
+            aria-label="Alternar tema"
+          >
+            {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+          </button>
         </div>
       </aside>
     </>

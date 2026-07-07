@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Sidebar } from "@/components/layout/sidebar";
-import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeToaster } from "@/components/theme-toaster";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,15 +26,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="pt-BR" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-background text-foreground antialiased">
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 lg:ml-[280px] p-4 lg:p-8 pt-16 lg:pt-8">
-            {children}
-          </main>
-        </div>
-        <Toaster position="top-right" theme="light" />
+        <ThemeProvider>
+          <div className="flex min-h-screen">
+            <Sidebar />
+            <main className="flex-1 lg:ml-[280px] p-4 sm:p-6 lg:p-8 pt-16 lg:pt-8 max-w-full overflow-x-hidden">
+              {children}
+            </main>
+          </div>
+          <ThemeToaster />
+        </ThemeProvider>
       </body>
     </html>
   );
