@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { contentTypes, durations, speechStyles, themes } from "@/data/content-types";
@@ -13,6 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
+import { Copy } from "lucide-react";
 import { toast } from "sonner";
 import { calculateWordRange, estimateReadingTime } from "@/lib/generators/time-calculator";
 import { downloadScriptTxt } from "@/lib/generators/export-script-txt";
@@ -36,6 +37,24 @@ const objectives: { value: Objective; label: string }[] = [
   { value: "educar", label: "Educar" },
   { value: "dialogar", label: "Dialogar" },
 ];
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false);
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 1500);
+  }, [text]);
+  return (
+    <button
+      onClick={handleCopy}
+      className="text-xs text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1"
+    >
+      <Copy size={12} />
+      {copied ? "Copiado!" : "Copiar"}
+    </button>
+  );
+}
 
 interface SavedProfile {
   id: string;
@@ -530,7 +549,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
 
               <Card className="glass">
                 <CardHeader>
-                  <CardTitle>Roteiro para Leitura Contínua</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Roteiro para Leitura Contínua</CardTitle>
+                    <CopyButton text={editScriptText} />
+                  </div>
                   <p className="text-xs text-muted-foreground">
                     Edite o texto antes de salvar se necessário
                   </p>
@@ -547,7 +569,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
 
               <Card className="glass">
                 <CardHeader>
-                  <CardTitle>Legenda para Postagem</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Legenda para Postagem</CardTitle>
+                    <CopyButton text={editCaptionText} />
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <Textarea
@@ -561,7 +586,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
 
               <Card className="glass">
                 <CardHeader>
-                  <CardTitle>Hashtags</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Hashtags</CardTitle>
+                    <CopyButton text={editHashtags} />
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <Input
@@ -575,7 +603,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <Card className="glass">
                   <CardHeader>
-                    <CardTitle>Cenário Sugerido</CardTitle>
+                    <div className="flex items-center justify-between">
+                      <CardTitle>Cenário Sugerido</CardTitle>
+                      <CopyButton text={result.scenarioSuggestion || ""} />
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground whitespace-pre-line">
@@ -586,7 +617,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
 
                 <Card className="glass">
                   <CardHeader>
-                    <CardTitle>Enquadramento</CardTitle>
+                    <div className="flex items-center justify-between">
+                      <CardTitle>Enquadramento</CardTitle>
+                      <CopyButton text={result.framingSuggestion || ""} />
+                    </div>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-muted-foreground whitespace-pre-line">
@@ -598,7 +632,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
 
               <Card className="glass">
                 <CardHeader>
-                  <CardTitle>Observações Estratégicas</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>Observações Estratégicas</CardTitle>
+                    <CopyButton text={result.strategicNotes || ""} />
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground whitespace-pre-line">
@@ -609,7 +646,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
 
               <Card className="glass">
                 <CardHeader>
-                  <CardTitle>CTA</CardTitle>
+                  <div className="flex items-center justify-between">
+                    <CardTitle>CTA</CardTitle>
+                    <CopyButton text={result.cta || ""} />
+                  </div>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">{result.cta}</p>
