@@ -227,6 +227,7 @@ export async function getScriptsByProfile(profileId: string) {
       OR: [
         { profileId },
         ...(analysisIds.length > 0 ? [{ instagramAnalysisId: { in: analysisIds } }] : []),
+        { instagramAnalysisId: profileId },
       ],
     },
     orderBy: { createdAt: 'desc' },
