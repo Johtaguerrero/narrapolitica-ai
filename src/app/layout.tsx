@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" suppressHydrationWarning className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body className="min-h-screen bg-background text-foreground antialiased">
+      <body className="min-h-screen bg-background text-foreground antialiased" suppressHydrationWarning>
         <ThemeProvider>
           <div className="flex min-h-screen">
             <Sidebar />
