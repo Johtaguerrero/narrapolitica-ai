@@ -73,6 +73,7 @@ interface SavedProfile {
   city: string | null;
   createdAt: Date;
   scripts: { id: string }[];
+  profile?: { id: string; name: string } | null;
 }
 
 interface Props {
@@ -82,10 +83,11 @@ interface Props {
   savedProfiles: SavedProfile[];
 }
 
-export function RoteiroContent({ analysisData: initialAnalysisData, savedProfiles }: Props) {
+export function RoteiroContent({ analysisData: initialAnalysisData, savedProfiles, initialProfileId }: Props) {
   const router = useRouter();
   const [modoLivre, setModoLivre] = useState(!initialAnalysisData && savedProfiles.length === 0);
   const [selectedProfileId, setSelectedProfileId] = useState(initialAnalysisData?.id || "");
+  const [selectedPoliticalProfileId, setSelectedPoliticalProfileId] = useState(initialProfileId || "");
   const [analysisData, setAnalysisData] = useState<AnalysisData | null>(initialAnalysisData || null);
 
   const [mlName, setMlName] = useState("");
@@ -159,15 +161,17 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
     return "cultura" as Theme;
   }, [analysisData]);
 
-  const handleProfileChange = (profileId: string) => {
-    setSelectedProfileId(profileId);
+  const handleProfileChange = (analysisId: string) => {
+    setSelectedProfileId(analysisId);
     setResult(null);
-    if (!profileId) {
+    if (!analysisId) {
       setAnalysisData(null);
+      setSelectedPoliticalProfileId("");
       return;
     }
-    const profile = savedProfiles.find((p) => p.id === profileId);
+    const profile = savedProfiles.find((p) => p.id === analysisId);
     if (profile) {
+      setSelectedPoliticalProfileId(profile.profile?.id || "");
       setAnalysisData({
         publicName: profile.publicName || "",
         username: profile.username || "",
@@ -221,6 +225,7 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
     try {
       const saved = await createScript({
         title: editTitle || result.title,
+        profileId: selectedPoliticalProfileId || undefined,
         instagramAnalysisId: modoLivre ? undefined : selectedProfileId,
         profileName: analysisData?.publicName || mlName || undefined,
         instagramUsername: analysisData?.username || undefined,

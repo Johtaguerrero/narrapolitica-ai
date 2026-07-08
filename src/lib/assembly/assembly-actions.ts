@@ -158,8 +158,19 @@ export async function deleteInterviewee(id: string) {
 }
 
 export async function getScriptsByProfile(profileId: string) {
-  return prisma.script.findMany({
+  const analyses = await prisma.instagramAnalysis.findMany({
     where: { profileId },
+    select: { id: true },
+  })
+  const analysisIds = analyses.map(a => a.id)
+
+  return prisma.script.findMany({
+    where: {
+      OR: [
+        { profileId },
+        ...(analysisIds.length > 0 ? [{ instagramAnalysisId: { in: analysisIds } }] : []),
+      ],
+    },
     orderBy: { createdAt: 'desc' },
   })
 }
