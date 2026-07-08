@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import { prisma } from '@/lib/db/prisma'
+import { getMergedProfiles } from '@/lib/assembly/assembly-actions'
 import { AssemblyStrategyClient } from './assembly-strategy-client'
 
 export const dynamic = 'force-dynamic'
@@ -18,7 +19,7 @@ export default async function StrategyDetailPage({ params }: { params: Promise<{
   })
   if (!strategy) notFound()
 
-  const profiles = await prisma.politicalProfile.findMany({ orderBy: { name: 'asc' } })
+  const profiles = await getMergedProfiles()
 
   return <AssemblyStrategyClient strategy={JSON.parse(JSON.stringify(strategy))} profiles={JSON.parse(JSON.stringify(profiles))} />
 }

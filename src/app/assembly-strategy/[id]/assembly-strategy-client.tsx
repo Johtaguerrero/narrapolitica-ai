@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { AssemblyProfileSelector } from '@/components/assembly/assembly-profile-selector'
+import { AssemblyMergedProfileSelector } from '@/components/assembly/assembly-merged-profile-selector'
 import { AssemblyScriptSelector } from '@/components/assembly/assembly-script-selector'
 import { AssemblyShortlist } from '@/components/assembly/assembly-shortlist'
 import { AssemblyInfiniteCanvas } from '@/components/assembly/assembly-infinite-canvas'
@@ -23,6 +23,13 @@ import type {
 } from '@/types/assembly'
 import { Trash2, ArrowLeft, Send, Save } from 'lucide-react'
 import { toast } from 'sonner'
+
+interface MergedProfile {
+  id: string
+  name: string
+  instagram: string
+  source: 'profile' | 'analysis'
+}
 
 interface SerializedStrategy {
   id: string
@@ -80,7 +87,7 @@ interface SerializedStrategy {
 
 interface Props {
   strategy: SerializedStrategy
-  profiles: Array<{ id: string; name: string; instagram: string }>
+  profiles: MergedProfile[]
 }
 
 export function AssemblyStrategyClient({ strategy: initial, profiles }: Props) {
@@ -217,7 +224,7 @@ export function AssemblyStrategyClient({ strategy: initial, profiles }: Props) {
         </Link>
         <div className="flex items-center gap-3 flex-1">
           <div className="w-48">
-            <AssemblyProfileSelector
+            <AssemblyMergedProfileSelector
               profiles={profiles}
               selectedId={strategy.profileId}
               onSelect={handleProfileChange}

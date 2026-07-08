@@ -2,14 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
-import { createStrategy, getScriptsByProfile } from '@/lib/assembly/assembly-actions'
+import { createStrategy, getScriptsByProfile, resolveProfileId } from '@/lib/assembly/assembly-actions'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
-interface Profile {
+interface MergedProfile {
   id: string
   name: string
   instagram: string
+  source: 'profile' | 'analysis'
 }
 
 interface Script {
@@ -19,7 +20,7 @@ interface Script {
 }
 
 export function NewStrategyForm({ profiles, initialProfileId, initialScriptId, initialTitle }: {
-  profiles: Profile[]
+  profiles: MergedProfile[]
   initialProfileId?: string
   initialScriptId?: string
   initialTitle?: string
@@ -29,6 +30,8 @@ export function NewStrategyForm({ profiles, initialProfileId, initialScriptId, i
   const [scripts, setScripts] = useState<Script[]>([])
   const [scriptId, setScriptId] = useState(initialScriptId || '')
   const [loading, setLoading] = useState(false)
+
+  const selectedProfile = profiles.find(p => p.id === profileId)
 
   useEffect(() => {
     if (profileId) {
@@ -57,12 +60,19 @@ export function NewStrategyForm({ profiles, initialProfileId, initialScriptId, i
   }
 
   async function handleCreate() {
-    if (!profileId || !scriptId) return
+    if (!profileId || !scriptId || !selectedProfile) return
     setLoading(true)
     try {
+      let resolvedId = profileId
+      if (selectedProfile.source === 'analysis') {
+        const realId = await resolveProfileId(profileId, 'analysis')
+        if (!realId) throw new Error('Não foi possível resolver o perfil')
+        resolvedId = realId
+      }
+
       const script = scripts.find(s => s.id === scriptId)
       const strategy = await createStrategy({
-        profileId,
+        profileId: resolvedId,
         scriptId,
         title: initialTitle || script?.title || 'Nova estratégia',
       })
@@ -93,7 +103,9 @@ export function NewStrategyForm({ profiles, initialProfileId, initialScriptId, i
             >
               <option value="">Selecionar perfil</option>
               {profiles.map(p => (
-                <option key={p.id} value={p.id}>{p.name} (@{p.instagram})</option>
+                <option key={`${p.source}-${p.id}`} value={p.id}>
+                  {p.name} (@{p.instagram}){p.source === 'analysis' ? ' • análise' : ''}
+                </option>
               ))}
             </select>
           </div>
