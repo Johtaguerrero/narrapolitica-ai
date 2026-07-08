@@ -11,7 +11,7 @@ const quickActions = [
   { href: "/instagram-profiles", title: "Perfis Salvos", desc: "Gerencie perfis de Instagram analisados", icon: "◆" },
   { href: "/discursos", title: "Discursos Salvos", desc: "Acesse roteiros criados anteriormente", icon: "▥" },
   { href: "/biblioteca", title: "Biblioteca de Estilos", desc: "Estilos prontos de comunicação", icon: "▤" },
-  { href: "/caixa-reels", title: "Caixa de Reels", desc: "Gerencie sua produção de conteúdo", icon: "▣" },
+  { href: "/assembly-strategy", title: "Estratégia de Montagem", desc: "Planejamento visual de gravação por perfil", icon: "▣" },
   { href: "/calendario", title: "Calendário Editorial", desc: "Planejamento semanal de postagens", icon: "▦" },
 ];
 

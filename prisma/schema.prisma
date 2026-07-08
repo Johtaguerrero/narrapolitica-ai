@@ -24,6 +24,7 @@ model PoliticalProfile {
   updatedAt      DateTime @updatedAt
   scripts        Script[]
   analyses       InstagramAnalysis[]
+  assemblyStrategies AssemblyStrategy[]
 }
 
 model InstagramAnalysis {
@@ -51,6 +52,7 @@ model InstagramAnalysis {
   updatedAt            DateTime @updatedAt
   profile              PoliticalProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
   scripts              Script[]
+  assemblyStrategies   AssemblyStrategy[]
 }
 
 model Script {
@@ -90,6 +92,7 @@ model Script {
   profile         PoliticalProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
   analysis        InstagramAnalysis? @relation(fields: [instagramAnalysisId], references: [id], onDelete: SetNull)
   reelCards       ReelCard[]
+  assemblyStrategies AssemblyStrategy[]
 }
 
 model ReelCard {
@@ -117,9 +120,87 @@ model StylePreset {
 
 model EditorialCalendarItem {
   id          String   @id @default(cuid())
+  profileId   String?
+  scriptId    String?
   dayOfWeek   Int
   label       String
   description String
   color       String
   createdAt   DateTime @default(now())
+}
+
+model AssemblyStrategy {
+  id             String   @id @default(cuid())
+  profileId      String?
+  instagramAnalysisId String?
+  scriptId       String?
+  title          String
+  videoType      String   @default("solo")
+  objective      String   @default("")
+  centralMessage String   @default("")
+  visualHook     String   @default("")
+  firstLine      String   @default("")
+  recordingLocation String @default("")
+  recordingAddress String  @default("")
+  recordingDate  String?
+  recordingTime  String?
+  postingDate    String?
+  postingTime    String?
+  status         String   @default("rascunho")
+  notes          String   @default("")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  canvasItems    AssemblyCanvasItem[]
+  participants   AssemblyParticipant[]
+  interviewees   AssemblyInterviewee[]
+  profile        PoliticalProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
+  analysis       InstagramAnalysis? @relation(fields: [instagramAnalysisId], references: [id], onDelete: SetNull)
+  script         Script? @relation(fields: [scriptId], references: [id], onDelete: SetNull)
+}
+
+model AssemblyCanvasItem {
+  id         String   @id @default(cuid())
+  strategyId String
+  type       String
+  title      String   @default("")
+  content    String   @default("")
+  x          Float    @default(0)
+  y          Float    @default(0)
+  width      Float    @default(200)
+  height     Float    @default(100)
+  position   Int      @default(0)
+  color      String   @default("")
+  metadata   String   @default("")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  strategy   AssemblyStrategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
+}
+
+model AssemblyParticipant {
+  id             String   @id @default(cuid())
+  strategyId     String
+  name           String
+  role           String   @default("")
+  phone          String   @default("")
+  instagram      String   @default("")
+  responsibility String   @default("")
+  status         String   @default("pendente")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  strategy       AssemblyStrategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
+}
+
+model AssemblyInterviewee {
+  id                     String   @id @default(cuid())
+  strategyId             String
+  name                   String
+  profile                String   @default("")
+  speechTheme            String   @default("")
+  mainQuestion           String   @default("")
+  supportQuestions       String   @default("")
+  imageAuthorizationStatus String @default("pendente")
+  status                 String   @default("pendente")
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  strategy               AssemblyStrategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
 }

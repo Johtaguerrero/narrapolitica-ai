@@ -13,7 +13,7 @@ const navItems = [
   { href: "/analise", label: "Análise Instagram" },
   { href: "/instagram-profiles", label: "Perfis Salvos" },
   { href: "/roteiro", label: "Criar Roteiro" },
-  { href: "/caixa-reels", label: "Caixa de Reels" },
+  { href: "/assembly-strategy", label: "Estratégia de Montagem" },
   { href: "/biblioteca", label: "Biblioteca de Estilos" },
   { href: "/discursos", label: "Discursos Salvos" },
   { href: "/calendario", label: "Calendário Editorial" },

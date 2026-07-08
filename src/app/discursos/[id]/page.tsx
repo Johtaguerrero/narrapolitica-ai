@@ -45,6 +45,11 @@ export default async function ScriptViewPage({ params }: { params: Promise<{ id:
           <Link href={`/roteiro${script.profileId ? `?profileId=${script.profileId}` : ""}`}>
             <Button variant="outline">Criar similar</Button>
           </Link>
+          {script.profileId && (
+            <Link href={`/assembly-strategy/new?profileId=${script.profileId}&scriptId=${script.id}&title=${encodeURIComponent(script.title)}`}>
+              <Button>Criar Estratégia de Montagem</Button>
+            </Link>
+          )}
         </div>
       </div>
 

@@ -256,6 +256,7 @@ export type PoliticalProfileWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"PoliticalProfile"> | Date | string
   scripts?: Prisma.ScriptListRelationFilter
   analyses?: Prisma.InstagramAnalysisListRelationFilter
+  assemblyStrategies?: Prisma.AssemblyStrategyListRelationFilter
 }
 
 export type PoliticalProfileOrderByWithRelationInput = {
@@ -275,6 +276,7 @@ export type PoliticalProfileOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   scripts?: Prisma.ScriptOrderByRelationAggregateInput
   analyses?: Prisma.InstagramAnalysisOrderByRelationAggregateInput
+  assemblyStrategies?: Prisma.AssemblyStrategyOrderByRelationAggregateInput
 }
 
 export type PoliticalProfileWhereUniqueInput = Prisma.AtLeast<{
@@ -297,6 +299,7 @@ export type PoliticalProfileWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"PoliticalProfile"> | Date | string
   scripts?: Prisma.ScriptListRelationFilter
   analyses?: Prisma.InstagramAnalysisListRelationFilter
+  assemblyStrategies?: Prisma.AssemblyStrategyListRelationFilter
 }, "id">
 
 export type PoliticalProfileOrderByWithAggregationInput = {
@@ -356,6 +359,7 @@ export type PoliticalProfileCreateInput = {
   updatedAt?: Date | string
   scripts?: Prisma.ScriptCreateNestedManyWithoutProfileInput
   analyses?: Prisma.InstagramAnalysisCreateNestedManyWithoutProfileInput
+  assemblyStrategies?: Prisma.AssemblyStrategyCreateNestedManyWithoutProfileInput
 }
 
 export type PoliticalProfileUncheckedCreateInput = {
@@ -375,6 +379,7 @@ export type PoliticalProfileUncheckedCreateInput = {
   updatedAt?: Date | string
   scripts?: Prisma.ScriptUncheckedCreateNestedManyWithoutProfileInput
   analyses?: Prisma.InstagramAnalysisUncheckedCreateNestedManyWithoutProfileInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutProfileInput
 }
 
 export type PoliticalProfileUpdateInput = {
@@ -394,6 +399,7 @@ export type PoliticalProfileUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUpdateManyWithoutProfileNestedInput
   analyses?: Prisma.InstagramAnalysisUpdateManyWithoutProfileNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUpdateManyWithoutProfileNestedInput
 }
 
 export type PoliticalProfileUncheckedUpdateInput = {
@@ -413,6 +419,7 @@ export type PoliticalProfileUncheckedUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUncheckedUpdateManyWithoutProfileNestedInput
   analyses?: Prisma.InstagramAnalysisUncheckedUpdateManyWithoutProfileNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutProfileNestedInput
 }
 
 export type PoliticalProfileCreateManyInput = {
@@ -566,6 +573,22 @@ export type PoliticalProfileUpdateOneWithoutScriptsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PoliticalProfileUpdateToOneWithWhereWithoutScriptsInput, Prisma.PoliticalProfileUpdateWithoutScriptsInput>, Prisma.PoliticalProfileUncheckedUpdateWithoutScriptsInput>
 }
 
+export type PoliticalProfileCreateNestedOneWithoutAssemblyStrategiesInput = {
+  create?: Prisma.XOR<Prisma.PoliticalProfileCreateWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUncheckedCreateWithoutAssemblyStrategiesInput>
+  connectOrCreate?: Prisma.PoliticalProfileCreateOrConnectWithoutAssemblyStrategiesInput
+  connect?: Prisma.PoliticalProfileWhereUniqueInput
+}
+
+export type PoliticalProfileUpdateOneWithoutAssemblyStrategiesNestedInput = {
+  create?: Prisma.XOR<Prisma.PoliticalProfileCreateWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUncheckedCreateWithoutAssemblyStrategiesInput>
+  connectOrCreate?: Prisma.PoliticalProfileCreateOrConnectWithoutAssemblyStrategiesInput
+  upsert?: Prisma.PoliticalProfileUpsertWithoutAssemblyStrategiesInput
+  disconnect?: Prisma.PoliticalProfileWhereInput | boolean
+  delete?: Prisma.PoliticalProfileWhereInput | boolean
+  connect?: Prisma.PoliticalProfileWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PoliticalProfileUpdateToOneWithWhereWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUpdateWithoutAssemblyStrategiesInput>, Prisma.PoliticalProfileUncheckedUpdateWithoutAssemblyStrategiesInput>
+}
+
 export type PoliticalProfileCreateWithoutAnalysesInput = {
   id?: string
   name: string
@@ -582,6 +605,7 @@ export type PoliticalProfileCreateWithoutAnalysesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scripts?: Prisma.ScriptCreateNestedManyWithoutProfileInput
+  assemblyStrategies?: Prisma.AssemblyStrategyCreateNestedManyWithoutProfileInput
 }
 
 export type PoliticalProfileUncheckedCreateWithoutAnalysesInput = {
@@ -600,6 +624,7 @@ export type PoliticalProfileUncheckedCreateWithoutAnalysesInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scripts?: Prisma.ScriptUncheckedCreateNestedManyWithoutProfileInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutProfileInput
 }
 
 export type PoliticalProfileCreateOrConnectWithoutAnalysesInput = {
@@ -634,6 +659,7 @@ export type PoliticalProfileUpdateWithoutAnalysesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUpdateManyWithoutProfileNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUpdateManyWithoutProfileNestedInput
 }
 
 export type PoliticalProfileUncheckedUpdateWithoutAnalysesInput = {
@@ -652,6 +678,7 @@ export type PoliticalProfileUncheckedUpdateWithoutAnalysesInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUncheckedUpdateManyWithoutProfileNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutProfileNestedInput
 }
 
 export type PoliticalProfileCreateWithoutScriptsInput = {
@@ -670,6 +697,7 @@ export type PoliticalProfileCreateWithoutScriptsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   analyses?: Prisma.InstagramAnalysisCreateNestedManyWithoutProfileInput
+  assemblyStrategies?: Prisma.AssemblyStrategyCreateNestedManyWithoutProfileInput
 }
 
 export type PoliticalProfileUncheckedCreateWithoutScriptsInput = {
@@ -688,6 +716,7 @@ export type PoliticalProfileUncheckedCreateWithoutScriptsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   analyses?: Prisma.InstagramAnalysisUncheckedCreateNestedManyWithoutProfileInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutProfileInput
 }
 
 export type PoliticalProfileCreateOrConnectWithoutScriptsInput = {
@@ -722,6 +751,7 @@ export type PoliticalProfileUpdateWithoutScriptsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   analyses?: Prisma.InstagramAnalysisUpdateManyWithoutProfileNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUpdateManyWithoutProfileNestedInput
 }
 
 export type PoliticalProfileUncheckedUpdateWithoutScriptsInput = {
@@ -740,6 +770,99 @@ export type PoliticalProfileUncheckedUpdateWithoutScriptsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   analyses?: Prisma.InstagramAnalysisUncheckedUpdateManyWithoutProfileNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutProfileNestedInput
+}
+
+export type PoliticalProfileCreateWithoutAssemblyStrategiesInput = {
+  id?: string
+  name: string
+  role: string
+  city: string
+  party?: string | null
+  instagram: string
+  mainAudience: string
+  mainThemes: string
+  desiredTone: string
+  languageRules: string
+  avoidWords: string
+  useWords: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  scripts?: Prisma.ScriptCreateNestedManyWithoutProfileInput
+  analyses?: Prisma.InstagramAnalysisCreateNestedManyWithoutProfileInput
+}
+
+export type PoliticalProfileUncheckedCreateWithoutAssemblyStrategiesInput = {
+  id?: string
+  name: string
+  role: string
+  city: string
+  party?: string | null
+  instagram: string
+  mainAudience: string
+  mainThemes: string
+  desiredTone: string
+  languageRules: string
+  avoidWords: string
+  useWords: string
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  scripts?: Prisma.ScriptUncheckedCreateNestedManyWithoutProfileInput
+  analyses?: Prisma.InstagramAnalysisUncheckedCreateNestedManyWithoutProfileInput
+}
+
+export type PoliticalProfileCreateOrConnectWithoutAssemblyStrategiesInput = {
+  where: Prisma.PoliticalProfileWhereUniqueInput
+  create: Prisma.XOR<Prisma.PoliticalProfileCreateWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUncheckedCreateWithoutAssemblyStrategiesInput>
+}
+
+export type PoliticalProfileUpsertWithoutAssemblyStrategiesInput = {
+  update: Prisma.XOR<Prisma.PoliticalProfileUpdateWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUncheckedUpdateWithoutAssemblyStrategiesInput>
+  create: Prisma.XOR<Prisma.PoliticalProfileCreateWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUncheckedCreateWithoutAssemblyStrategiesInput>
+  where?: Prisma.PoliticalProfileWhereInput
+}
+
+export type PoliticalProfileUpdateToOneWithWhereWithoutAssemblyStrategiesInput = {
+  where?: Prisma.PoliticalProfileWhereInput
+  data: Prisma.XOR<Prisma.PoliticalProfileUpdateWithoutAssemblyStrategiesInput, Prisma.PoliticalProfileUncheckedUpdateWithoutAssemblyStrategiesInput>
+}
+
+export type PoliticalProfileUpdateWithoutAssemblyStrategiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  party?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagram?: Prisma.StringFieldUpdateOperationsInput | string
+  mainAudience?: Prisma.StringFieldUpdateOperationsInput | string
+  mainThemes?: Prisma.StringFieldUpdateOperationsInput | string
+  desiredTone?: Prisma.StringFieldUpdateOperationsInput | string
+  languageRules?: Prisma.StringFieldUpdateOperationsInput | string
+  avoidWords?: Prisma.StringFieldUpdateOperationsInput | string
+  useWords?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  scripts?: Prisma.ScriptUpdateManyWithoutProfileNestedInput
+  analyses?: Prisma.InstagramAnalysisUpdateManyWithoutProfileNestedInput
+}
+
+export type PoliticalProfileUncheckedUpdateWithoutAssemblyStrategiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  role?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.StringFieldUpdateOperationsInput | string
+  party?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  instagram?: Prisma.StringFieldUpdateOperationsInput | string
+  mainAudience?: Prisma.StringFieldUpdateOperationsInput | string
+  mainThemes?: Prisma.StringFieldUpdateOperationsInput | string
+  desiredTone?: Prisma.StringFieldUpdateOperationsInput | string
+  languageRules?: Prisma.StringFieldUpdateOperationsInput | string
+  avoidWords?: Prisma.StringFieldUpdateOperationsInput | string
+  useWords?: Prisma.StringFieldUpdateOperationsInput | string
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  scripts?: Prisma.ScriptUncheckedUpdateManyWithoutProfileNestedInput
+  analyses?: Prisma.InstagramAnalysisUncheckedUpdateManyWithoutProfileNestedInput
 }
 
 
@@ -750,11 +873,13 @@ export type PoliticalProfileUncheckedUpdateWithoutScriptsInput = {
 export type PoliticalProfileCountOutputType = {
   scripts: number
   analyses: number
+  assemblyStrategies: number
 }
 
 export type PoliticalProfileCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scripts?: boolean | PoliticalProfileCountOutputTypeCountScriptsArgs
   analyses?: boolean | PoliticalProfileCountOutputTypeCountAnalysesArgs
+  assemblyStrategies?: boolean | PoliticalProfileCountOutputTypeCountAssemblyStrategiesArgs
 }
 
 /**
@@ -781,6 +906,13 @@ export type PoliticalProfileCountOutputTypeCountAnalysesArgs<ExtArgs extends run
   where?: Prisma.InstagramAnalysisWhereInput
 }
 
+/**
+ * PoliticalProfileCountOutputType without action
+ */
+export type PoliticalProfileCountOutputTypeCountAssemblyStrategiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AssemblyStrategyWhereInput
+}
+
 
 export type PoliticalProfileSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -799,6 +931,7 @@ export type PoliticalProfileSelect<ExtArgs extends runtime.Types.Extensions.Inte
   updatedAt?: boolean
   scripts?: boolean | Prisma.PoliticalProfile$scriptsArgs<ExtArgs>
   analyses?: boolean | Prisma.PoliticalProfile$analysesArgs<ExtArgs>
+  assemblyStrategies?: boolean | Prisma.PoliticalProfile$assemblyStrategiesArgs<ExtArgs>
   _count?: boolean | Prisma.PoliticalProfileCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["politicalProfile"]>
 
@@ -857,6 +990,7 @@ export type PoliticalProfileOmit<ExtArgs extends runtime.Types.Extensions.Intern
 export type PoliticalProfileInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scripts?: boolean | Prisma.PoliticalProfile$scriptsArgs<ExtArgs>
   analyses?: boolean | Prisma.PoliticalProfile$analysesArgs<ExtArgs>
+  assemblyStrategies?: boolean | Prisma.PoliticalProfile$assemblyStrategiesArgs<ExtArgs>
   _count?: boolean | Prisma.PoliticalProfileCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PoliticalProfileIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -867,6 +1001,7 @@ export type $PoliticalProfilePayload<ExtArgs extends runtime.Types.Extensions.In
   objects: {
     scripts: Prisma.$ScriptPayload<ExtArgs>[]
     analyses: Prisma.$InstagramAnalysisPayload<ExtArgs>[]
+    assemblyStrategies: Prisma.$AssemblyStrategyPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1279,6 +1414,7 @@ export interface Prisma__PoliticalProfileClient<T, Null = never, ExtArgs extends
   readonly [Symbol.toStringTag]: "PrismaPromise"
   scripts<T extends Prisma.PoliticalProfile$scriptsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PoliticalProfile$scriptsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ScriptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   analyses<T extends Prisma.PoliticalProfile$analysesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PoliticalProfile$analysesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$InstagramAnalysisPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  assemblyStrategies<T extends Prisma.PoliticalProfile$assemblyStrategiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PoliticalProfile$assemblyStrategiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssemblyStrategyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1758,6 +1894,30 @@ export type PoliticalProfile$analysesArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.InstagramAnalysisScalarFieldEnum | Prisma.InstagramAnalysisScalarFieldEnum[]
+}
+
+/**
+ * PoliticalProfile.assemblyStrategies
+ */
+export type PoliticalProfile$assemblyStrategiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AssemblyStrategy
+   */
+  select?: Prisma.AssemblyStrategySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AssemblyStrategy
+   */
+  omit?: Prisma.AssemblyStrategyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AssemblyStrategyInclude<ExtArgs> | null
+  where?: Prisma.AssemblyStrategyWhereInput
+  orderBy?: Prisma.AssemblyStrategyOrderByWithRelationInput | Prisma.AssemblyStrategyOrderByWithRelationInput[]
+  cursor?: Prisma.AssemblyStrategyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AssemblyStrategyScalarFieldEnum | Prisma.AssemblyStrategyScalarFieldEnum[]
 }
 
 /**

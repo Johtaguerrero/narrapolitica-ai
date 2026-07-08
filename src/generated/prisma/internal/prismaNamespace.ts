@@ -389,7 +389,11 @@ export const ModelName = {
   Script: 'Script',
   ReelCard: 'ReelCard',
   StylePreset: 'StylePreset',
-  EditorialCalendarItem: 'EditorialCalendarItem'
+  EditorialCalendarItem: 'EditorialCalendarItem',
+  AssemblyStrategy: 'AssemblyStrategy',
+  AssemblyCanvasItem: 'AssemblyCanvasItem',
+  AssemblyParticipant: 'AssemblyParticipant',
+  AssemblyInterviewee: 'AssemblyInterviewee'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -405,7 +409,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "politicalProfile" | "instagramAnalysis" | "script" | "reelCard" | "stylePreset" | "editorialCalendarItem"
+    modelProps: "politicalProfile" | "instagramAnalysis" | "script" | "reelCard" | "stylePreset" | "editorialCalendarItem" | "assemblyStrategy" | "assemblyCanvasItem" | "assemblyParticipant" | "assemblyInterviewee"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -853,6 +857,302 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    AssemblyStrategy: {
+      payload: Prisma.$AssemblyStrategyPayload<ExtArgs>
+      fields: Prisma.AssemblyStrategyFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssemblyStrategyFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssemblyStrategyFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>
+        }
+        findFirst: {
+          args: Prisma.AssemblyStrategyFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssemblyStrategyFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>
+        }
+        findMany: {
+          args: Prisma.AssemblyStrategyFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>[]
+        }
+        create: {
+          args: Prisma.AssemblyStrategyCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>
+        }
+        createMany: {
+          args: Prisma.AssemblyStrategyCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssemblyStrategyCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>[]
+        }
+        delete: {
+          args: Prisma.AssemblyStrategyDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>
+        }
+        update: {
+          args: Prisma.AssemblyStrategyUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>
+        }
+        deleteMany: {
+          args: Prisma.AssemblyStrategyDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssemblyStrategyUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssemblyStrategyUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>[]
+        }
+        upsert: {
+          args: Prisma.AssemblyStrategyUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyStrategyPayload>
+        }
+        aggregate: {
+          args: Prisma.AssemblyStrategyAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssemblyStrategy>
+        }
+        groupBy: {
+          args: Prisma.AssemblyStrategyGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyStrategyGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssemblyStrategyCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyStrategyCountAggregateOutputType> | number
+        }
+      }
+    }
+    AssemblyCanvasItem: {
+      payload: Prisma.$AssemblyCanvasItemPayload<ExtArgs>
+      fields: Prisma.AssemblyCanvasItemFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssemblyCanvasItemFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssemblyCanvasItemFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>
+        }
+        findFirst: {
+          args: Prisma.AssemblyCanvasItemFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssemblyCanvasItemFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>
+        }
+        findMany: {
+          args: Prisma.AssemblyCanvasItemFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>[]
+        }
+        create: {
+          args: Prisma.AssemblyCanvasItemCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>
+        }
+        createMany: {
+          args: Prisma.AssemblyCanvasItemCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssemblyCanvasItemCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>[]
+        }
+        delete: {
+          args: Prisma.AssemblyCanvasItemDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>
+        }
+        update: {
+          args: Prisma.AssemblyCanvasItemUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>
+        }
+        deleteMany: {
+          args: Prisma.AssemblyCanvasItemDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssemblyCanvasItemUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssemblyCanvasItemUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>[]
+        }
+        upsert: {
+          args: Prisma.AssemblyCanvasItemUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyCanvasItemPayload>
+        }
+        aggregate: {
+          args: Prisma.AssemblyCanvasItemAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssemblyCanvasItem>
+        }
+        groupBy: {
+          args: Prisma.AssemblyCanvasItemGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyCanvasItemGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssemblyCanvasItemCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyCanvasItemCountAggregateOutputType> | number
+        }
+      }
+    }
+    AssemblyParticipant: {
+      payload: Prisma.$AssemblyParticipantPayload<ExtArgs>
+      fields: Prisma.AssemblyParticipantFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssemblyParticipantFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssemblyParticipantFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>
+        }
+        findFirst: {
+          args: Prisma.AssemblyParticipantFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssemblyParticipantFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>
+        }
+        findMany: {
+          args: Prisma.AssemblyParticipantFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>[]
+        }
+        create: {
+          args: Prisma.AssemblyParticipantCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>
+        }
+        createMany: {
+          args: Prisma.AssemblyParticipantCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssemblyParticipantCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>[]
+        }
+        delete: {
+          args: Prisma.AssemblyParticipantDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>
+        }
+        update: {
+          args: Prisma.AssemblyParticipantUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>
+        }
+        deleteMany: {
+          args: Prisma.AssemblyParticipantDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssemblyParticipantUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssemblyParticipantUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>[]
+        }
+        upsert: {
+          args: Prisma.AssemblyParticipantUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyParticipantPayload>
+        }
+        aggregate: {
+          args: Prisma.AssemblyParticipantAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssemblyParticipant>
+        }
+        groupBy: {
+          args: Prisma.AssemblyParticipantGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyParticipantGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssemblyParticipantCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyParticipantCountAggregateOutputType> | number
+        }
+      }
+    }
+    AssemblyInterviewee: {
+      payload: Prisma.$AssemblyIntervieweePayload<ExtArgs>
+      fields: Prisma.AssemblyIntervieweeFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.AssemblyIntervieweeFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.AssemblyIntervieweeFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>
+        }
+        findFirst: {
+          args: Prisma.AssemblyIntervieweeFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.AssemblyIntervieweeFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>
+        }
+        findMany: {
+          args: Prisma.AssemblyIntervieweeFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>[]
+        }
+        create: {
+          args: Prisma.AssemblyIntervieweeCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>
+        }
+        createMany: {
+          args: Prisma.AssemblyIntervieweeCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.AssemblyIntervieweeCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>[]
+        }
+        delete: {
+          args: Prisma.AssemblyIntervieweeDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>
+        }
+        update: {
+          args: Prisma.AssemblyIntervieweeUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>
+        }
+        deleteMany: {
+          args: Prisma.AssemblyIntervieweeDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.AssemblyIntervieweeUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.AssemblyIntervieweeUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>[]
+        }
+        upsert: {
+          args: Prisma.AssemblyIntervieweeUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$AssemblyIntervieweePayload>
+        }
+        aggregate: {
+          args: Prisma.AssemblyIntervieweeAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateAssemblyInterviewee>
+        }
+        groupBy: {
+          args: Prisma.AssemblyIntervieweeGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyIntervieweeGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.AssemblyIntervieweeCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AssemblyIntervieweeCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1006,6 +1306,8 @@ export type StylePresetScalarFieldEnum = (typeof StylePresetScalarFieldEnum)[key
 
 export const EditorialCalendarItemScalarFieldEnum = {
   id: 'id',
+  profileId: 'profileId',
+  scriptId: 'scriptId',
   dayOfWeek: 'dayOfWeek',
   label: 'label',
   description: 'description',
@@ -1014,6 +1316,85 @@ export const EditorialCalendarItemScalarFieldEnum = {
 } as const
 
 export type EditorialCalendarItemScalarFieldEnum = (typeof EditorialCalendarItemScalarFieldEnum)[keyof typeof EditorialCalendarItemScalarFieldEnum]
+
+
+export const AssemblyStrategyScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  instagramAnalysisId: 'instagramAnalysisId',
+  scriptId: 'scriptId',
+  title: 'title',
+  videoType: 'videoType',
+  objective: 'objective',
+  centralMessage: 'centralMessage',
+  visualHook: 'visualHook',
+  firstLine: 'firstLine',
+  recordingLocation: 'recordingLocation',
+  recordingAddress: 'recordingAddress',
+  recordingDate: 'recordingDate',
+  recordingTime: 'recordingTime',
+  postingDate: 'postingDate',
+  postingTime: 'postingTime',
+  status: 'status',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyStrategyScalarFieldEnum = (typeof AssemblyStrategyScalarFieldEnum)[keyof typeof AssemblyStrategyScalarFieldEnum]
+
+
+export const AssemblyCanvasItemScalarFieldEnum = {
+  id: 'id',
+  strategyId: 'strategyId',
+  type: 'type',
+  title: 'title',
+  content: 'content',
+  x: 'x',
+  y: 'y',
+  width: 'width',
+  height: 'height',
+  position: 'position',
+  color: 'color',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyCanvasItemScalarFieldEnum = (typeof AssemblyCanvasItemScalarFieldEnum)[keyof typeof AssemblyCanvasItemScalarFieldEnum]
+
+
+export const AssemblyParticipantScalarFieldEnum = {
+  id: 'id',
+  strategyId: 'strategyId',
+  name: 'name',
+  role: 'role',
+  phone: 'phone',
+  instagram: 'instagram',
+  responsibility: 'responsibility',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyParticipantScalarFieldEnum = (typeof AssemblyParticipantScalarFieldEnum)[keyof typeof AssemblyParticipantScalarFieldEnum]
+
+
+export const AssemblyIntervieweeScalarFieldEnum = {
+  id: 'id',
+  strategyId: 'strategyId',
+  name: 'name',
+  profile: 'profile',
+  speechTheme: 'speechTheme',
+  mainQuestion: 'mainQuestion',
+  supportQuestions: 'supportQuestions',
+  imageAuthorizationStatus: 'imageAuthorizationStatus',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyIntervieweeScalarFieldEnum = (typeof AssemblyIntervieweeScalarFieldEnum)[keyof typeof AssemblyIntervieweeScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1188,6 +1569,10 @@ export type GlobalOmitConfig = {
   reelCard?: Prisma.ReelCardOmit
   stylePreset?: Prisma.StylePresetOmit
   editorialCalendarItem?: Prisma.EditorialCalendarItemOmit
+  assemblyStrategy?: Prisma.AssemblyStrategyOmit
+  assemblyCanvasItem?: Prisma.AssemblyCanvasItemOmit
+  assemblyParticipant?: Prisma.AssemblyParticipantOmit
+  assemblyInterviewee?: Prisma.AssemblyIntervieweeOmit
 }
 
 /* Types for Logging */

@@ -71,3 +71,23 @@ export type StylePreset = Prisma.StylePresetModel
  * 
  */
 export type EditorialCalendarItem = Prisma.EditorialCalendarItemModel
+/**
+ * Model AssemblyStrategy
+ * 
+ */
+export type AssemblyStrategy = Prisma.AssemblyStrategyModel
+/**
+ * Model AssemblyCanvasItem
+ * 
+ */
+export type AssemblyCanvasItem = Prisma.AssemblyCanvasItemModel
+/**
+ * Model AssemblyParticipant
+ * 
+ */
+export type AssemblyParticipant = Prisma.AssemblyParticipantModel
+/**
+ * Model AssemblyInterviewee
+ * 
+ */
+export type AssemblyInterviewee = Prisma.AssemblyIntervieweeModel

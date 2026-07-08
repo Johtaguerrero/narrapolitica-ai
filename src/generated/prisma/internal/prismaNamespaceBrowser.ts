@@ -56,7 +56,11 @@ export const ModelName = {
   Script: 'Script',
   ReelCard: 'ReelCard',
   StylePreset: 'StylePreset',
-  EditorialCalendarItem: 'EditorialCalendarItem'
+  EditorialCalendarItem: 'EditorialCalendarItem',
+  AssemblyStrategy: 'AssemblyStrategy',
+  AssemblyCanvasItem: 'AssemblyCanvasItem',
+  AssemblyParticipant: 'AssemblyParticipant',
+  AssemblyInterviewee: 'AssemblyInterviewee'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -189,6 +193,8 @@ export type StylePresetScalarFieldEnum = (typeof StylePresetScalarFieldEnum)[key
 
 export const EditorialCalendarItemScalarFieldEnum = {
   id: 'id',
+  profileId: 'profileId',
+  scriptId: 'scriptId',
   dayOfWeek: 'dayOfWeek',
   label: 'label',
   description: 'description',
@@ -197,6 +203,85 @@ export const EditorialCalendarItemScalarFieldEnum = {
 } as const
 
 export type EditorialCalendarItemScalarFieldEnum = (typeof EditorialCalendarItemScalarFieldEnum)[keyof typeof EditorialCalendarItemScalarFieldEnum]
+
+
+export const AssemblyStrategyScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  instagramAnalysisId: 'instagramAnalysisId',
+  scriptId: 'scriptId',
+  title: 'title',
+  videoType: 'videoType',
+  objective: 'objective',
+  centralMessage: 'centralMessage',
+  visualHook: 'visualHook',
+  firstLine: 'firstLine',
+  recordingLocation: 'recordingLocation',
+  recordingAddress: 'recordingAddress',
+  recordingDate: 'recordingDate',
+  recordingTime: 'recordingTime',
+  postingDate: 'postingDate',
+  postingTime: 'postingTime',
+  status: 'status',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyStrategyScalarFieldEnum = (typeof AssemblyStrategyScalarFieldEnum)[keyof typeof AssemblyStrategyScalarFieldEnum]
+
+
+export const AssemblyCanvasItemScalarFieldEnum = {
+  id: 'id',
+  strategyId: 'strategyId',
+  type: 'type',
+  title: 'title',
+  content: 'content',
+  x: 'x',
+  y: 'y',
+  width: 'width',
+  height: 'height',
+  position: 'position',
+  color: 'color',
+  metadata: 'metadata',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyCanvasItemScalarFieldEnum = (typeof AssemblyCanvasItemScalarFieldEnum)[keyof typeof AssemblyCanvasItemScalarFieldEnum]
+
+
+export const AssemblyParticipantScalarFieldEnum = {
+  id: 'id',
+  strategyId: 'strategyId',
+  name: 'name',
+  role: 'role',
+  phone: 'phone',
+  instagram: 'instagram',
+  responsibility: 'responsibility',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyParticipantScalarFieldEnum = (typeof AssemblyParticipantScalarFieldEnum)[keyof typeof AssemblyParticipantScalarFieldEnum]
+
+
+export const AssemblyIntervieweeScalarFieldEnum = {
+  id: 'id',
+  strategyId: 'strategyId',
+  name: 'name',
+  profile: 'profile',
+  speechTheme: 'speechTheme',
+  mainQuestion: 'mainQuestion',
+  supportQuestions: 'supportQuestions',
+  imageAuthorizationStatus: 'imageAuthorizationStatus',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AssemblyIntervieweeScalarFieldEnum = (typeof AssemblyIntervieweeScalarFieldEnum)[keyof typeof AssemblyIntervieweeScalarFieldEnum]
 
 
 export const SortOrder = {

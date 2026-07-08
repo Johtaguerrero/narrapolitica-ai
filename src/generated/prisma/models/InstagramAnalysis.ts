@@ -320,6 +320,7 @@ export type InstagramAnalysisWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"InstagramAnalysis"> | Date | string
   profile?: Prisma.XOR<Prisma.PoliticalProfileNullableScalarRelationFilter, Prisma.PoliticalProfileWhereInput> | null
   scripts?: Prisma.ScriptListRelationFilter
+  assemblyStrategies?: Prisma.AssemblyStrategyListRelationFilter
 }
 
 export type InstagramAnalysisOrderByWithRelationInput = {
@@ -347,6 +348,7 @@ export type InstagramAnalysisOrderByWithRelationInput = {
   updatedAt?: Prisma.SortOrder
   profile?: Prisma.PoliticalProfileOrderByWithRelationInput
   scripts?: Prisma.ScriptOrderByRelationAggregateInput
+  assemblyStrategies?: Prisma.AssemblyStrategyOrderByRelationAggregateInput
 }
 
 export type InstagramAnalysisWhereUniqueInput = Prisma.AtLeast<{
@@ -377,6 +379,7 @@ export type InstagramAnalysisWhereUniqueInput = Prisma.AtLeast<{
   updatedAt?: Prisma.DateTimeFilter<"InstagramAnalysis"> | Date | string
   profile?: Prisma.XOR<Prisma.PoliticalProfileNullableScalarRelationFilter, Prisma.PoliticalProfileWhereInput> | null
   scripts?: Prisma.ScriptListRelationFilter
+  assemblyStrategies?: Prisma.AssemblyStrategyListRelationFilter
 }, "id">
 
 export type InstagramAnalysisOrderByWithAggregationInput = {
@@ -459,6 +462,7 @@ export type InstagramAnalysisCreateInput = {
   updatedAt?: Date | string
   profile?: Prisma.PoliticalProfileCreateNestedOneWithoutAnalysesInput
   scripts?: Prisma.ScriptCreateNestedManyWithoutAnalysisInput
+  assemblyStrategies?: Prisma.AssemblyStrategyCreateNestedManyWithoutAnalysisInput
 }
 
 export type InstagramAnalysisUncheckedCreateInput = {
@@ -485,6 +489,7 @@ export type InstagramAnalysisUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scripts?: Prisma.ScriptUncheckedCreateNestedManyWithoutAnalysisInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutAnalysisInput
 }
 
 export type InstagramAnalysisUpdateInput = {
@@ -511,6 +516,7 @@ export type InstagramAnalysisUpdateInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.PoliticalProfileUpdateOneWithoutAnalysesNestedInput
   scripts?: Prisma.ScriptUpdateManyWithoutAnalysisNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUpdateManyWithoutAnalysisNestedInput
 }
 
 export type InstagramAnalysisUncheckedUpdateInput = {
@@ -537,6 +543,7 @@ export type InstagramAnalysisUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUncheckedUpdateManyWithoutAnalysisNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutAnalysisNestedInput
 }
 
 export type InstagramAnalysisCreateManyInput = {
@@ -761,6 +768,22 @@ export type InstagramAnalysisUpdateOneWithoutScriptsNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.InstagramAnalysisUpdateToOneWithWhereWithoutScriptsInput, Prisma.InstagramAnalysisUpdateWithoutScriptsInput>, Prisma.InstagramAnalysisUncheckedUpdateWithoutScriptsInput>
 }
 
+export type InstagramAnalysisCreateNestedOneWithoutAssemblyStrategiesInput = {
+  create?: Prisma.XOR<Prisma.InstagramAnalysisCreateWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUncheckedCreateWithoutAssemblyStrategiesInput>
+  connectOrCreate?: Prisma.InstagramAnalysisCreateOrConnectWithoutAssemblyStrategiesInput
+  connect?: Prisma.InstagramAnalysisWhereUniqueInput
+}
+
+export type InstagramAnalysisUpdateOneWithoutAssemblyStrategiesNestedInput = {
+  create?: Prisma.XOR<Prisma.InstagramAnalysisCreateWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUncheckedCreateWithoutAssemblyStrategiesInput>
+  connectOrCreate?: Prisma.InstagramAnalysisCreateOrConnectWithoutAssemblyStrategiesInput
+  upsert?: Prisma.InstagramAnalysisUpsertWithoutAssemblyStrategiesInput
+  disconnect?: Prisma.InstagramAnalysisWhereInput | boolean
+  delete?: Prisma.InstagramAnalysisWhereInput | boolean
+  connect?: Prisma.InstagramAnalysisWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.InstagramAnalysisUpdateToOneWithWhereWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUpdateWithoutAssemblyStrategiesInput>, Prisma.InstagramAnalysisUncheckedUpdateWithoutAssemblyStrategiesInput>
+}
+
 export type InstagramAnalysisCreateWithoutProfileInput = {
   id?: string
   profileUrl: string
@@ -784,6 +807,7 @@ export type InstagramAnalysisCreateWithoutProfileInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scripts?: Prisma.ScriptCreateNestedManyWithoutAnalysisInput
+  assemblyStrategies?: Prisma.AssemblyStrategyCreateNestedManyWithoutAnalysisInput
 }
 
 export type InstagramAnalysisUncheckedCreateWithoutProfileInput = {
@@ -809,6 +833,7 @@ export type InstagramAnalysisUncheckedCreateWithoutProfileInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   scripts?: Prisma.ScriptUncheckedCreateNestedManyWithoutAnalysisInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutAnalysisInput
 }
 
 export type InstagramAnalysisCreateOrConnectWithoutProfileInput = {
@@ -887,6 +912,7 @@ export type InstagramAnalysisCreateWithoutScriptsInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.PoliticalProfileCreateNestedOneWithoutAnalysesInput
+  assemblyStrategies?: Prisma.AssemblyStrategyCreateNestedManyWithoutAnalysisInput
 }
 
 export type InstagramAnalysisUncheckedCreateWithoutScriptsInput = {
@@ -912,6 +938,7 @@ export type InstagramAnalysisUncheckedCreateWithoutScriptsInput = {
   city?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutAnalysisInput
 }
 
 export type InstagramAnalysisCreateOrConnectWithoutScriptsInput = {
@@ -953,6 +980,7 @@ export type InstagramAnalysisUpdateWithoutScriptsInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.PoliticalProfileUpdateOneWithoutAnalysesNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUpdateManyWithoutAnalysisNestedInput
 }
 
 export type InstagramAnalysisUncheckedUpdateWithoutScriptsInput = {
@@ -978,6 +1006,127 @@ export type InstagramAnalysisUncheckedUpdateWithoutScriptsInput = {
   city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutAnalysisNestedInput
+}
+
+export type InstagramAnalysisCreateWithoutAssemblyStrategiesInput = {
+  id?: string
+  profileUrl: string
+  username: string
+  publicName: string
+  bioSummary: string
+  detectedTone: string
+  frequentThemes: string
+  probableAudience: string
+  strengths: string
+  weaknesses: string
+  contentOpportunities: string
+  reelIdeas: string
+  speechIdeas: string
+  communicationRisks: string
+  captionSuggestions: string
+  hashtagSuggestions: string
+  rawAnalysis: string
+  status?: string
+  city?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  profile?: Prisma.PoliticalProfileCreateNestedOneWithoutAnalysesInput
+  scripts?: Prisma.ScriptCreateNestedManyWithoutAnalysisInput
+}
+
+export type InstagramAnalysisUncheckedCreateWithoutAssemblyStrategiesInput = {
+  id?: string
+  profileId?: string | null
+  profileUrl: string
+  username: string
+  publicName: string
+  bioSummary: string
+  detectedTone: string
+  frequentThemes: string
+  probableAudience: string
+  strengths: string
+  weaknesses: string
+  contentOpportunities: string
+  reelIdeas: string
+  speechIdeas: string
+  communicationRisks: string
+  captionSuggestions: string
+  hashtagSuggestions: string
+  rawAnalysis: string
+  status?: string
+  city?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  scripts?: Prisma.ScriptUncheckedCreateNestedManyWithoutAnalysisInput
+}
+
+export type InstagramAnalysisCreateOrConnectWithoutAssemblyStrategiesInput = {
+  where: Prisma.InstagramAnalysisWhereUniqueInput
+  create: Prisma.XOR<Prisma.InstagramAnalysisCreateWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUncheckedCreateWithoutAssemblyStrategiesInput>
+}
+
+export type InstagramAnalysisUpsertWithoutAssemblyStrategiesInput = {
+  update: Prisma.XOR<Prisma.InstagramAnalysisUpdateWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUncheckedUpdateWithoutAssemblyStrategiesInput>
+  create: Prisma.XOR<Prisma.InstagramAnalysisCreateWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUncheckedCreateWithoutAssemblyStrategiesInput>
+  where?: Prisma.InstagramAnalysisWhereInput
+}
+
+export type InstagramAnalysisUpdateToOneWithWhereWithoutAssemblyStrategiesInput = {
+  where?: Prisma.InstagramAnalysisWhereInput
+  data: Prisma.XOR<Prisma.InstagramAnalysisUpdateWithoutAssemblyStrategiesInput, Prisma.InstagramAnalysisUncheckedUpdateWithoutAssemblyStrategiesInput>
+}
+
+export type InstagramAnalysisUpdateWithoutAssemblyStrategiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  profileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  publicName?: Prisma.StringFieldUpdateOperationsInput | string
+  bioSummary?: Prisma.StringFieldUpdateOperationsInput | string
+  detectedTone?: Prisma.StringFieldUpdateOperationsInput | string
+  frequentThemes?: Prisma.StringFieldUpdateOperationsInput | string
+  probableAudience?: Prisma.StringFieldUpdateOperationsInput | string
+  strengths?: Prisma.StringFieldUpdateOperationsInput | string
+  weaknesses?: Prisma.StringFieldUpdateOperationsInput | string
+  contentOpportunities?: Prisma.StringFieldUpdateOperationsInput | string
+  reelIdeas?: Prisma.StringFieldUpdateOperationsInput | string
+  speechIdeas?: Prisma.StringFieldUpdateOperationsInput | string
+  communicationRisks?: Prisma.StringFieldUpdateOperationsInput | string
+  captionSuggestions?: Prisma.StringFieldUpdateOperationsInput | string
+  hashtagSuggestions?: Prisma.StringFieldUpdateOperationsInput | string
+  rawAnalysis?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  profile?: Prisma.PoliticalProfileUpdateOneWithoutAnalysesNestedInput
+  scripts?: Prisma.ScriptUpdateManyWithoutAnalysisNestedInput
+}
+
+export type InstagramAnalysisUncheckedUpdateWithoutAssemblyStrategiesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  profileUrl?: Prisma.StringFieldUpdateOperationsInput | string
+  username?: Prisma.StringFieldUpdateOperationsInput | string
+  publicName?: Prisma.StringFieldUpdateOperationsInput | string
+  bioSummary?: Prisma.StringFieldUpdateOperationsInput | string
+  detectedTone?: Prisma.StringFieldUpdateOperationsInput | string
+  frequentThemes?: Prisma.StringFieldUpdateOperationsInput | string
+  probableAudience?: Prisma.StringFieldUpdateOperationsInput | string
+  strengths?: Prisma.StringFieldUpdateOperationsInput | string
+  weaknesses?: Prisma.StringFieldUpdateOperationsInput | string
+  contentOpportunities?: Prisma.StringFieldUpdateOperationsInput | string
+  reelIdeas?: Prisma.StringFieldUpdateOperationsInput | string
+  speechIdeas?: Prisma.StringFieldUpdateOperationsInput | string
+  communicationRisks?: Prisma.StringFieldUpdateOperationsInput | string
+  captionSuggestions?: Prisma.StringFieldUpdateOperationsInput | string
+  hashtagSuggestions?: Prisma.StringFieldUpdateOperationsInput | string
+  rawAnalysis?: Prisma.StringFieldUpdateOperationsInput | string
+  status?: Prisma.StringFieldUpdateOperationsInput | string
+  city?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  scripts?: Prisma.ScriptUncheckedUpdateManyWithoutAnalysisNestedInput
 }
 
 export type InstagramAnalysisCreateManyProfileInput = {
@@ -1027,6 +1176,7 @@ export type InstagramAnalysisUpdateWithoutProfileInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUpdateManyWithoutAnalysisNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUpdateManyWithoutAnalysisNestedInput
 }
 
 export type InstagramAnalysisUncheckedUpdateWithoutProfileInput = {
@@ -1052,6 +1202,7 @@ export type InstagramAnalysisUncheckedUpdateWithoutProfileInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   scripts?: Prisma.ScriptUncheckedUpdateManyWithoutAnalysisNestedInput
+  assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutAnalysisNestedInput
 }
 
 export type InstagramAnalysisUncheckedUpdateManyWithoutProfileInput = {
@@ -1085,10 +1236,12 @@ export type InstagramAnalysisUncheckedUpdateManyWithoutProfileInput = {
 
 export type InstagramAnalysisCountOutputType = {
   scripts: number
+  assemblyStrategies: number
 }
 
 export type InstagramAnalysisCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   scripts?: boolean | InstagramAnalysisCountOutputTypeCountScriptsArgs
+  assemblyStrategies?: boolean | InstagramAnalysisCountOutputTypeCountAssemblyStrategiesArgs
 }
 
 /**
@@ -1106,6 +1259,13 @@ export type InstagramAnalysisCountOutputTypeDefaultArgs<ExtArgs extends runtime.
  */
 export type InstagramAnalysisCountOutputTypeCountScriptsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   where?: Prisma.ScriptWhereInput
+}
+
+/**
+ * InstagramAnalysisCountOutputType without action
+ */
+export type InstagramAnalysisCountOutputTypeCountAssemblyStrategiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.AssemblyStrategyWhereInput
 }
 
 
@@ -1134,6 +1294,7 @@ export type InstagramAnalysisSelect<ExtArgs extends runtime.Types.Extensions.Int
   updatedAt?: boolean
   profile?: boolean | Prisma.InstagramAnalysis$profileArgs<ExtArgs>
   scripts?: boolean | Prisma.InstagramAnalysis$scriptsArgs<ExtArgs>
+  assemblyStrategies?: boolean | Prisma.InstagramAnalysis$assemblyStrategiesArgs<ExtArgs>
   _count?: boolean | Prisma.InstagramAnalysisCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["instagramAnalysis"]>
 
@@ -1218,6 +1379,7 @@ export type InstagramAnalysisOmit<ExtArgs extends runtime.Types.Extensions.Inter
 export type InstagramAnalysisInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   profile?: boolean | Prisma.InstagramAnalysis$profileArgs<ExtArgs>
   scripts?: boolean | Prisma.InstagramAnalysis$scriptsArgs<ExtArgs>
+  assemblyStrategies?: boolean | Prisma.InstagramAnalysis$assemblyStrategiesArgs<ExtArgs>
   _count?: boolean | Prisma.InstagramAnalysisCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type InstagramAnalysisIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
@@ -1232,6 +1394,7 @@ export type $InstagramAnalysisPayload<ExtArgs extends runtime.Types.Extensions.I
   objects: {
     profile: Prisma.$PoliticalProfilePayload<ExtArgs> | null
     scripts: Prisma.$ScriptPayload<ExtArgs>[]
+    assemblyStrategies: Prisma.$AssemblyStrategyPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1652,6 +1815,7 @@ export interface Prisma__InstagramAnalysisClient<T, Null = never, ExtArgs extend
   readonly [Symbol.toStringTag]: "PrismaPromise"
   profile<T extends Prisma.InstagramAnalysis$profileArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InstagramAnalysis$profileArgs<ExtArgs>>): Prisma.Prisma__PoliticalProfileClient<runtime.Types.Result.GetResult<Prisma.$PoliticalProfilePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
   scripts<T extends Prisma.InstagramAnalysis$scriptsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InstagramAnalysis$scriptsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$ScriptPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  assemblyStrategies<T extends Prisma.InstagramAnalysis$assemblyStrategiesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.InstagramAnalysis$assemblyStrategiesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$AssemblyStrategyPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -2142,6 +2306,30 @@ export type InstagramAnalysis$scriptsArgs<ExtArgs extends runtime.Types.Extensio
   take?: number
   skip?: number
   distinct?: Prisma.ScriptScalarFieldEnum | Prisma.ScriptScalarFieldEnum[]
+}
+
+/**
+ * InstagramAnalysis.assemblyStrategies
+ */
+export type InstagramAnalysis$assemblyStrategiesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the AssemblyStrategy
+   */
+  select?: Prisma.AssemblyStrategySelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the AssemblyStrategy
+   */
+  omit?: Prisma.AssemblyStrategyOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.AssemblyStrategyInclude<ExtArgs> | null
+  where?: Prisma.AssemblyStrategyWhereInput
+  orderBy?: Prisma.AssemblyStrategyOrderByWithRelationInput | Prisma.AssemblyStrategyOrderByWithRelationInput[]
+  cursor?: Prisma.AssemblyStrategyWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.AssemblyStrategyScalarFieldEnum | Prisma.AssemblyStrategyScalarFieldEnum[]
 }
 
 /**
