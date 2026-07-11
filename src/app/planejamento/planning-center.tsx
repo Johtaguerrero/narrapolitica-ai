@@ -70,7 +70,7 @@ type ViewMode = 'month' | 'week' | 'agenda'
 
 export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; name: string }> }) {
   const today = new Date()
-  const [profileId, setProfileId] = useState('')
+  const [profileId, setProfileId] = useState(profiles.length > 0 ? profiles[0].id : '')
   const [viewDate, setViewDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1))
   const [viewMode, setViewMode] = useState<ViewMode>('month')
   const [items, setItems] = useState<CalendarItem[]>([])
