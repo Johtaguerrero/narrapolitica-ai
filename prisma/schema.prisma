@@ -127,17 +127,46 @@ model StylePreset {
 }
 
 model EditorialCalendarItem {
-  id          String   @id @default(cuid())
-  profileId   String?
-  scriptId    String?
+  id                     String   @id @default(cuid())
+  profileId              String?
+  scriptId               String?
+  assemblyStrategyId     String?
   administrativeRegionId String?
-  savedTerritoryId String?
-  territoryAnalysisId String?
-  dayOfWeek   Int
-  label       String
-  description String
-  color       String
-  createdAt   DateTime @default(now())
+  savedTerritoryId       String?
+  territoryAnalysisId    String?
+
+  // Scheduling
+  scheduledDate          String?
+  scheduledTime          String?
+  month                  Int?
+  week                   Int?
+  day                    Int?
+  hour                   Int?
+  minute                 Int?
+  dayOfWeek              Int
+
+  // Content
+  label                  String
+  description            String
+  contentType            String   @default("reels")
+  territoryName          String?
+
+  // Workflow
+  status                 String   @default("ideia")
+
+  // Visual
+  color                  String
+  priority               String   @default("media")
+
+  // Metadata
+  thumbnail              String?
+  notes                  String?
+  responsible            String?
+  checklist              String?
+
+  // Timestamps
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
 }
 
 model AssemblyStrategy {

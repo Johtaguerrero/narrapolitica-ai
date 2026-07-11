@@ -1766,14 +1766,31 @@ export const EditorialCalendarItemScalarFieldEnum = {
   id: 'id',
   profileId: 'profileId',
   scriptId: 'scriptId',
+  assemblyStrategyId: 'assemblyStrategyId',
   administrativeRegionId: 'administrativeRegionId',
   savedTerritoryId: 'savedTerritoryId',
   territoryAnalysisId: 'territoryAnalysisId',
+  scheduledDate: 'scheduledDate',
+  scheduledTime: 'scheduledTime',
+  month: 'month',
+  week: 'week',
+  day: 'day',
+  hour: 'hour',
+  minute: 'minute',
   dayOfWeek: 'dayOfWeek',
   label: 'label',
   description: 'description',
+  contentType: 'contentType',
+  territoryName: 'territoryName',
+  status: 'status',
   color: 'color',
-  createdAt: 'createdAt'
+  priority: 'priority',
+  thumbnail: 'thumbnail',
+  notes: 'notes',
+  responsible: 'responsible',
+  checklist: 'checklist',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
 export type EditorialCalendarItemScalarFieldEnum = (typeof EditorialCalendarItemScalarFieldEnum)[keyof typeof EditorialCalendarItemScalarFieldEnum]

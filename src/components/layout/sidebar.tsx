@@ -17,7 +17,7 @@ const navItems = [
   { href: "/territories", label: "Inteligência Territorial" },
   { href: "/biblioteca", label: "Biblioteca de Estilos" },
   { href: "/discursos", label: "Discursos Salvos" },
-  { href: "/calendario", label: "Calendário Editorial" },
+  { href: "/planejamento", label: "Centro de Planejamento" },
 ];
 
 export function Sidebar() {

@@ -27,10 +27,20 @@ export type AggregateEditorialCalendarItem = {
 }
 
 export type EditorialCalendarItemAvgAggregateOutputType = {
+  month: number | null
+  week: number | null
+  day: number | null
+  hour: number | null
+  minute: number | null
   dayOfWeek: number | null
 }
 
 export type EditorialCalendarItemSumAggregateOutputType = {
+  month: number | null
+  week: number | null
+  day: number | null
+  hour: number | null
+  minute: number | null
   dayOfWeek: number | null
 }
 
@@ -38,51 +48,112 @@ export type EditorialCalendarItemMinAggregateOutputType = {
   id: string | null
   profileId: string | null
   scriptId: string | null
+  assemblyStrategyId: string | null
   administrativeRegionId: string | null
   savedTerritoryId: string | null
   territoryAnalysisId: string | null
+  scheduledDate: string | null
+  scheduledTime: string | null
+  month: number | null
+  week: number | null
+  day: number | null
+  hour: number | null
+  minute: number | null
   dayOfWeek: number | null
   label: string | null
   description: string | null
+  contentType: string | null
+  territoryName: string | null
+  status: string | null
   color: string | null
+  priority: string | null
+  thumbnail: string | null
+  notes: string | null
+  responsible: string | null
+  checklist: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EditorialCalendarItemMaxAggregateOutputType = {
   id: string | null
   profileId: string | null
   scriptId: string | null
+  assemblyStrategyId: string | null
   administrativeRegionId: string | null
   savedTerritoryId: string | null
   territoryAnalysisId: string | null
+  scheduledDate: string | null
+  scheduledTime: string | null
+  month: number | null
+  week: number | null
+  day: number | null
+  hour: number | null
+  minute: number | null
   dayOfWeek: number | null
   label: string | null
   description: string | null
+  contentType: string | null
+  territoryName: string | null
+  status: string | null
   color: string | null
+  priority: string | null
+  thumbnail: string | null
+  notes: string | null
+  responsible: string | null
+  checklist: string | null
   createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type EditorialCalendarItemCountAggregateOutputType = {
   id: number
   profileId: number
   scriptId: number
+  assemblyStrategyId: number
   administrativeRegionId: number
   savedTerritoryId: number
   territoryAnalysisId: number
+  scheduledDate: number
+  scheduledTime: number
+  month: number
+  week: number
+  day: number
+  hour: number
+  minute: number
   dayOfWeek: number
   label: number
   description: number
+  contentType: number
+  territoryName: number
+  status: number
   color: number
+  priority: number
+  thumbnail: number
+  notes: number
+  responsible: number
+  checklist: number
   createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type EditorialCalendarItemAvgAggregateInputType = {
+  month?: true
+  week?: true
+  day?: true
+  hour?: true
+  minute?: true
   dayOfWeek?: true
 }
 
 export type EditorialCalendarItemSumAggregateInputType = {
+  month?: true
+  week?: true
+  day?: true
+  hour?: true
+  minute?: true
   dayOfWeek?: true
 }
 
@@ -90,42 +161,93 @@ export type EditorialCalendarItemMinAggregateInputType = {
   id?: true
   profileId?: true
   scriptId?: true
+  assemblyStrategyId?: true
   administrativeRegionId?: true
   savedTerritoryId?: true
   territoryAnalysisId?: true
+  scheduledDate?: true
+  scheduledTime?: true
+  month?: true
+  week?: true
+  day?: true
+  hour?: true
+  minute?: true
   dayOfWeek?: true
   label?: true
   description?: true
+  contentType?: true
+  territoryName?: true
+  status?: true
   color?: true
+  priority?: true
+  thumbnail?: true
+  notes?: true
+  responsible?: true
+  checklist?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type EditorialCalendarItemMaxAggregateInputType = {
   id?: true
   profileId?: true
   scriptId?: true
+  assemblyStrategyId?: true
   administrativeRegionId?: true
   savedTerritoryId?: true
   territoryAnalysisId?: true
+  scheduledDate?: true
+  scheduledTime?: true
+  month?: true
+  week?: true
+  day?: true
+  hour?: true
+  minute?: true
   dayOfWeek?: true
   label?: true
   description?: true
+  contentType?: true
+  territoryName?: true
+  status?: true
   color?: true
+  priority?: true
+  thumbnail?: true
+  notes?: true
+  responsible?: true
+  checklist?: true
   createdAt?: true
+  updatedAt?: true
 }
 
 export type EditorialCalendarItemCountAggregateInputType = {
   id?: true
   profileId?: true
   scriptId?: true
+  assemblyStrategyId?: true
   administrativeRegionId?: true
   savedTerritoryId?: true
   territoryAnalysisId?: true
+  scheduledDate?: true
+  scheduledTime?: true
+  month?: true
+  week?: true
+  day?: true
+  hour?: true
+  minute?: true
   dayOfWeek?: true
   label?: true
   description?: true
+  contentType?: true
+  territoryName?: true
+  status?: true
   color?: true
+  priority?: true
+  thumbnail?: true
+  notes?: true
+  responsible?: true
+  checklist?: true
   createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -219,14 +341,31 @@ export type EditorialCalendarItemGroupByOutputType = {
   id: string
   profileId: string | null
   scriptId: string | null
+  assemblyStrategyId: string | null
   administrativeRegionId: string | null
   savedTerritoryId: string | null
   territoryAnalysisId: string | null
+  scheduledDate: string | null
+  scheduledTime: string | null
+  month: number | null
+  week: number | null
+  day: number | null
+  hour: number | null
+  minute: number | null
   dayOfWeek: number
   label: string
   description: string
+  contentType: string
+  territoryName: string | null
+  status: string
   color: string
+  priority: string
+  thumbnail: string | null
+  notes: string | null
+  responsible: string | null
+  checklist: string | null
   createdAt: Date
+  updatedAt: Date
   _count: EditorialCalendarItemCountAggregateOutputType | null
   _avg: EditorialCalendarItemAvgAggregateOutputType | null
   _sum: EditorialCalendarItemSumAggregateOutputType | null
@@ -256,28 +395,62 @@ export type EditorialCalendarItemWhereInput = {
   id?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   profileId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   scriptId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  assemblyStrategyId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   administrativeRegionId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   savedTerritoryId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   territoryAnalysisId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  scheduledDate?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  scheduledTime?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  month?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  week?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  day?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  hour?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  minute?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
   dayOfWeek?: Prisma.IntFilter<"EditorialCalendarItem"> | number
   label?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   description?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  contentType?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  territoryName?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  status?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   color?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  priority?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  thumbnail?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  notes?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  responsible?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  checklist?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EditorialCalendarItem"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"EditorialCalendarItem"> | Date | string
 }
 
 export type EditorialCalendarItemOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrderInput | Prisma.SortOrder
   scriptId?: Prisma.SortOrderInput | Prisma.SortOrder
+  assemblyStrategyId?: Prisma.SortOrderInput | Prisma.SortOrder
   administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
   savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  scheduledDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  scheduledTime?: Prisma.SortOrderInput | Prisma.SortOrder
+  month?: Prisma.SortOrderInput | Prisma.SortOrder
+  week?: Prisma.SortOrderInput | Prisma.SortOrder
+  day?: Prisma.SortOrderInput | Prisma.SortOrder
+  hour?: Prisma.SortOrderInput | Prisma.SortOrder
+  minute?: Prisma.SortOrderInput | Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrderInput | Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsible?: Prisma.SortOrderInput | Prisma.SortOrder
+  checklist?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EditorialCalendarItemWhereUniqueInput = Prisma.AtLeast<{
@@ -287,28 +460,62 @@ export type EditorialCalendarItemWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.EditorialCalendarItemWhereInput | Prisma.EditorialCalendarItemWhereInput[]
   profileId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   scriptId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  assemblyStrategyId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   administrativeRegionId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   savedTerritoryId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   territoryAnalysisId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  scheduledDate?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  scheduledTime?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  month?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  week?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  day?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  hour?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
+  minute?: Prisma.IntNullableFilter<"EditorialCalendarItem"> | number | null
   dayOfWeek?: Prisma.IntFilter<"EditorialCalendarItem"> | number
   label?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   description?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  contentType?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  territoryName?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  status?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   color?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  priority?: Prisma.StringFilter<"EditorialCalendarItem"> | string
+  thumbnail?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  notes?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  responsible?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  checklist?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   createdAt?: Prisma.DateTimeFilter<"EditorialCalendarItem"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"EditorialCalendarItem"> | Date | string
 }, "id">
 
 export type EditorialCalendarItemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrderInput | Prisma.SortOrder
   scriptId?: Prisma.SortOrderInput | Prisma.SortOrder
+  assemblyStrategyId?: Prisma.SortOrderInput | Prisma.SortOrder
   administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
   savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
   territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  scheduledDate?: Prisma.SortOrderInput | Prisma.SortOrder
+  scheduledTime?: Prisma.SortOrderInput | Prisma.SortOrder
+  month?: Prisma.SortOrderInput | Prisma.SortOrder
+  week?: Prisma.SortOrderInput | Prisma.SortOrder
+  day?: Prisma.SortOrderInput | Prisma.SortOrder
+  hour?: Prisma.SortOrderInput | Prisma.SortOrder
+  minute?: Prisma.SortOrderInput | Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrderInput | Prisma.SortOrder
+  status?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrderInput | Prisma.SortOrder
+  notes?: Prisma.SortOrderInput | Prisma.SortOrder
+  responsible?: Prisma.SortOrderInput | Prisma.SortOrder
+  checklist?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.EditorialCalendarItemCountOrderByAggregateInput
   _avg?: Prisma.EditorialCalendarItemAvgOrderByAggregateInput
   _max?: Prisma.EditorialCalendarItemMaxOrderByAggregateInput
@@ -323,129 +530,287 @@ export type EditorialCalendarItemScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
   profileId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   scriptId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  assemblyStrategyId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   administrativeRegionId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   savedTerritoryId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   territoryAnalysisId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  scheduledDate?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  scheduledTime?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  month?: Prisma.IntNullableWithAggregatesFilter<"EditorialCalendarItem"> | number | null
+  week?: Prisma.IntNullableWithAggregatesFilter<"EditorialCalendarItem"> | number | null
+  day?: Prisma.IntNullableWithAggregatesFilter<"EditorialCalendarItem"> | number | null
+  hour?: Prisma.IntNullableWithAggregatesFilter<"EditorialCalendarItem"> | number | null
+  minute?: Prisma.IntNullableWithAggregatesFilter<"EditorialCalendarItem"> | number | null
   dayOfWeek?: Prisma.IntWithAggregatesFilter<"EditorialCalendarItem"> | number
   label?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
   description?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
+  contentType?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
+  territoryName?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  status?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
   color?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
+  priority?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
+  thumbnail?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  notes?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  responsible?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  checklist?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"EditorialCalendarItem"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"EditorialCalendarItem"> | Date | string
 }
 
 export type EditorialCalendarItemCreateInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  assemblyStrategyId?: string | null
   administrativeRegionId?: string | null
   savedTerritoryId?: string | null
   territoryAnalysisId?: string | null
+  scheduledDate?: string | null
+  scheduledTime?: string | null
+  month?: number | null
+  week?: number | null
+  day?: number | null
+  hour?: number | null
+  minute?: number | null
   dayOfWeek: number
   label: string
   description: string
+  contentType?: string
+  territoryName?: string | null
+  status?: string
   color: string
+  priority?: string
+  thumbnail?: string | null
+  notes?: string | null
+  responsible?: string | null
+  checklist?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type EditorialCalendarItemUncheckedCreateInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  assemblyStrategyId?: string | null
   administrativeRegionId?: string | null
   savedTerritoryId?: string | null
   territoryAnalysisId?: string | null
+  scheduledDate?: string | null
+  scheduledTime?: string | null
+  month?: number | null
+  week?: number | null
+  day?: number | null
+  hour?: number | null
+  minute?: number | null
   dayOfWeek: number
   label: string
   description: string
+  contentType?: string
+  territoryName?: string | null
+  status?: string
   color: string
+  priority?: string
+  thumbnail?: string | null
+  notes?: string | null
+  responsible?: string | null
+  checklist?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type EditorialCalendarItemUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assemblyStrategyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  month?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  week?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  day?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hour?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  minute?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  contentType?: Prisma.StringFieldUpdateOperationsInput | string
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  checklist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EditorialCalendarItemUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assemblyStrategyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  month?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  week?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  day?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hour?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  minute?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  contentType?: Prisma.StringFieldUpdateOperationsInput | string
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  checklist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EditorialCalendarItemCreateManyInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  assemblyStrategyId?: string | null
   administrativeRegionId?: string | null
   savedTerritoryId?: string | null
   territoryAnalysisId?: string | null
+  scheduledDate?: string | null
+  scheduledTime?: string | null
+  month?: number | null
+  week?: number | null
+  day?: number | null
+  hour?: number | null
+  minute?: number | null
   dayOfWeek: number
   label: string
   description: string
+  contentType?: string
+  territoryName?: string | null
+  status?: string
   color: string
+  priority?: string
+  thumbnail?: string | null
+  notes?: string | null
+  responsible?: string | null
+  checklist?: string | null
   createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type EditorialCalendarItemUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assemblyStrategyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  month?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  week?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  day?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hour?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  minute?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  contentType?: Prisma.StringFieldUpdateOperationsInput | string
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  checklist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EditorialCalendarItemUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  assemblyStrategyId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledDate?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  scheduledTime?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  month?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  week?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  day?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  hour?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  minute?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
+  contentType?: Prisma.StringFieldUpdateOperationsInput | string
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  status?: Prisma.StringFieldUpdateOperationsInput | string
   color?: Prisma.StringFieldUpdateOperationsInput | string
+  priority?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  notes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  responsible?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  checklist?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type EditorialCalendarItemCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  assemblyStrategyId?: Prisma.SortOrder
   administrativeRegionId?: Prisma.SortOrder
   savedTerritoryId?: Prisma.SortOrder
   territoryAnalysisId?: Prisma.SortOrder
+  scheduledDate?: Prisma.SortOrder
+  scheduledTime?: Prisma.SortOrder
+  month?: Prisma.SortOrder
+  week?: Prisma.SortOrder
+  day?: Prisma.SortOrder
+  hour?: Prisma.SortOrder
+  minute?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
+  responsible?: Prisma.SortOrder
+  checklist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EditorialCalendarItemAvgOrderByAggregateInput = {
+  month?: Prisma.SortOrder
+  week?: Prisma.SortOrder
+  day?: Prisma.SortOrder
+  hour?: Prisma.SortOrder
+  minute?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
 }
 
@@ -453,31 +818,70 @@ export type EditorialCalendarItemMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  assemblyStrategyId?: Prisma.SortOrder
   administrativeRegionId?: Prisma.SortOrder
   savedTerritoryId?: Prisma.SortOrder
   territoryAnalysisId?: Prisma.SortOrder
+  scheduledDate?: Prisma.SortOrder
+  scheduledTime?: Prisma.SortOrder
+  month?: Prisma.SortOrder
+  week?: Prisma.SortOrder
+  day?: Prisma.SortOrder
+  hour?: Prisma.SortOrder
+  minute?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
+  responsible?: Prisma.SortOrder
+  checklist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EditorialCalendarItemMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  assemblyStrategyId?: Prisma.SortOrder
   administrativeRegionId?: Prisma.SortOrder
   savedTerritoryId?: Prisma.SortOrder
   territoryAnalysisId?: Prisma.SortOrder
+  scheduledDate?: Prisma.SortOrder
+  scheduledTime?: Prisma.SortOrder
+  month?: Prisma.SortOrder
+  week?: Prisma.SortOrder
+  day?: Prisma.SortOrder
+  hour?: Prisma.SortOrder
+  minute?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
+  contentType?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   color?: Prisma.SortOrder
+  priority?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
+  notes?: Prisma.SortOrder
+  responsible?: Prisma.SortOrder
+  checklist?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type EditorialCalendarItemSumOrderByAggregateInput = {
+  month?: Prisma.SortOrder
+  week?: Prisma.SortOrder
+  day?: Prisma.SortOrder
+  hour?: Prisma.SortOrder
+  minute?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
 }
 
@@ -495,59 +899,127 @@ export type EditorialCalendarItemSelect<ExtArgs extends runtime.Types.Extensions
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  assemblyStrategyId?: boolean
   administrativeRegionId?: boolean
   savedTerritoryId?: boolean
   territoryAnalysisId?: boolean
+  scheduledDate?: boolean
+  scheduledTime?: boolean
+  month?: boolean
+  week?: boolean
+  day?: boolean
+  hour?: boolean
+  minute?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
+  contentType?: boolean
+  territoryName?: boolean
+  status?: boolean
   color?: boolean
+  priority?: boolean
+  thumbnail?: boolean
+  notes?: boolean
+  responsible?: boolean
+  checklist?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["editorialCalendarItem"]>
 
 export type EditorialCalendarItemSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  assemblyStrategyId?: boolean
   administrativeRegionId?: boolean
   savedTerritoryId?: boolean
   territoryAnalysisId?: boolean
+  scheduledDate?: boolean
+  scheduledTime?: boolean
+  month?: boolean
+  week?: boolean
+  day?: boolean
+  hour?: boolean
+  minute?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
+  contentType?: boolean
+  territoryName?: boolean
+  status?: boolean
   color?: boolean
+  priority?: boolean
+  thumbnail?: boolean
+  notes?: boolean
+  responsible?: boolean
+  checklist?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["editorialCalendarItem"]>
 
 export type EditorialCalendarItemSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  assemblyStrategyId?: boolean
   administrativeRegionId?: boolean
   savedTerritoryId?: boolean
   territoryAnalysisId?: boolean
+  scheduledDate?: boolean
+  scheduledTime?: boolean
+  month?: boolean
+  week?: boolean
+  day?: boolean
+  hour?: boolean
+  minute?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
+  contentType?: boolean
+  territoryName?: boolean
+  status?: boolean
   color?: boolean
+  priority?: boolean
+  thumbnail?: boolean
+  notes?: boolean
+  responsible?: boolean
+  checklist?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }, ExtArgs["result"]["editorialCalendarItem"]>
 
 export type EditorialCalendarItemSelectScalar = {
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  assemblyStrategyId?: boolean
   administrativeRegionId?: boolean
   savedTerritoryId?: boolean
   territoryAnalysisId?: boolean
+  scheduledDate?: boolean
+  scheduledTime?: boolean
+  month?: boolean
+  week?: boolean
+  day?: boolean
+  hour?: boolean
+  minute?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
+  contentType?: boolean
+  territoryName?: boolean
+  status?: boolean
   color?: boolean
+  priority?: boolean
+  thumbnail?: boolean
+  notes?: boolean
+  responsible?: boolean
+  checklist?: boolean
   createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type EditorialCalendarItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "scriptId" | "administrativeRegionId" | "savedTerritoryId" | "territoryAnalysisId" | "dayOfWeek" | "label" | "description" | "color" | "createdAt", ExtArgs["result"]["editorialCalendarItem"]>
+export type EditorialCalendarItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "scriptId" | "assemblyStrategyId" | "administrativeRegionId" | "savedTerritoryId" | "territoryAnalysisId" | "scheduledDate" | "scheduledTime" | "month" | "week" | "day" | "hour" | "minute" | "dayOfWeek" | "label" | "description" | "contentType" | "territoryName" | "status" | "color" | "priority" | "thumbnail" | "notes" | "responsible" | "checklist" | "createdAt" | "updatedAt", ExtArgs["result"]["editorialCalendarItem"]>
 
 export type $EditorialCalendarItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "EditorialCalendarItem"
@@ -556,14 +1028,31 @@ export type $EditorialCalendarItemPayload<ExtArgs extends runtime.Types.Extensio
     id: string
     profileId: string | null
     scriptId: string | null
+    assemblyStrategyId: string | null
     administrativeRegionId: string | null
     savedTerritoryId: string | null
     territoryAnalysisId: string | null
+    scheduledDate: string | null
+    scheduledTime: string | null
+    month: number | null
+    week: number | null
+    day: number | null
+    hour: number | null
+    minute: number | null
     dayOfWeek: number
     label: string
     description: string
+    contentType: string
+    territoryName: string | null
+    status: string
     color: string
+    priority: string
+    thumbnail: string | null
+    notes: string | null
+    responsible: string | null
+    checklist: string | null
     createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["editorialCalendarItem"]>
   composites: {}
 }
@@ -990,14 +1479,31 @@ export interface EditorialCalendarItemFieldRefs {
   readonly id: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly profileId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly scriptId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly assemblyStrategyId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly administrativeRegionId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly savedTerritoryId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly territoryAnalysisId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly scheduledDate: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly scheduledTime: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly month: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
+  readonly week: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
+  readonly day: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
+  readonly hour: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
+  readonly minute: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
   readonly dayOfWeek: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
   readonly label: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly description: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly contentType: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly territoryName: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly status: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly color: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly priority: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly thumbnail: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly notes: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly responsible: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly checklist: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly createdAt: Prisma.FieldRef<"EditorialCalendarItem", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"EditorialCalendarItem", 'DateTime'>
 }
     
 
