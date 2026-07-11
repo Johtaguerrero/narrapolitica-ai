@@ -175,13 +175,30 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
     dragRef.current = scriptId
   }
 
+  const clearDragHighlight = () => {
+    document.querySelectorAll('.calendar-cell-dragover').forEach(el => el.classList.remove('calendar-cell-dragover'))
+  }
+
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
     e.dataTransfer.dropEffect = 'copy'
   }
 
+  const handleCellDragEnter = (e: React.DragEvent, dateStr: string) => {
+    e.preventDefault()
+    clearDragHighlight()
+    const cell = e.currentTarget as HTMLElement
+    cell.classList.add('calendar-cell-dragover')
+  }
+
+  const handleCellDragLeave = (e: React.DragEvent) => {
+    const cell = e.currentTarget as HTMLElement
+    cell.classList.remove('calendar-cell-dragover')
+  }
+
   const handleDrop = async (e: React.DragEvent, dateStr: string) => {
     e.preventDefault()
+    clearDragHighlight()
     const scriptId = e.dataTransfer.getData('text/plain') || dragRef.current
     if (!scriptId || !profileId) return
     const script = scripts.find(s => s.id === scriptId)
@@ -408,6 +425,8 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
                       <div
                         key={idx}
                         onDragOver={handleDragOver}
+                        onDragEnter={e => { cell.date && handleCellDragEnter(e, cell.date) }}
+                        onDragLeave={handleCellDragLeave}
                         onDrop={e => { cell.date && handleDrop(e, cell.date) }}
                         onClick={() => cell.date && handleDayClick(cell.date)}
                         className={`min-h-[100px] border-b border-r border-border p-1.5 cursor-pointer transition-colors hover:bg-accent/30 ${
@@ -461,9 +480,11 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
                       <div
                         key={idx}
                         onDragOver={handleDragOver}
+                        onDragEnter={e => { handleCellDragEnter(e, w.date) }}
+                        onDragLeave={handleCellDragLeave}
                         onDrop={e => { handleDrop(e, w.date) }}
                         onClick={() => handleDayClick(w.date)}
-                        className="min-h-[300px] border-r border-border p-1.5 cursor-pointer hover:bg-accent/30"
+                        className="min-h-[300px] border-r border-border p-1.5 cursor-pointer hover:bg-accent/30 transition-colors"
                       >
                         <div className="space-y-1">
                           {w.items.map(item => (

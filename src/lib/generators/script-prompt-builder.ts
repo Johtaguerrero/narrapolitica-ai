@@ -163,11 +163,13 @@ export function buildPrompt(input: PromptInput): PromptResult {
 
   const bodyLines: string[] = [];
 
-  if (input.territoryContext && input.territoryName) {
-    bodyLines.push(`Estou aqui na ${input.territoryName}.`);
+  if (input.territoryName) {
+    bodyLines.push(`Estou aqui em ${input.territoryName}.`);
     bodyLines.push("");
-    bodyLines.push(`${input.territoryContext}`);
-    bodyLines.push("");
+    if (input.territoryContext) {
+      bodyLines.push(`${input.territoryContext}`);
+      bodyLines.push("");
+    }
     if (input.territorialObjectives) {
       bodyLines.push(`Meu compromisso aqui é: ${input.territorialObjectives.replace(/_/g, " ")}.`);
       bodyLines.push("");
@@ -191,7 +193,7 @@ export function buildPrompt(input: PromptInput): PromptResult {
   bodyLines.push(bridges[Math.floor(Math.random() * bridges.length)]);
   bodyLines.push("");
 
-  const development = buildDevelopmentText(input.theme, input.objective, wordRange.avg);
+  const development = buildDevelopmentText(input.theme, input.objective, wordRange.avg, input.territoryName, input.territoryContext);
   bodyLines.push(development);
   bodyLines.push("");
 
@@ -241,13 +243,23 @@ export function buildPrompt(input: PromptInput): PromptResult {
   };
 }
 
-function buildDevelopmentText(theme: string, _objective: string, targetWords: number): string {
+function buildDevelopmentText(theme: string, _objective: string, targetWords: number, territoryName?: string, territoryContext?: string): string {
   const themeLabel = theme.replace(/_/g, " ");
   const paragraphs: string[] = [];
   let wordCount = 0;
 
+  const locationRef = territoryName
+    ? [`Aqui em ${territoryName}, a realidade não é diferente.`, `Na nossa ${territoryName}, a gente sente isso no dia a dia.`, `${territoryName} merece atenção e cuidado.`]
+    : [];
+
+  const problemRef = territoryContext
+    ? [`A gente sabe que ${territoryContext.substring(0, 80).toLowerCase()}... isso precisa mudar.`, `Não dá pra ignorar o que a gente vê todo dia: ${territoryContext.substring(0, 100).toLowerCase()}.`, `É sobre isso que a gente precisa conversar: ${territoryContext.substring(0, 100).toLowerCase()}.`]
+    : [];
+
   const templates = [
-    `Quando a gente fala de ${themeLabel}, não tem como não pensar no impacto que isso tem na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais. É sobre a mãe que luta por um futuro melhor, o jovem que busca oportunidade, o trabalhador que quer ser ouvido.`,
+    territoryName
+      ? `Quando a gente fala de ${themeLabel} em ${territoryName}, não tem como não pensar no impacto que isso tem na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais. É sobre a mãe que luta por um futuro melhor, o jovem que busca oportunidade, o trabalhador que quer ser ouvido.`
+      : `Quando a gente fala de ${themeLabel}, não tem como não pensar no impacto que isso tem na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais. É sobre a mãe que luta por um futuro melhor, o jovem que busca oportunidade, o trabalhador que quer ser ouvido.`,
     `E é por isso que esse tema é tão importante. Porque ele mexe com a vida de verdade. Não é sobre promessa vazia — é sobre compromisso assumido. E a gente sabe que compromisso se prova com ação, não com palavras bonitas.`,
     `O que a gente propõe é simples: diálogo aberto, escuta ativa e ação concreta. Nada de discurso decorado. A gente quer conversar de igual pra igual, porque política pública se faz com participação de verdade.`,
     `E você, o que pensa sobre isso? Sua opinião é fundamental pra construir soluções que realmente funcionem. Porque ninguém conhece melhor a realidade de um lugar do que quem vive lá todo dia.`,
@@ -265,6 +277,8 @@ function buildDevelopmentText(theme: string, _objective: string, targetWords: nu
         `Pense bem: ${themeLabel} está mais perto da sua realidade do que você imagina.`,
         `É importante a gente lembrar que toda mudança começa com uma conversa sincera.`,
         `Não precisa ser especialista pra entender o impacto de ${themeLabel} na nossa vida.`,
+        ...locationRef,
+        ...problemRef,
       ];
       const bridge = bridges[Math.floor(Math.random() * bridges.length)];
       paragraphs.push(bridge);
