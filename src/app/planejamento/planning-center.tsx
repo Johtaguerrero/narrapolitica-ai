@@ -169,17 +169,25 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
     setViewDate(d)
   }
 
-  const handleDragStart = (scriptId: string) => {
+  const handleDragStart = (e: React.DragEvent, scriptId: string) => {
+    e.dataTransfer.setData('text/plain', scriptId)
+    e.dataTransfer.effectAllowed = 'copy'
     dragRef.current = scriptId
   }
 
-  const handleDrop = async (dateStr: string) => {
-    const scriptId = dragRef.current
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault()
+    e.dataTransfer.dropEffect = 'copy'
+  }
+
+  const handleDrop = async (e: React.DragEvent, dateStr: string) => {
+    e.preventDefault()
+    const scriptId = e.dataTransfer.getData('text/plain') || dragRef.current
     if (!scriptId || !profileId) return
     const script = scripts.find(s => s.id === scriptId)
     if (!script) return
 
-    const d = new Date(dateStr)
+    const d = new Date(dateStr + 'T12:00:00')
     await saveCalendarItems([{
       profileId,
       scriptId,
@@ -318,7 +326,7 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
                     <div
                       key={s.id}
                       draggable
-                      onDragStart={() => handleDragStart(s.id)}
+                      onDragStart={e => handleDragStart(e, s.id)}
                       className="group cursor-grab active:cursor-grabbing rounded-lg border border-border bg-card px-3 py-2 text-xs hover:border-violet-500/50 transition-colors"
                     >
                       <div className="flex items-start justify-between gap-2">
@@ -399,8 +407,8 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
                     {calendarDays.map((cell, idx) => (
                       <div
                         key={idx}
-                        onDragOver={e => e.preventDefault()}
-                        onDrop={e => { e.preventDefault(); cell.date && handleDrop(cell.date) }}
+                        onDragOver={handleDragOver}
+                        onDrop={e => { cell.date && handleDrop(e, cell.date) }}
                         onClick={() => cell.date && handleDayClick(cell.date)}
                         className={`min-h-[100px] border-b border-r border-border p-1.5 cursor-pointer transition-colors hover:bg-accent/30 ${
                           !cell.isCurrent ? 'bg-muted/20' : ''
@@ -452,8 +460,8 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
                     {weekDays.map((w, idx) => (
                       <div
                         key={idx}
-                        onDragOver={e => e.preventDefault()}
-                        onDrop={e => { e.preventDefault(); handleDrop(w.date) }}
+                        onDragOver={handleDragOver}
+                        onDrop={e => { handleDrop(e, w.date) }}
                         onClick={() => handleDayClick(w.date)}
                         className="min-h-[300px] border-r border-border p-1.5 cursor-pointer hover:bg-accent/30"
                       >
