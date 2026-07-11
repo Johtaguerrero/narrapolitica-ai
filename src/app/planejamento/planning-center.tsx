@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback, useMemo } from 'react'
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import {
   saveCalendarItems, deleteCalendarItem, updateCalendarItem,
   getCalendarItems, getScriptsByProfileForCalendar,
@@ -77,7 +77,7 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
   const [scripts, setScripts] = useState<Array<{ id: string; title: string; type: string; theme: string; duration: string; territoryName?: string; status: string; createdAt: string }>>([])
   const [selectedDay, setSelectedDay] = useState<{ date: string; items: CalendarItem[] } | null>(null)
   const [search, setSearch] = useState('')
-  const [dragItem, setDragItem] = useState<string | null>(null)
+  const dragRef = useRef<string | null>(null)
   const [loading, setLoading] = useState(false)
 
   const year = viewDate.getFullYear()
@@ -170,18 +170,19 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
   }
 
   const handleDragStart = (scriptId: string) => {
-    setDragItem(scriptId)
+    dragRef.current = scriptId
   }
 
   const handleDrop = async (dateStr: string) => {
-    if (!dragItem || !profileId) return
-    const script = scripts.find(s => s.id === dragItem)
+    const scriptId = dragRef.current
+    if (!scriptId || !profileId) return
+    const script = scripts.find(s => s.id === scriptId)
     if (!script) return
 
     const d = new Date(dateStr)
     await saveCalendarItems([{
       profileId,
-      scriptId: dragItem,
+      scriptId,
       scheduledDate: dateStr,
       dayOfWeek: d.getDay(),
       month: d.getMonth() + 1,
@@ -192,7 +193,7 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
       status: 'ideia',
     }])
 
-    setDragItem(null)
+    dragRef.current = null
     toast.success(`Roteiro adicionado em ${dateStr}`)
     loadItems()
   }
@@ -570,6 +571,23 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
                             title={WORKFLOW_LABELS[s]}
                           />
                         ))}
+                      </div>
+
+                      {/* Notes */}
+                      <div className="space-y-1">
+                        <label className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground">
+                          Notas
+                        </label>
+                        <textarea
+                          className="w-full resize-none rounded-lg border border-border bg-card px-2 py-1 text-xs outline-none focus:border-violet-500"
+                          rows={2}
+                          placeholder="Anotações para este conteúdo..."
+                          value={item.notes || ''}
+                          onChange={async e => {
+                            await updateCalendarItem(item.id, { notes: e.target.value })
+                            loadItems()
+                          }}
+                        />
                       </div>
 
                       <div className="flex gap-2 pt-1">
