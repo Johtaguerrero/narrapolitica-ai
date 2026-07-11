@@ -125,12 +125,13 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
       .sort((a, b) => (a.scheduledDate || '').localeCompare(b.scheduledDate || ''))
   }, [items])
 
-  const loadItems = useCallback(async () => {
-    if (!profileId) { setItems([]); return }
+  const loadItems = useCallback(async (): Promise<CalendarItem[]> => {
+    if (!profileId) { setItems([]); return [] }
     setLoading(true)
     const data = await getCalendarItems(profileId)
     setItems(data as CalendarItem[])
     setLoading(false)
+    return data as CalendarItem[]
   }, [profileId])
 
   const loadScripts = useCallback(async () => {
@@ -220,7 +221,11 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
 
     dragRef.current = null
     toast.success(`Roteiro adicionado em ${dateStr}`)
-    loadItems()
+
+    const freshItems = await loadItems()
+    if (selectedDay && selectedDay.date === dateStr) {
+      setSelectedDay({ date: dateStr, items: freshItems.filter(i => i.scheduledDate === dateStr) })
+    }
   }
 
   const handleDayClick = (date: string) => {
@@ -229,14 +234,19 @@ export function PlanningCenter({ profiles }: { profiles: Array<{ id: string; nam
 
   const handleStatusChange = async (itemId: string, status: string) => {
     await updateCalendarItem(itemId, { status })
-    loadItems()
+    const freshItems = await loadItems()
+    if (selectedDay) {
+      setSelectedDay({ date: selectedDay.date, items: freshItems.filter(i => i.scheduledDate === selectedDay.date) })
+    }
     toast.success(`Status alterado para ${WORKFLOW_LABELS[status]}`)
   }
 
   const handleDelete = async (id: string) => {
     await deleteCalendarItem(id)
-    loadItems()
-    if (selectedDay) setSelectedDay({ ...selectedDay, items: selectedDay.items.filter(i => i.id !== id) })
+    const freshItems = await loadItems()
+    if (selectedDay) {
+      setSelectedDay({ date: selectedDay.date, items: freshItems.filter(i => i.scheduledDate === selectedDay.date) })
+    }
     toast.success('Item removido do calendário')
   }
 
