@@ -10,6 +10,7 @@ import {
   getTerritoryAnalysis,
   updateTerritoryAnalysis,
 } from '@/lib/territory/territory-actions'
+import { generateTerritoryAnalysis } from '@/lib/territory/territory-intelligence'
 
 interface Region {
   id: string
@@ -64,29 +65,27 @@ export function TerritoriesClient({ regions }: { regions: Region[] }) {
   }
 
   async function handleAnalyze() {
-    if (!analysisId) return
+    if (!analysisId || !selectedRegion) return
     setIsAnalyzing(true)
     try {
-      const result = await updateTerritoryAnalysis(analysisId, {
-        status: 'ANALYZING',
-      })
-      await new Promise(r => setTimeout(r, 1500))
+      await updateTerritoryAnalysis(analysisId, { status: 'ANALYZING' })
+
+      const context = await getTerritoryAnalysis(analysisId)
+      const objectives = (context?.territorialObjectives || '').split(',').map(s => s.trim()).filter(Boolean)
+
+      const result = generateTerritoryAnalysis(
+        selectedRegion.officialNumber,
+        selectedRegion.officialName,
+        context?.contextText || '',
+        objectives.length > 0 ? objectives : ['contextualizar_discurso'],
+        'moderada',
+      )
+
+      await new Promise(r => setTimeout(r, 800))
+
       const updated = await updateTerritoryAnalysis(analysisId, {
         status: 'READY',
-        territorySummary: `${selectedRegion?.officialName} é uma região estratégica para comunicação política no Distrito Federal.`,
-        contextSummary: result.contextText,
-        mainTheme: `Tema principal identificado com base no contexto fornecido para ${selectedRegion?.officialName}.`,
-        secondaryThemes: 'Tema secundário 1\nTema secundário 2',
-        identifiedProblems: 'Problema identificado a partir da análise do contexto',
-        opportunities: 'Oportunidade de comunicação identificada',
-        recommendedVocabulary: 'vocabulário relevante para a região',
-        termsToAvoid: 'termos que devem ser evitados',
-        narrativeAngle: 'Ângulo narrativo sugerido para abordar o tema',
-        suggestedHook: 'Gancho para iniciar o conteúdo',
-        centralMessage: 'Mensagem central que deve ser transmitida',
-        shortNarrative: 'Mini-narrativa gerada com base no contexto e objetivos territoriais.',
-        factsToVerify: 'Fato 1 a ser verificado\nFato 2 a ser verificado',
-        confidence: 0.75,
+        ...result,
       })
       setAnalysisData(updated as typeof analysisData)
     } finally {
