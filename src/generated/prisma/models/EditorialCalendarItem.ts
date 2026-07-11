@@ -38,6 +38,9 @@ export type EditorialCalendarItemMinAggregateOutputType = {
   id: string | null
   profileId: string | null
   scriptId: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
   dayOfWeek: number | null
   label: string | null
   description: string | null
@@ -49,6 +52,9 @@ export type EditorialCalendarItemMaxAggregateOutputType = {
   id: string | null
   profileId: string | null
   scriptId: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
   dayOfWeek: number | null
   label: string | null
   description: string | null
@@ -60,6 +66,9 @@ export type EditorialCalendarItemCountAggregateOutputType = {
   id: number
   profileId: number
   scriptId: number
+  administrativeRegionId: number
+  savedTerritoryId: number
+  territoryAnalysisId: number
   dayOfWeek: number
   label: number
   description: number
@@ -81,6 +90,9 @@ export type EditorialCalendarItemMinAggregateInputType = {
   id?: true
   profileId?: true
   scriptId?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
   dayOfWeek?: true
   label?: true
   description?: true
@@ -92,6 +104,9 @@ export type EditorialCalendarItemMaxAggregateInputType = {
   id?: true
   profileId?: true
   scriptId?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
   dayOfWeek?: true
   label?: true
   description?: true
@@ -103,6 +118,9 @@ export type EditorialCalendarItemCountAggregateInputType = {
   id?: true
   profileId?: true
   scriptId?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
   dayOfWeek?: true
   label?: true
   description?: true
@@ -201,6 +219,9 @@ export type EditorialCalendarItemGroupByOutputType = {
   id: string
   profileId: string | null
   scriptId: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
   dayOfWeek: number
   label: string
   description: string
@@ -235,6 +256,9 @@ export type EditorialCalendarItemWhereInput = {
   id?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   profileId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   scriptId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   dayOfWeek?: Prisma.IntFilter<"EditorialCalendarItem"> | number
   label?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   description?: Prisma.StringFilter<"EditorialCalendarItem"> | string
@@ -246,6 +270,9 @@ export type EditorialCalendarItemOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrderInput | Prisma.SortOrder
   scriptId?: Prisma.SortOrderInput | Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -260,6 +287,9 @@ export type EditorialCalendarItemWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.EditorialCalendarItemWhereInput | Prisma.EditorialCalendarItemWhereInput[]
   profileId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   scriptId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"EditorialCalendarItem"> | string | null
   dayOfWeek?: Prisma.IntFilter<"EditorialCalendarItem"> | number
   label?: Prisma.StringFilter<"EditorialCalendarItem"> | string
   description?: Prisma.StringFilter<"EditorialCalendarItem"> | string
@@ -271,6 +301,9 @@ export type EditorialCalendarItemOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrderInput | Prisma.SortOrder
   scriptId?: Prisma.SortOrderInput | Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -290,6 +323,9 @@ export type EditorialCalendarItemScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
   profileId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   scriptId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  administrativeRegionId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  savedTerritoryId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableWithAggregatesFilter<"EditorialCalendarItem"> | string | null
   dayOfWeek?: Prisma.IntWithAggregatesFilter<"EditorialCalendarItem"> | number
   label?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
   description?: Prisma.StringWithAggregatesFilter<"EditorialCalendarItem"> | string
@@ -301,6 +337,9 @@ export type EditorialCalendarItemCreateInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
   dayOfWeek: number
   label: string
   description: string
@@ -312,6 +351,9 @@ export type EditorialCalendarItemUncheckedCreateInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
   dayOfWeek: number
   label: string
   description: string
@@ -323,6 +365,9 @@ export type EditorialCalendarItemUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -334,6 +379,9 @@ export type EditorialCalendarItemUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -345,6 +393,9 @@ export type EditorialCalendarItemCreateManyInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
   dayOfWeek: number
   label: string
   description: string
@@ -356,6 +407,9 @@ export type EditorialCalendarItemUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -367,6 +421,9 @@ export type EditorialCalendarItemUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   dayOfWeek?: Prisma.IntFieldUpdateOperationsInput | number
   label?: Prisma.StringFieldUpdateOperationsInput | string
   description?: Prisma.StringFieldUpdateOperationsInput | string
@@ -378,6 +435,9 @@ export type EditorialCalendarItemCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -393,6 +453,9 @@ export type EditorialCalendarItemMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -404,6 +467,9 @@ export type EditorialCalendarItemMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   profileId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
   dayOfWeek?: Prisma.SortOrder
   label?: Prisma.SortOrder
   description?: Prisma.SortOrder
@@ -429,6 +495,9 @@ export type EditorialCalendarItemSelect<ExtArgs extends runtime.Types.Extensions
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
@@ -440,6 +509,9 @@ export type EditorialCalendarItemSelectCreateManyAndReturn<ExtArgs extends runti
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
@@ -451,6 +523,9 @@ export type EditorialCalendarItemSelectUpdateManyAndReturn<ExtArgs extends runti
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
@@ -462,6 +537,9 @@ export type EditorialCalendarItemSelectScalar = {
   id?: boolean
   profileId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
   dayOfWeek?: boolean
   label?: boolean
   description?: boolean
@@ -469,7 +547,7 @@ export type EditorialCalendarItemSelectScalar = {
   createdAt?: boolean
 }
 
-export type EditorialCalendarItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "scriptId" | "dayOfWeek" | "label" | "description" | "color" | "createdAt", ExtArgs["result"]["editorialCalendarItem"]>
+export type EditorialCalendarItemOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "scriptId" | "administrativeRegionId" | "savedTerritoryId" | "territoryAnalysisId" | "dayOfWeek" | "label" | "description" | "color" | "createdAt", ExtArgs["result"]["editorialCalendarItem"]>
 
 export type $EditorialCalendarItemPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "EditorialCalendarItem"
@@ -478,6 +556,9 @@ export type $EditorialCalendarItemPayload<ExtArgs extends runtime.Types.Extensio
     id: string
     profileId: string | null
     scriptId: string | null
+    administrativeRegionId: string | null
+    savedTerritoryId: string | null
+    territoryAnalysisId: string | null
     dayOfWeek: number
     label: string
     description: string
@@ -909,6 +990,9 @@ export interface EditorialCalendarItemFieldRefs {
   readonly id: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly profileId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly scriptId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly administrativeRegionId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly savedTerritoryId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
+  readonly territoryAnalysisId: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly dayOfWeek: Prisma.FieldRef<"EditorialCalendarItem", 'Int'>
   readonly label: Prisma.FieldRef<"EditorialCalendarItem", 'String'>
   readonly description: Prisma.FieldRef<"EditorialCalendarItem", 'String'>

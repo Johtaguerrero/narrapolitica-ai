@@ -60,7 +60,13 @@ export const ModelName = {
   AssemblyStrategy: 'AssemblyStrategy',
   AssemblyCanvasItem: 'AssemblyCanvasItem',
   AssemblyParticipant: 'AssemblyParticipant',
-  AssemblyInterviewee: 'AssemblyInterviewee'
+  AssemblyInterviewee: 'AssemblyInterviewee',
+  AdministrativeRegion: 'AdministrativeRegion',
+  TerritoryLocality: 'TerritoryLocality',
+  SavedTerritory: 'SavedTerritory',
+  TerritoryAnalysis: 'TerritoryAnalysis',
+  TerritoryPublicData: 'TerritoryPublicData',
+  TerritoryEquipment: 'TerritoryEquipment'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -156,6 +162,14 @@ export const ScriptScalarFieldEnum = {
   scenarioSuggestion: 'scenarioSuggestion',
   framingSuggestion: 'framingSuggestion',
   strategicNotes: 'strategicNotes',
+  administrativeRegionId: 'administrativeRegionId',
+  savedTerritoryId: 'savedTerritoryId',
+  territoryAnalysisId: 'territoryAnalysisId',
+  territoryName: 'territoryName',
+  territoryContext: 'territoryContext',
+  territorialObjectives: 'territorialObjectives',
+  territorialNarrative: 'territorialNarrative',
+  territoryFactsToVerify: 'territoryFactsToVerify',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 } as const
@@ -195,6 +209,9 @@ export const EditorialCalendarItemScalarFieldEnum = {
   id: 'id',
   profileId: 'profileId',
   scriptId: 'scriptId',
+  administrativeRegionId: 'administrativeRegionId',
+  savedTerritoryId: 'savedTerritoryId',
+  territoryAnalysisId: 'territoryAnalysisId',
   dayOfWeek: 'dayOfWeek',
   label: 'label',
   description: 'description',
@@ -210,6 +227,11 @@ export const AssemblyStrategyScalarFieldEnum = {
   profileId: 'profileId',
   instagramAnalysisId: 'instagramAnalysisId',
   scriptId: 'scriptId',
+  administrativeRegionId: 'administrativeRegionId',
+  savedTerritoryId: 'savedTerritoryId',
+  territoryAnalysisId: 'territoryAnalysisId',
+  recordingReferencePoint: 'recordingReferencePoint',
+  alternativeLocation: 'alternativeLocation',
   title: 'title',
   videoType: 'videoType',
   objective: 'objective',
@@ -282,6 +304,163 @@ export const AssemblyIntervieweeScalarFieldEnum = {
 } as const
 
 export type AssemblyIntervieweeScalarFieldEnum = (typeof AssemblyIntervieweeScalarFieldEnum)[keyof typeof AssemblyIntervieweeScalarFieldEnum]
+
+
+export const AdministrativeRegionScalarFieldEnum = {
+  id: 'id',
+  officialNumber: 'officialNumber',
+  romanNumber: 'romanNumber',
+  officialName: 'officialName',
+  slug: 'slug',
+  aliases: 'aliases',
+  stateCode: 'stateCode',
+  countryCode: 'countryCode',
+  divisionType: 'divisionType',
+  status: 'status',
+  officialSourceName: 'officialSourceName',
+  officialSourceUrl: 'officialSourceUrl',
+  effectiveDate: 'effectiveDate',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  geoJson: 'geoJson',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type AdministrativeRegionScalarFieldEnum = (typeof AdministrativeRegionScalarFieldEnum)[keyof typeof AdministrativeRegionScalarFieldEnum]
+
+
+export const TerritoryLocalityScalarFieldEnum = {
+  id: 'id',
+  administrativeRegionId: 'administrativeRegionId',
+  name: 'name',
+  slug: 'slug',
+  type: 'type',
+  aliases: 'aliases',
+  status: 'status',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TerritoryLocalityScalarFieldEnum = (typeof TerritoryLocalityScalarFieldEnum)[keyof typeof TerritoryLocalityScalarFieldEnum]
+
+
+export const SavedTerritoryScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  instagramAnalysisId: 'instagramAnalysisId',
+  administrativeRegionId: 'administrativeRegionId',
+  localityId: 'localityId',
+  customLocalityName: 'customLocalityName',
+  sector: 'sector',
+  block: 'block',
+  referencePoint: 'referencePoint',
+  approximateAddress: 'approximateAddress',
+  locationType: 'locationType',
+  title: 'title',
+  description: 'description',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type SavedTerritoryScalarFieldEnum = (typeof SavedTerritoryScalarFieldEnum)[keyof typeof SavedTerritoryScalarFieldEnum]
+
+
+export const TerritoryAnalysisScalarFieldEnum = {
+  id: 'id',
+  profileId: 'profileId',
+  instagramAnalysisId: 'instagramAnalysisId',
+  savedTerritoryId: 'savedTerritoryId',
+  administrativeRegionId: 'administrativeRegionId',
+  localityId: 'localityId',
+  scriptId: 'scriptId',
+  contextText: 'contextText',
+  contextVersion: 'contextVersion',
+  territorialObjectives: 'territorialObjectives',
+  analysisDepth: 'analysisDepth',
+  sourceType: 'sourceType',
+  referenceDate: 'referenceDate',
+  territorySummary: 'territorySummary',
+  contextSummary: 'contextSummary',
+  mainTheme: 'mainTheme',
+  secondaryThemes: 'secondaryThemes',
+  centralSituation: 'centralSituation',
+  identifiedProblems: 'identifiedProblems',
+  opportunities: 'opportunities',
+  involvedActors: 'involvedActors',
+  mentionedInstitutions: 'mentionedInstitutions',
+  relatedPublic: 'relatedPublic',
+  localSensitivities: 'localSensitivities',
+  recommendedVocabulary: 'recommendedVocabulary',
+  termsToAvoid: 'termsToAvoid',
+  narrativeAngle: 'narrativeAngle',
+  suggestedHook: 'suggestedHook',
+  centralMessage: 'centralMessage',
+  recommendedApproach: 'recommendedApproach',
+  scenarioSuggestion: 'scenarioSuggestion',
+  recordingPoints: 'recordingPoints',
+  confirmedFacts: 'confirmedFacts',
+  userProvidedFacts: 'userProvidedFacts',
+  aiInferences: 'aiInferences',
+  factsToVerify: 'factsToVerify',
+  generalizationRisks: 'generalizationRisks',
+  communicationRisks: 'communicationRisks',
+  shortNarrative: 'shortNarrative',
+  sourcesUsed: 'sourcesUsed',
+  confidence: 'confidence',
+  status: 'status',
+  analyzedAt: 'analyzedAt',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TerritoryAnalysisScalarFieldEnum = (typeof TerritoryAnalysisScalarFieldEnum)[keyof typeof TerritoryAnalysisScalarFieldEnum]
+
+
+export const TerritoryPublicDataScalarFieldEnum = {
+  id: 'id',
+  administrativeRegionId: 'administrativeRegionId',
+  category: 'category',
+  indicatorName: 'indicatorName',
+  valueText: 'valueText',
+  numericValue: 'numericValue',
+  unit: 'unit',
+  referenceDate: 'referenceDate',
+  sourceName: 'sourceName',
+  sourceUrl: 'sourceUrl',
+  verificationStatus: 'verificationStatus',
+  collectedAt: 'collectedAt',
+  expiresAt: 'expiresAt',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TerritoryPublicDataScalarFieldEnum = (typeof TerritoryPublicDataScalarFieldEnum)[keyof typeof TerritoryPublicDataScalarFieldEnum]
+
+
+export const TerritoryEquipmentScalarFieldEnum = {
+  id: 'id',
+  administrativeRegionId: 'administrativeRegionId',
+  localityId: 'localityId',
+  name: 'name',
+  type: 'type',
+  address: 'address',
+  referencePoint: 'referencePoint',
+  latitude: 'latitude',
+  longitude: 'longitude',
+  sourceName: 'sourceName',
+  sourceUrl: 'sourceUrl',
+  verificationStatus: 'verificationStatus',
+  isActive: 'isActive',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TerritoryEquipmentScalarFieldEnum = (typeof TerritoryEquipmentScalarFieldEnum)[keyof typeof TerritoryEquipmentScalarFieldEnum]
 
 
 export const SortOrder = {

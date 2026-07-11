@@ -64,6 +64,14 @@ export type ScriptWithRelations = {
   scenarioSuggestion: string | null;
   framingSuggestion: string | null;
   strategicNotes: string | null;
+  administrativeRegionId: string | null;
+  savedTerritoryId: string | null;
+  territoryName: string | null;
+  territoryContext: string | null;
+  territorialObjectives: string | null;
+  territorialNarrative: string | null;
+  territoryFactsToVerify: string | null;
+  territoryAnalysisId: string | null;
   createdAt: Date;
   updatedAt: Date;
   profile: ScriptProfile | null;
@@ -100,6 +108,14 @@ export async function createScript(data: {
   scenarioSuggestion?: string;
   framingSuggestion?: string;
   strategicNotes?: string;
+  administrativeRegionId?: string;
+  savedTerritoryId?: string;
+  territoryName?: string;
+  territoryContext?: string;
+  territorialObjectives?: string;
+  territorialNarrative?: string;
+  territoryFactsToVerify?: string;
+  territoryAnalysisId?: string;
 }) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const script = await prisma.script.create({ data: data as any });
@@ -121,6 +137,14 @@ export async function updateScript(
     framingSuggestion: string;
     strategicNotes: string;
     estimatedWords: number;
+    administrativeRegionId: string;
+    savedTerritoryId: string;
+    territoryName: string;
+    territoryContext: string;
+    territorialObjectives: string;
+    territorialNarrative: string;
+    territoryFactsToVerify: string;
+    territoryAnalysisId: string;
   }>
 ) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -200,6 +224,14 @@ export async function duplicateScript(id: string) {
       scenarioSuggestion: original.scenarioSuggestion,
       framingSuggestion: original.framingSuggestion,
       strategicNotes: original.strategicNotes,
+      administrativeRegionId: original.administrativeRegionId,
+      savedTerritoryId: original.savedTerritoryId,
+      territoryName: original.territoryName,
+      territoryContext: original.territoryContext,
+      territorialObjectives: original.territorialObjectives,
+      territorialNarrative: original.territorialNarrative,
+      territoryFactsToVerify: original.territoryFactsToVerify,
+      territoryAnalysisId: original.territoryAnalysisId,
     },
   });
 

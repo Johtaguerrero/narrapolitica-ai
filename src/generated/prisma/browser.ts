@@ -67,3 +67,33 @@ export type AssemblyParticipant = Prisma.AssemblyParticipantModel
  * 
  */
 export type AssemblyInterviewee = Prisma.AssemblyIntervieweeModel
+/**
+ * Model AdministrativeRegion
+ * 
+ */
+export type AdministrativeRegion = Prisma.AdministrativeRegionModel
+/**
+ * Model TerritoryLocality
+ * 
+ */
+export type TerritoryLocality = Prisma.TerritoryLocalityModel
+/**
+ * Model SavedTerritory
+ * 
+ */
+export type SavedTerritory = Prisma.SavedTerritoryModel
+/**
+ * Model TerritoryAnalysis
+ * 
+ */
+export type TerritoryAnalysis = Prisma.TerritoryAnalysisModel
+/**
+ * Model TerritoryPublicData
+ * 
+ */
+export type TerritoryPublicData = Prisma.TerritoryPublicDataModel
+/**
+ * Model TerritoryEquipment
+ * 
+ */
+export type TerritoryEquipment = Prisma.TerritoryEquipmentModel

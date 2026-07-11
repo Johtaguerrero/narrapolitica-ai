@@ -66,6 +66,14 @@ export type ScriptMinAggregateOutputType = {
   scenarioSuggestion: string | null
   framingSuggestion: string | null
   strategicNotes: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
+  territoryName: string | null
+  territoryContext: string | null
+  territorialObjectives: string | null
+  territorialNarrative: string | null
+  territoryFactsToVerify: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -102,6 +110,14 @@ export type ScriptMaxAggregateOutputType = {
   scenarioSuggestion: string | null
   framingSuggestion: string | null
   strategicNotes: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
+  territoryName: string | null
+  territoryContext: string | null
+  territorialObjectives: string | null
+  territorialNarrative: string | null
+  territoryFactsToVerify: string | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -138,6 +154,14 @@ export type ScriptCountAggregateOutputType = {
   scenarioSuggestion: number
   framingSuggestion: number
   strategicNotes: number
+  administrativeRegionId: number
+  savedTerritoryId: number
+  territoryAnalysisId: number
+  territoryName: number
+  territoryContext: number
+  territorialObjectives: number
+  territorialNarrative: number
+  territoryFactsToVerify: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -184,6 +208,14 @@ export type ScriptMinAggregateInputType = {
   scenarioSuggestion?: true
   framingSuggestion?: true
   strategicNotes?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
+  territoryName?: true
+  territoryContext?: true
+  territorialObjectives?: true
+  territorialNarrative?: true
+  territoryFactsToVerify?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -220,6 +252,14 @@ export type ScriptMaxAggregateInputType = {
   scenarioSuggestion?: true
   framingSuggestion?: true
   strategicNotes?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
+  territoryName?: true
+  territoryContext?: true
+  territorialObjectives?: true
+  territorialNarrative?: true
+  territoryFactsToVerify?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -256,6 +296,14 @@ export type ScriptCountAggregateInputType = {
   scenarioSuggestion?: true
   framingSuggestion?: true
   strategicNotes?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
+  territoryName?: true
+  territoryContext?: true
+  territorialObjectives?: true
+  territorialNarrative?: true
+  territoryFactsToVerify?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -379,6 +427,14 @@ export type ScriptGroupByOutputType = {
   scenarioSuggestion: string | null
   framingSuggestion: string | null
   strategicNotes: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
+  territoryName: string | null
+  territoryContext: string | null
+  territorialObjectives: string | null
+  territorialNarrative: string | null
+  territoryFactsToVerify: string | null
   createdAt: Date
   updatedAt: Date
   _count: ScriptCountAggregateOutputType | null
@@ -438,6 +494,14 @@ export type ScriptWhereInput = {
   scenarioSuggestion?: Prisma.StringNullableFilter<"Script"> | string | null
   framingSuggestion?: Prisma.StringNullableFilter<"Script"> | string | null
   strategicNotes?: Prisma.StringNullableFilter<"Script"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"Script"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryName?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryContext?: Prisma.StringNullableFilter<"Script"> | string | null
+  territorialObjectives?: Prisma.StringNullableFilter<"Script"> | string | null
+  territorialNarrative?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryFactsToVerify?: Prisma.StringNullableFilter<"Script"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Script"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Script"> | Date | string
   profile?: Prisma.XOR<Prisma.PoliticalProfileNullableScalarRelationFilter, Prisma.PoliticalProfileWhereInput> | null
@@ -478,6 +542,14 @@ export type ScriptOrderByWithRelationInput = {
   scenarioSuggestion?: Prisma.SortOrderInput | Prisma.SortOrder
   framingSuggestion?: Prisma.SortOrderInput | Prisma.SortOrder
   strategicNotes?: Prisma.SortOrderInput | Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryName?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryContext?: Prisma.SortOrderInput | Prisma.SortOrder
+  territorialObjectives?: Prisma.SortOrderInput | Prisma.SortOrder
+  territorialNarrative?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryFactsToVerify?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   profile?: Prisma.PoliticalProfileOrderByWithRelationInput
@@ -521,6 +593,14 @@ export type ScriptWhereUniqueInput = Prisma.AtLeast<{
   scenarioSuggestion?: Prisma.StringNullableFilter<"Script"> | string | null
   framingSuggestion?: Prisma.StringNullableFilter<"Script"> | string | null
   strategicNotes?: Prisma.StringNullableFilter<"Script"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"Script"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryName?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryContext?: Prisma.StringNullableFilter<"Script"> | string | null
+  territorialObjectives?: Prisma.StringNullableFilter<"Script"> | string | null
+  territorialNarrative?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryFactsToVerify?: Prisma.StringNullableFilter<"Script"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Script"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Script"> | Date | string
   profile?: Prisma.XOR<Prisma.PoliticalProfileNullableScalarRelationFilter, Prisma.PoliticalProfileWhereInput> | null
@@ -561,6 +641,14 @@ export type ScriptOrderByWithAggregationInput = {
   scenarioSuggestion?: Prisma.SortOrderInput | Prisma.SortOrder
   framingSuggestion?: Prisma.SortOrderInput | Prisma.SortOrder
   strategicNotes?: Prisma.SortOrderInput | Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryName?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryContext?: Prisma.SortOrderInput | Prisma.SortOrder
+  territorialObjectives?: Prisma.SortOrderInput | Prisma.SortOrder
+  territorialNarrative?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryFactsToVerify?: Prisma.SortOrderInput | Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.ScriptCountOrderByAggregateInput
@@ -605,6 +693,14 @@ export type ScriptScalarWhereWithAggregatesInput = {
   scenarioSuggestion?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
   framingSuggestion?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
   strategicNotes?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  administrativeRegionId?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  savedTerritoryId?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  territoryName?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  territoryContext?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  territorialObjectives?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  territorialNarrative?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
+  territoryFactsToVerify?: Prisma.StringNullableWithAggregatesFilter<"Script"> | string | null
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Script"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Script"> | Date | string
 }
@@ -639,6 +735,14 @@ export type ScriptCreateInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.PoliticalProfileCreateNestedOneWithoutScriptsInput
@@ -679,6 +783,14 @@ export type ScriptUncheckedCreateInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   reelCards?: Prisma.ReelCardUncheckedCreateNestedManyWithoutScriptInput
@@ -715,6 +827,14 @@ export type ScriptUpdateInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.PoliticalProfileUpdateOneWithoutScriptsNestedInput
@@ -755,6 +875,14 @@ export type ScriptUncheckedUpdateInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reelCards?: Prisma.ReelCardUncheckedUpdateManyWithoutScriptNestedInput
@@ -793,6 +921,14 @@ export type ScriptCreateManyInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -827,6 +963,14 @@ export type ScriptUpdateManyMutationInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -863,6 +1007,14 @@ export type ScriptUncheckedUpdateManyInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -909,6 +1061,14 @@ export type ScriptCountOrderByAggregateInput = {
   scenarioSuggestion?: Prisma.SortOrder
   framingSuggestion?: Prisma.SortOrder
   strategicNotes?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrder
+  territoryContext?: Prisma.SortOrder
+  territorialObjectives?: Prisma.SortOrder
+  territorialNarrative?: Prisma.SortOrder
+  territoryFactsToVerify?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -949,6 +1109,14 @@ export type ScriptMaxOrderByAggregateInput = {
   scenarioSuggestion?: Prisma.SortOrder
   framingSuggestion?: Prisma.SortOrder
   strategicNotes?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrder
+  territoryContext?: Prisma.SortOrder
+  territorialObjectives?: Prisma.SortOrder
+  territorialNarrative?: Prisma.SortOrder
+  territoryFactsToVerify?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -985,6 +1153,14 @@ export type ScriptMinOrderByAggregateInput = {
   scenarioSuggestion?: Prisma.SortOrder
   framingSuggestion?: Prisma.SortOrder
   strategicNotes?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
+  territoryName?: Prisma.SortOrder
+  territoryContext?: Prisma.SortOrder
+  territorialObjectives?: Prisma.SortOrder
+  territorialNarrative?: Prisma.SortOrder
+  territoryFactsToVerify?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -1156,6 +1332,14 @@ export type ScriptCreateWithoutProfileInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   analysis?: Prisma.InstagramAnalysisCreateNestedOneWithoutScriptsInput
@@ -1194,6 +1378,14 @@ export type ScriptUncheckedCreateWithoutProfileInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   reelCards?: Prisma.ReelCardUncheckedCreateNestedManyWithoutScriptInput
@@ -1260,6 +1452,14 @@ export type ScriptScalarWhereInput = {
   scenarioSuggestion?: Prisma.StringNullableFilter<"Script"> | string | null
   framingSuggestion?: Prisma.StringNullableFilter<"Script"> | string | null
   strategicNotes?: Prisma.StringNullableFilter<"Script"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"Script"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryName?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryContext?: Prisma.StringNullableFilter<"Script"> | string | null
+  territorialObjectives?: Prisma.StringNullableFilter<"Script"> | string | null
+  territorialNarrative?: Prisma.StringNullableFilter<"Script"> | string | null
+  territoryFactsToVerify?: Prisma.StringNullableFilter<"Script"> | string | null
   createdAt?: Prisma.DateTimeFilter<"Script"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Script"> | Date | string
 }
@@ -1294,6 +1494,14 @@ export type ScriptCreateWithoutAnalysisInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.PoliticalProfileCreateNestedOneWithoutScriptsInput
@@ -1332,6 +1540,14 @@ export type ScriptUncheckedCreateWithoutAnalysisInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   reelCards?: Prisma.ReelCardUncheckedCreateNestedManyWithoutScriptInput
@@ -1393,6 +1609,14 @@ export type ScriptCreateWithoutReelCardsInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.PoliticalProfileCreateNestedOneWithoutScriptsInput
@@ -1432,6 +1656,14 @@ export type ScriptUncheckedCreateWithoutReelCardsInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   assemblyStrategies?: Prisma.AssemblyStrategyUncheckedCreateNestedManyWithoutScriptInput
@@ -1483,6 +1715,14 @@ export type ScriptUpdateWithoutReelCardsInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.PoliticalProfileUpdateOneWithoutScriptsNestedInput
@@ -1522,6 +1762,14 @@ export type ScriptUncheckedUpdateWithoutReelCardsInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   assemblyStrategies?: Prisma.AssemblyStrategyUncheckedUpdateManyWithoutScriptNestedInput
@@ -1557,6 +1805,14 @@ export type ScriptCreateWithoutAssemblyStrategiesInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   profile?: Prisma.PoliticalProfileCreateNestedOneWithoutScriptsInput
@@ -1596,6 +1852,14 @@ export type ScriptUncheckedCreateWithoutAssemblyStrategiesInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
   reelCards?: Prisma.ReelCardUncheckedCreateNestedManyWithoutScriptInput
@@ -1647,6 +1911,14 @@ export type ScriptUpdateWithoutAssemblyStrategiesInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.PoliticalProfileUpdateOneWithoutScriptsNestedInput
@@ -1686,6 +1958,14 @@ export type ScriptUncheckedUpdateWithoutAssemblyStrategiesInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reelCards?: Prisma.ReelCardUncheckedUpdateManyWithoutScriptNestedInput
@@ -1722,6 +2002,14 @@ export type ScriptCreateManyProfileInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1756,6 +2044,14 @@ export type ScriptUpdateWithoutProfileInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   analysis?: Prisma.InstagramAnalysisUpdateOneWithoutScriptsNestedInput
@@ -1794,6 +2090,14 @@ export type ScriptUncheckedUpdateWithoutProfileInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reelCards?: Prisma.ReelCardUncheckedUpdateManyWithoutScriptNestedInput
@@ -1831,6 +2135,14 @@ export type ScriptUncheckedUpdateManyWithoutProfileInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -1866,6 +2178,14 @@ export type ScriptCreateManyAnalysisInput = {
   scenarioSuggestion?: string | null
   framingSuggestion?: string | null
   strategicNotes?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  territoryName?: string | null
+  territoryContext?: string | null
+  territorialObjectives?: string | null
+  territorialNarrative?: string | null
+  territoryFactsToVerify?: string | null
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -1900,6 +2220,14 @@ export type ScriptUpdateWithoutAnalysisInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   profile?: Prisma.PoliticalProfileUpdateOneWithoutScriptsNestedInput
@@ -1938,6 +2266,14 @@ export type ScriptUncheckedUpdateWithoutAnalysisInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   reelCards?: Prisma.ReelCardUncheckedUpdateManyWithoutScriptNestedInput
@@ -1975,6 +2311,14 @@ export type ScriptUncheckedUpdateManyWithoutAnalysisInput = {
   scenarioSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   framingSuggestion?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   strategicNotes?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryName?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryContext?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialObjectives?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territorialNarrative?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryFactsToVerify?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -2051,6 +2395,14 @@ export type ScriptSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   scenarioSuggestion?: boolean
   framingSuggestion?: boolean
   strategicNotes?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  territoryName?: boolean
+  territoryContext?: boolean
+  territorialObjectives?: boolean
+  territorialNarrative?: boolean
+  territoryFactsToVerify?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   profile?: boolean | Prisma.Script$profileArgs<ExtArgs>
@@ -2092,6 +2444,14 @@ export type ScriptSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extens
   scenarioSuggestion?: boolean
   framingSuggestion?: boolean
   strategicNotes?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  territoryName?: boolean
+  territoryContext?: boolean
+  territorialObjectives?: boolean
+  territorialNarrative?: boolean
+  territoryFactsToVerify?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   profile?: boolean | Prisma.Script$profileArgs<ExtArgs>
@@ -2130,6 +2490,14 @@ export type ScriptSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extens
   scenarioSuggestion?: boolean
   framingSuggestion?: boolean
   strategicNotes?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  territoryName?: boolean
+  territoryContext?: boolean
+  territorialObjectives?: boolean
+  territorialNarrative?: boolean
+  territoryFactsToVerify?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   profile?: boolean | Prisma.Script$profileArgs<ExtArgs>
@@ -2168,11 +2536,19 @@ export type ScriptSelectScalar = {
   scenarioSuggestion?: boolean
   framingSuggestion?: boolean
   strategicNotes?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  territoryName?: boolean
+  territoryContext?: boolean
+  territorialObjectives?: boolean
+  territorialNarrative?: boolean
+  territoryFactsToVerify?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type ScriptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "instagramAnalysisId" | "profileName" | "instagramUsername" | "title" | "type" | "duration" | "style" | "theme" | "format" | "hook" | "fullScript" | "pauseMarks" | "cameraDir" | "sceneSuggestion" | "captionSuggestion" | "ctaSuggestion" | "hashtags" | "shortVersion" | "emotionalVersion" | "institutionalVersion" | "isPublic" | "estimatedWords" | "objective" | "scriptText" | "captionText" | "cta" | "scenarioSuggestion" | "framingSuggestion" | "strategicNotes" | "createdAt" | "updatedAt", ExtArgs["result"]["script"]>
+export type ScriptOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "instagramAnalysisId" | "profileName" | "instagramUsername" | "title" | "type" | "duration" | "style" | "theme" | "format" | "hook" | "fullScript" | "pauseMarks" | "cameraDir" | "sceneSuggestion" | "captionSuggestion" | "ctaSuggestion" | "hashtags" | "shortVersion" | "emotionalVersion" | "institutionalVersion" | "isPublic" | "estimatedWords" | "objective" | "scriptText" | "captionText" | "cta" | "scenarioSuggestion" | "framingSuggestion" | "strategicNotes" | "administrativeRegionId" | "savedTerritoryId" | "territoryAnalysisId" | "territoryName" | "territoryContext" | "territorialObjectives" | "territorialNarrative" | "territoryFactsToVerify" | "createdAt" | "updatedAt", ExtArgs["result"]["script"]>
 export type ScriptInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   profile?: boolean | Prisma.Script$profileArgs<ExtArgs>
   analysis?: boolean | Prisma.Script$analysisArgs<ExtArgs>
@@ -2229,6 +2605,14 @@ export type $ScriptPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs
     scenarioSuggestion: string | null
     framingSuggestion: string | null
     strategicNotes: string | null
+    administrativeRegionId: string | null
+    savedTerritoryId: string | null
+    territoryAnalysisId: string | null
+    territoryName: string | null
+    territoryContext: string | null
+    territorialObjectives: string | null
+    territorialNarrative: string | null
+    territoryFactsToVerify: string | null
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["script"]>
@@ -2689,6 +3073,14 @@ export interface ScriptFieldRefs {
   readonly scenarioSuggestion: Prisma.FieldRef<"Script", 'String'>
   readonly framingSuggestion: Prisma.FieldRef<"Script", 'String'>
   readonly strategicNotes: Prisma.FieldRef<"Script", 'String'>
+  readonly administrativeRegionId: Prisma.FieldRef<"Script", 'String'>
+  readonly savedTerritoryId: Prisma.FieldRef<"Script", 'String'>
+  readonly territoryAnalysisId: Prisma.FieldRef<"Script", 'String'>
+  readonly territoryName: Prisma.FieldRef<"Script", 'String'>
+  readonly territoryContext: Prisma.FieldRef<"Script", 'String'>
+  readonly territorialObjectives: Prisma.FieldRef<"Script", 'String'>
+  readonly territorialNarrative: Prisma.FieldRef<"Script", 'String'>
+  readonly territoryFactsToVerify: Prisma.FieldRef<"Script", 'String'>
   readonly createdAt: Prisma.FieldRef<"Script", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Script", 'DateTime'>
 }

@@ -19,7 +19,16 @@ export default async function StrategyDetailPage({ params }: { params: Promise<{
   })
   if (!strategy) notFound()
 
-  const profiles = await getMergedProfiles()
+  const [profiles, regions] = await Promise.all([
+    getMergedProfiles(),
+    prisma.administrativeRegion.findMany({ orderBy: { officialNumber: 'asc' } }),
+  ])
 
-  return <AssemblyStrategyClient strategy={JSON.parse(JSON.stringify(strategy))} profiles={JSON.parse(JSON.stringify(profiles))} />
+  return (
+    <AssemblyStrategyClient
+      strategy={JSON.parse(JSON.stringify(strategy))}
+      profiles={JSON.parse(JSON.stringify(profiles))}
+      regions={JSON.parse(JSON.stringify(regions))}
+    />
+  )
 }

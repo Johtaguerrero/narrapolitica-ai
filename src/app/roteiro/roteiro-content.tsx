@@ -12,8 +12,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { TerritoryRegionSelector } from "@/components/territory/territory-region-selector";
 
-import { Copy } from "lucide-react";
+import { Copy, MapPin } from "lucide-react";
 import { toast } from "sonner";
 import { calculateWordRange, estimateReadingTime } from "@/lib/generators/time-calculator";
 import { downloadScriptTxt } from "@/lib/generators/export-script-txt";
@@ -76,14 +77,23 @@ interface SavedProfile {
   profile?: { id: string; name: string } | null;
 }
 
+interface RegionBase {
+  id: string;
+  officialNumber: number;
+  romanNumber: string;
+  officialName: string;
+  slug: string;
+}
+
 interface Props {
   initialAnaliseId?: string;
   initialProfileId?: string;
   analysisData?: (AnalysisData & { id: string }) | null;
   savedProfiles: SavedProfile[];
+  regions: RegionBase[];
 }
 
-export function RoteiroContent({ analysisData: initialAnalysisData, savedProfiles, initialProfileId }: Props) {
+export function RoteiroContent({ analysisData: initialAnalysisData, savedProfiles, initialProfileId, regions }: Props) {
   const router = useRouter();
   const [modoLivre, setModoLivre] = useState(!initialAnalysisData && savedProfiles.length === 0);
   const [selectedProfileId, setSelectedProfileId] = useState(initialAnalysisData?.id || "");
@@ -100,6 +110,11 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
   const [selectedStyle, setSelectedStyle] = useState<SpeechStyle>("natural_rua");
   const [selectedTheme, setSelectedTheme] = useState<Theme>("cultura");
   const [selectedObjective, setSelectedObjective] = useState<Objective>("conscientizar");
+
+  const [territoryRegionId, setTerritoryRegionId] = useState("");
+  const [territoryContext, setTerritoryContext] = useState("");
+  const [territoryObjectives, setTerritoryObjectives] = useState("");
+  const [territoryOpen, setTerritoryOpen] = useState(false);
 
   const [result, setResult] = useState<GeneratedScript | null>(null);
   const [loading, setLoading] = useState(false);
@@ -245,6 +260,10 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
         strategicNotes: result.strategicNotes,
         estimatedWords: result.estimatedWords,
         objective: selectedObjective,
+        administrativeRegionId: territoryRegionId || undefined,
+        territoryName: territoryRegionId ? regions.find(r => r.id === territoryRegionId)?.officialName : undefined,
+        territoryContext: territoryContext || undefined,
+        territorialObjectives: territoryObjectives || undefined,
       });
 
       await createReelCard({
@@ -494,6 +513,43 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
                 ))}
               </div>
             </CardContent>
+          </Card>
+
+          <Card className="glass">
+            <CardHeader className="pb-3">
+              <button onClick={() => setTerritoryOpen(!territoryOpen)} className="flex items-center justify-between w-full">
+                <CardTitle className="text-sm flex items-center gap-2"><MapPin size={14} /> Território</CardTitle>
+                <span className="text-xs text-muted-foreground">{territoryOpen ? '▲' : '▼'}</span>
+              </button>
+            </CardHeader>
+            {territoryOpen && (
+              <CardContent className="space-y-3">
+                <TerritoryRegionSelector
+                  regions={regions}
+                  selectedId={territoryRegionId}
+                  onSelect={setTerritoryRegionId}
+                />
+                <div className="space-y-1">
+                  <Label className="text-xs">Contexto local</Label>
+                  <Textarea
+                    value={territoryContext}
+                    onChange={e => setTerritoryContext(e.target.value)}
+                    placeholder="Descreva a situação local, dados relevantes, percepções da comunidade..."
+                    rows={3}
+                    className="text-xs"
+                  />
+                </div>
+                <div className="space-y-1">
+                  <Label className="text-xs">Objetivos territoriais</Label>
+                  <input
+                    value={territoryObjectives}
+                    onChange={e => setTerritoryObjectives(e.target.value)}
+                    placeholder="Ex: apresentar proposta, prestar contas, ouvir comunidade"
+                    className="w-full rounded-lg border border-border bg-card px-3 py-2 text-xs text-foreground outline-none focus:border-violet-500"
+                  />
+                </div>
+              </CardContent>
+            )}
           </Card>
 
           <Button

@@ -87,6 +87,14 @@ model Script {
   scenarioSuggestion String?
   framingSuggestion  String?
   strategicNotes  String?
+  administrativeRegionId String?
+  savedTerritoryId String?
+  territoryAnalysisId String?
+  territoryName String?
+  territoryContext String?
+  territorialObjectives String?
+  territorialNarrative String?
+  territoryFactsToVerify String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
   profile         PoliticalProfile? @relation(fields: [profileId], references: [id], onDelete: SetNull)
@@ -122,6 +130,9 @@ model EditorialCalendarItem {
   id          String   @id @default(cuid())
   profileId   String?
   scriptId    String?
+  administrativeRegionId String?
+  savedTerritoryId String?
+  territoryAnalysisId String?
   dayOfWeek   Int
   label       String
   description String
@@ -134,6 +145,11 @@ model AssemblyStrategy {
   profileId      String?
   instagramAnalysisId String?
   scriptId       String?
+  administrativeRegionId String?
+  savedTerritoryId String?
+  territoryAnalysisId String?
+  recordingReferencePoint String?
+  alternativeLocation String?
   title          String
   videoType      String   @default("solo")
   objective      String   @default("")
@@ -203,4 +219,156 @@ model AssemblyInterviewee {
   createdAt              DateTime @default(now())
   updatedAt              DateTime @updatedAt
   strategy               AssemblyStrategy @relation(fields: [strategyId], references: [id], onDelete: Cascade)
+}
+
+model AdministrativeRegion {
+  id                String   @id @default(cuid())
+  officialNumber    Int      @unique
+  romanNumber       String
+  officialName      String
+  slug              String   @unique
+  aliases           String?
+  stateCode         String   @default("DF")
+  countryCode       String   @default("BR")
+  divisionType      String   @default("ADMINISTRATIVE_REGION")
+  status            String   @default("ACTIVE")
+  officialSourceName String?
+  officialSourceUrl  String?
+  effectiveDate     DateTime?
+  latitude          Float?
+  longitude         Float?
+  geoJson           String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  localities        TerritoryLocality[]
+  territories       SavedTerritory[]
+  analyses          TerritoryAnalysis[]
+  publicData        TerritoryPublicData[]
+  equipments        TerritoryEquipment[]
+}
+
+model TerritoryLocality {
+  id                     String @id @default(cuid())
+  administrativeRegionId String
+  name                   String
+  slug                   String
+  type                   String
+  aliases                String?
+  status                 String @default("ACTIVE")
+  latitude               Float?
+  longitude              Float?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  administrativeRegion   AdministrativeRegion @relation(fields: [administrativeRegionId], references: [id])
+  @@unique([administrativeRegionId, slug])
+}
+
+model SavedTerritory {
+  id                     String @id @default(cuid())
+  profileId              String
+  instagramAnalysisId    String?
+  administrativeRegionId String
+  localityId             String?
+  customLocalityName     String?
+  sector                 String?
+  block                  String?
+  referencePoint         String?
+  approximateAddress     String?
+  locationType           String?
+  title                  String
+  description            String?
+  status                 String @default("ACTIVE")
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  administrativeRegion   AdministrativeRegion @relation(fields: [administrativeRegionId], references: [id])
+  analyses               TerritoryAnalysis[]
+}
+
+model TerritoryAnalysis {
+  id                     String @id @default(cuid())
+  profileId              String
+  instagramAnalysisId    String?
+  savedTerritoryId       String?
+  administrativeRegionId String
+  localityId             String?
+  scriptId               String?
+  contextText            String
+  contextVersion         Int @default(1)
+  territorialObjectives  String?
+  analysisDepth          String
+  sourceType             String
+  referenceDate          DateTime?
+  territorySummary       String?
+  contextSummary         String?
+  mainTheme              String?
+  secondaryThemes        String?
+  centralSituation       String?
+  identifiedProblems     String?
+  opportunities          String?
+  involvedActors         String?
+  mentionedInstitutions  String?
+  relatedPublic          String?
+  localSensitivities     String?
+  recommendedVocabulary  String?
+  termsToAvoid           String?
+  narrativeAngle         String?
+  suggestedHook          String?
+  centralMessage         String?
+  recommendedApproach    String?
+  scenarioSuggestion     String?
+  recordingPoints        String?
+  confirmedFacts         String?
+  userProvidedFacts      String?
+  aiInferences           String?
+  factsToVerify          String?
+  generalizationRisks    String?
+  communicationRisks     String?
+  shortNarrative         String?
+  sourcesUsed            String?
+  confidence             Float?
+  status                 String @default("WAITING")
+  analyzedAt             DateTime?
+  expiresAt              DateTime?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  administrativeRegion   AdministrativeRegion @relation(fields: [administrativeRegionId], references: [id])
+  savedTerritory         SavedTerritory? @relation(fields: [savedTerritoryId], references: [id])
+}
+
+model TerritoryPublicData {
+  id                     String @id @default(cuid())
+  administrativeRegionId String
+  category               String
+  indicatorName          String
+  valueText              String?
+  numericValue           Float?
+  unit                   String?
+  referenceDate          DateTime
+  sourceName             String
+  sourceUrl              String
+  verificationStatus     String @default("PENDING")
+  collectedAt            DateTime @default(now())
+  expiresAt              DateTime?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  administrativeRegion   AdministrativeRegion @relation(fields: [administrativeRegionId], references: [id])
+}
+
+model TerritoryEquipment {
+  id                     String @id @default(cuid())
+  administrativeRegionId String
+  localityId             String?
+  name                   String
+  type                   String
+  address                String?
+  referencePoint         String?
+  latitude               Float?
+  longitude              Float?
+  sourceName             String?
+  sourceUrl              String?
+  verificationStatus     String @default("PENDING")
+  isActive               Boolean @default(true)
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+  administrativeRegion   AdministrativeRegion @relation(fields: [administrativeRegionId], references: [id])
 }

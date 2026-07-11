@@ -29,6 +29,11 @@ export type AssemblyStrategyMinAggregateOutputType = {
   profileId: string | null
   instagramAnalysisId: string | null
   scriptId: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
+  recordingReferencePoint: string | null
+  alternativeLocation: string | null
   title: string | null
   videoType: string | null
   objective: string | null
@@ -52,6 +57,11 @@ export type AssemblyStrategyMaxAggregateOutputType = {
   profileId: string | null
   instagramAnalysisId: string | null
   scriptId: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
+  recordingReferencePoint: string | null
+  alternativeLocation: string | null
   title: string | null
   videoType: string | null
   objective: string | null
@@ -75,6 +85,11 @@ export type AssemblyStrategyCountAggregateOutputType = {
   profileId: number
   instagramAnalysisId: number
   scriptId: number
+  administrativeRegionId: number
+  savedTerritoryId: number
+  territoryAnalysisId: number
+  recordingReferencePoint: number
+  alternativeLocation: number
   title: number
   videoType: number
   objective: number
@@ -100,6 +115,11 @@ export type AssemblyStrategyMinAggregateInputType = {
   profileId?: true
   instagramAnalysisId?: true
   scriptId?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
+  recordingReferencePoint?: true
+  alternativeLocation?: true
   title?: true
   videoType?: true
   objective?: true
@@ -123,6 +143,11 @@ export type AssemblyStrategyMaxAggregateInputType = {
   profileId?: true
   instagramAnalysisId?: true
   scriptId?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
+  recordingReferencePoint?: true
+  alternativeLocation?: true
   title?: true
   videoType?: true
   objective?: true
@@ -146,6 +171,11 @@ export type AssemblyStrategyCountAggregateInputType = {
   profileId?: true
   instagramAnalysisId?: true
   scriptId?: true
+  administrativeRegionId?: true
+  savedTerritoryId?: true
+  territoryAnalysisId?: true
+  recordingReferencePoint?: true
+  alternativeLocation?: true
   title?: true
   videoType?: true
   objective?: true
@@ -242,6 +272,11 @@ export type AssemblyStrategyGroupByOutputType = {
   profileId: string | null
   instagramAnalysisId: string | null
   scriptId: string | null
+  administrativeRegionId: string | null
+  savedTerritoryId: string | null
+  territoryAnalysisId: string | null
+  recordingReferencePoint: string | null
+  alternativeLocation: string | null
   title: string
   videoType: string
   objective: string
@@ -286,6 +321,11 @@ export type AssemblyStrategyWhereInput = {
   profileId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   instagramAnalysisId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   scriptId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  recordingReferencePoint?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  alternativeLocation?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   title?: Prisma.StringFilter<"AssemblyStrategy"> | string
   videoType?: Prisma.StringFilter<"AssemblyStrategy"> | string
   objective?: Prisma.StringFilter<"AssemblyStrategy"> | string
@@ -315,6 +355,11 @@ export type AssemblyStrategyOrderByWithRelationInput = {
   profileId?: Prisma.SortOrderInput | Prisma.SortOrder
   instagramAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
   scriptId?: Prisma.SortOrderInput | Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  recordingReferencePoint?: Prisma.SortOrderInput | Prisma.SortOrder
+  alternativeLocation?: Prisma.SortOrderInput | Prisma.SortOrder
   title?: Prisma.SortOrder
   videoType?: Prisma.SortOrder
   objective?: Prisma.SortOrder
@@ -347,6 +392,11 @@ export type AssemblyStrategyWhereUniqueInput = Prisma.AtLeast<{
   profileId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   instagramAnalysisId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   scriptId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  recordingReferencePoint?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  alternativeLocation?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   title?: Prisma.StringFilter<"AssemblyStrategy"> | string
   videoType?: Prisma.StringFilter<"AssemblyStrategy"> | string
   objective?: Prisma.StringFilter<"AssemblyStrategy"> | string
@@ -376,6 +426,11 @@ export type AssemblyStrategyOrderByWithAggregationInput = {
   profileId?: Prisma.SortOrderInput | Prisma.SortOrder
   instagramAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
   scriptId?: Prisma.SortOrderInput | Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrderInput | Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrderInput | Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrderInput | Prisma.SortOrder
+  recordingReferencePoint?: Prisma.SortOrderInput | Prisma.SortOrder
+  alternativeLocation?: Prisma.SortOrderInput | Prisma.SortOrder
   title?: Prisma.SortOrder
   videoType?: Prisma.SortOrder
   objective?: Prisma.SortOrder
@@ -405,6 +460,11 @@ export type AssemblyStrategyScalarWhereWithAggregatesInput = {
   profileId?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
   instagramAnalysisId?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
   scriptId?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
+  administrativeRegionId?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
+  savedTerritoryId?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
+  recordingReferencePoint?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
+  alternativeLocation?: Prisma.StringNullableWithAggregatesFilter<"AssemblyStrategy"> | string | null
   title?: Prisma.StringWithAggregatesFilter<"AssemblyStrategy"> | string
   videoType?: Prisma.StringWithAggregatesFilter<"AssemblyStrategy"> | string
   objective?: Prisma.StringWithAggregatesFilter<"AssemblyStrategy"> | string
@@ -425,6 +485,11 @@ export type AssemblyStrategyScalarWhereWithAggregatesInput = {
 
 export type AssemblyStrategyCreateInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -454,6 +519,11 @@ export type AssemblyStrategyUncheckedCreateInput = {
   profileId?: string | null
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -477,6 +547,11 @@ export type AssemblyStrategyUncheckedCreateInput = {
 
 export type AssemblyStrategyUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -506,6 +581,11 @@ export type AssemblyStrategyUncheckedUpdateInput = {
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -532,6 +612,11 @@ export type AssemblyStrategyCreateManyInput = {
   profileId?: string | null
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -552,6 +637,11 @@ export type AssemblyStrategyCreateManyInput = {
 
 export type AssemblyStrategyUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -575,6 +665,11 @@ export type AssemblyStrategyUncheckedUpdateManyInput = {
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -608,6 +703,11 @@ export type AssemblyStrategyCountOrderByAggregateInput = {
   profileId?: Prisma.SortOrder
   instagramAnalysisId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
+  recordingReferencePoint?: Prisma.SortOrder
+  alternativeLocation?: Prisma.SortOrder
   title?: Prisma.SortOrder
   videoType?: Prisma.SortOrder
   objective?: Prisma.SortOrder
@@ -631,6 +731,11 @@ export type AssemblyStrategyMaxOrderByAggregateInput = {
   profileId?: Prisma.SortOrder
   instagramAnalysisId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
+  recordingReferencePoint?: Prisma.SortOrder
+  alternativeLocation?: Prisma.SortOrder
   title?: Prisma.SortOrder
   videoType?: Prisma.SortOrder
   objective?: Prisma.SortOrder
@@ -654,6 +759,11 @@ export type AssemblyStrategyMinOrderByAggregateInput = {
   profileId?: Prisma.SortOrder
   instagramAnalysisId?: Prisma.SortOrder
   scriptId?: Prisma.SortOrder
+  administrativeRegionId?: Prisma.SortOrder
+  savedTerritoryId?: Prisma.SortOrder
+  territoryAnalysisId?: Prisma.SortOrder
+  recordingReferencePoint?: Prisma.SortOrder
+  alternativeLocation?: Prisma.SortOrder
   title?: Prisma.SortOrder
   videoType?: Prisma.SortOrder
   objective?: Prisma.SortOrder
@@ -847,6 +957,11 @@ export type AssemblyStrategyUpdateOneRequiredWithoutIntervieweesNestedInput = {
 
 export type AssemblyStrategyCreateWithoutProfileInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -874,6 +989,11 @@ export type AssemblyStrategyUncheckedCreateWithoutProfileInput = {
   id?: string
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -928,6 +1048,11 @@ export type AssemblyStrategyScalarWhereInput = {
   profileId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   instagramAnalysisId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   scriptId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  administrativeRegionId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  savedTerritoryId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  territoryAnalysisId?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  recordingReferencePoint?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
+  alternativeLocation?: Prisma.StringNullableFilter<"AssemblyStrategy"> | string | null
   title?: Prisma.StringFilter<"AssemblyStrategy"> | string
   videoType?: Prisma.StringFilter<"AssemblyStrategy"> | string
   objective?: Prisma.StringFilter<"AssemblyStrategy"> | string
@@ -948,6 +1073,11 @@ export type AssemblyStrategyScalarWhereInput = {
 
 export type AssemblyStrategyCreateWithoutAnalysisInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -975,6 +1105,11 @@ export type AssemblyStrategyUncheckedCreateWithoutAnalysisInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1023,6 +1158,11 @@ export type AssemblyStrategyUpdateManyWithWhereWithoutAnalysisInput = {
 
 export type AssemblyStrategyCreateWithoutScriptInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1050,6 +1190,11 @@ export type AssemblyStrategyUncheckedCreateWithoutScriptInput = {
   id?: string
   profileId?: string | null
   instagramAnalysisId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1098,6 +1243,11 @@ export type AssemblyStrategyUpdateManyWithWhereWithoutScriptInput = {
 
 export type AssemblyStrategyCreateWithoutCanvasItemsInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1126,6 +1276,11 @@ export type AssemblyStrategyUncheckedCreateWithoutCanvasItemsInput = {
   profileId?: string | null
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1164,6 +1319,11 @@ export type AssemblyStrategyUpdateToOneWithWhereWithoutCanvasItemsInput = {
 
 export type AssemblyStrategyUpdateWithoutCanvasItemsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1192,6 +1352,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutCanvasItemsInput = {
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1214,6 +1379,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutCanvasItemsInput = {
 
 export type AssemblyStrategyCreateWithoutParticipantsInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1242,6 +1412,11 @@ export type AssemblyStrategyUncheckedCreateWithoutParticipantsInput = {
   profileId?: string | null
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1280,6 +1455,11 @@ export type AssemblyStrategyUpdateToOneWithWhereWithoutParticipantsInput = {
 
 export type AssemblyStrategyUpdateWithoutParticipantsInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1308,6 +1488,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutParticipantsInput = {
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1330,6 +1515,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutParticipantsInput = {
 
 export type AssemblyStrategyCreateWithoutIntervieweesInput = {
   id?: string
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1358,6 +1548,11 @@ export type AssemblyStrategyUncheckedCreateWithoutIntervieweesInput = {
   profileId?: string | null
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1396,6 +1591,11 @@ export type AssemblyStrategyUpdateToOneWithWhereWithoutIntervieweesInput = {
 
 export type AssemblyStrategyUpdateWithoutIntervieweesInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1424,6 +1624,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutIntervieweesInput = {
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1448,6 +1653,11 @@ export type AssemblyStrategyCreateManyProfileInput = {
   id?: string
   instagramAnalysisId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1468,6 +1678,11 @@ export type AssemblyStrategyCreateManyProfileInput = {
 
 export type AssemblyStrategyUpdateWithoutProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1495,6 +1710,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1520,6 +1740,11 @@ export type AssemblyStrategyUncheckedUpdateManyWithoutProfileInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1542,6 +1767,11 @@ export type AssemblyStrategyCreateManyAnalysisInput = {
   id?: string
   profileId?: string | null
   scriptId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1562,6 +1792,11 @@ export type AssemblyStrategyCreateManyAnalysisInput = {
 
 export type AssemblyStrategyUpdateWithoutAnalysisInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1589,6 +1824,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutAnalysisInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1614,6 +1854,11 @@ export type AssemblyStrategyUncheckedUpdateManyWithoutAnalysisInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   scriptId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1636,6 +1881,11 @@ export type AssemblyStrategyCreateManyScriptInput = {
   id?: string
   profileId?: string | null
   instagramAnalysisId?: string | null
+  administrativeRegionId?: string | null
+  savedTerritoryId?: string | null
+  territoryAnalysisId?: string | null
+  recordingReferencePoint?: string | null
+  alternativeLocation?: string | null
   title: string
   videoType?: string
   objective?: string
@@ -1656,6 +1906,11 @@ export type AssemblyStrategyCreateManyScriptInput = {
 
 export type AssemblyStrategyUpdateWithoutScriptInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1683,6 +1938,11 @@ export type AssemblyStrategyUncheckedUpdateWithoutScriptInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1708,6 +1968,11 @@ export type AssemblyStrategyUncheckedUpdateManyWithoutScriptInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   profileId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   instagramAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  administrativeRegionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  savedTerritoryId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  territoryAnalysisId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  recordingReferencePoint?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  alternativeLocation?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   title?: Prisma.StringFieldUpdateOperationsInput | string
   videoType?: Prisma.StringFieldUpdateOperationsInput | string
   objective?: Prisma.StringFieldUpdateOperationsInput | string
@@ -1780,6 +2045,11 @@ export type AssemblyStrategySelect<ExtArgs extends runtime.Types.Extensions.Inte
   profileId?: boolean
   instagramAnalysisId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  recordingReferencePoint?: boolean
+  alternativeLocation?: boolean
   title?: boolean
   videoType?: boolean
   objective?: boolean
@@ -1810,6 +2080,11 @@ export type AssemblyStrategySelectCreateManyAndReturn<ExtArgs extends runtime.Ty
   profileId?: boolean
   instagramAnalysisId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  recordingReferencePoint?: boolean
+  alternativeLocation?: boolean
   title?: boolean
   videoType?: boolean
   objective?: boolean
@@ -1836,6 +2111,11 @@ export type AssemblyStrategySelectUpdateManyAndReturn<ExtArgs extends runtime.Ty
   profileId?: boolean
   instagramAnalysisId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  recordingReferencePoint?: boolean
+  alternativeLocation?: boolean
   title?: boolean
   videoType?: boolean
   objective?: boolean
@@ -1862,6 +2142,11 @@ export type AssemblyStrategySelectScalar = {
   profileId?: boolean
   instagramAnalysisId?: boolean
   scriptId?: boolean
+  administrativeRegionId?: boolean
+  savedTerritoryId?: boolean
+  territoryAnalysisId?: boolean
+  recordingReferencePoint?: boolean
+  alternativeLocation?: boolean
   title?: boolean
   videoType?: boolean
   objective?: boolean
@@ -1880,7 +2165,7 @@ export type AssemblyStrategySelectScalar = {
   updatedAt?: boolean
 }
 
-export type AssemblyStrategyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "instagramAnalysisId" | "scriptId" | "title" | "videoType" | "objective" | "centralMessage" | "visualHook" | "firstLine" | "recordingLocation" | "recordingAddress" | "recordingDate" | "recordingTime" | "postingDate" | "postingTime" | "status" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["assemblyStrategy"]>
+export type AssemblyStrategyOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "profileId" | "instagramAnalysisId" | "scriptId" | "administrativeRegionId" | "savedTerritoryId" | "territoryAnalysisId" | "recordingReferencePoint" | "alternativeLocation" | "title" | "videoType" | "objective" | "centralMessage" | "visualHook" | "firstLine" | "recordingLocation" | "recordingAddress" | "recordingDate" | "recordingTime" | "postingDate" | "postingTime" | "status" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["assemblyStrategy"]>
 export type AssemblyStrategyInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   canvasItems?: boolean | Prisma.AssemblyStrategy$canvasItemsArgs<ExtArgs>
   participants?: boolean | Prisma.AssemblyStrategy$participantsArgs<ExtArgs>
@@ -1916,6 +2201,11 @@ export type $AssemblyStrategyPayload<ExtArgs extends runtime.Types.Extensions.In
     profileId: string | null
     instagramAnalysisId: string | null
     scriptId: string | null
+    administrativeRegionId: string | null
+    savedTerritoryId: string | null
+    territoryAnalysisId: string | null
+    recordingReferencePoint: string | null
+    alternativeLocation: string | null
     title: string
     videoType: string
     objective: string
@@ -2365,6 +2655,11 @@ export interface AssemblyStrategyFieldRefs {
   readonly profileId: Prisma.FieldRef<"AssemblyStrategy", 'String'>
   readonly instagramAnalysisId: Prisma.FieldRef<"AssemblyStrategy", 'String'>
   readonly scriptId: Prisma.FieldRef<"AssemblyStrategy", 'String'>
+  readonly administrativeRegionId: Prisma.FieldRef<"AssemblyStrategy", 'String'>
+  readonly savedTerritoryId: Prisma.FieldRef<"AssemblyStrategy", 'String'>
+  readonly territoryAnalysisId: Prisma.FieldRef<"AssemblyStrategy", 'String'>
+  readonly recordingReferencePoint: Prisma.FieldRef<"AssemblyStrategy", 'String'>
+  readonly alternativeLocation: Prisma.FieldRef<"AssemblyStrategy", 'String'>
   readonly title: Prisma.FieldRef<"AssemblyStrategy", 'String'>
   readonly videoType: Prisma.FieldRef<"AssemblyStrategy", 'String'>
   readonly objective: Prisma.FieldRef<"AssemblyStrategy", 'String'>

@@ -31,6 +31,14 @@ interface MergedProfile {
   source: 'profile' | 'analysis'
 }
 
+interface RegionBase {
+  id: string
+  officialNumber: number
+  romanNumber: string
+  officialName: string
+  slug: string
+}
+
 interface SerializedStrategy {
   id: string
   profileId: string | null
@@ -49,6 +57,9 @@ interface SerializedStrategy {
   postingTime: string | null
   status: string
   notes: string
+  administrativeRegionId: string | null
+  alternativeLocation: string | null
+  recordingReferencePoint: string | null
   canvasItems: Array<{
     id: string
     type: string
@@ -88,9 +99,10 @@ interface SerializedStrategy {
 interface Props {
   strategy: SerializedStrategy
   profiles: MergedProfile[]
+  regions: RegionBase[]
 }
 
-export function AssemblyStrategyClient({ strategy: initial, profiles }: Props) {
+export function AssemblyStrategyClient({ strategy: initial, profiles, regions }: Props) {
   const router = useRouter()
   const [strategy, setStrategy] = useState(initial)
   const [canvasItems, setCanvasItems] = useState<AssemblyCanvasCard[]>(
@@ -312,6 +324,10 @@ export function AssemblyStrategyClient({ strategy: initial, profiles }: Props) {
             postingTime={strategy.postingTime}
             status={strategy.status}
             notes={strategy.notes}
+            administrativeRegionId={strategy.administrativeRegionId}
+            alternativeLocation={strategy.alternativeLocation}
+            recordingReferencePoint={strategy.recordingReferencePoint}
+            regions={regions}
             onChange={handleDetailsChange}
           />
 

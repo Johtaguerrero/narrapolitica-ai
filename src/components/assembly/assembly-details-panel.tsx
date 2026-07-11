@@ -2,6 +2,14 @@
 
 import { VIDEO_TYPE_OPTIONS, STRATEGY_STATUS_OPTIONS } from '@/types/assembly'
 
+interface Region {
+  id: string
+  officialNumber: number
+  romanNumber: string
+  officialName: string
+  slug: string
+}
+
 interface Props {
   videoType: string
   objective: string
@@ -16,6 +24,10 @@ interface Props {
   postingTime: string | null
   status: string
   notes: string
+  administrativeRegionId: string | null
+  alternativeLocation: string | null
+  recordingReferencePoint: string | null
+  regions: Region[]
   onChange: (field: string, value: string) => void
 }
 
@@ -74,6 +86,21 @@ export function AssemblyDetailsPanel(props: Props) {
         {field('Horário', 'recordingTime')}
         {field('Data de postagem', 'postingDate')}
         {field('Horário de postagem', 'postingTime')}
+      </div>
+      <div className="border-t border-zinc-800 pt-4">
+        <h4 className="mb-3 text-[11px] font-semibold uppercase tracking-wider text-zinc-500">Território</h4>
+        <div className="space-y-1">
+          <label className="text-[11px] font-medium uppercase tracking-wider text-zinc-500">Região Administrativa</label>
+          <select className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-2.5 py-1.5 text-xs text-zinc-200 outline-none focus:border-violet-500"
+            value={props.administrativeRegionId || ''} onChange={e => onChange('administrativeRegionId', e.target.value)}>
+            <option value="">Nenhuma</option>
+            {props.regions.map(r => (
+              <option key={r.id} value={r.id}>RA {r.romanNumber} — {r.officialName}</option>
+            ))}
+          </select>
+        </div>
+        {field('Local alternativo', 'alternativeLocation')}
+        {field('Ponto de referência', 'recordingReferencePoint')}
       </div>
       {field('Observações estratégicas', 'notes', 'textarea')}
     </div>

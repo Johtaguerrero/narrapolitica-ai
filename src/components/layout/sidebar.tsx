@@ -14,6 +14,7 @@ const navItems = [
   { href: "/instagram-profiles", label: "Perfis Salvos" },
   { href: "/roteiro", label: "Criar Roteiro" },
   { href: "/assembly-strategy", label: "Estratégia de Montagem" },
+  { href: "/territories", label: "Inteligência Territorial" },
   { href: "/biblioteca", label: "Biblioteca de Estilos" },
   { href: "/discursos", label: "Discursos Salvos" },
   { href: "/calendario", label: "Calendário Editorial" },

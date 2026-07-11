@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import { getAnalysis } from "@/lib/db/analysis";
 import { getAnalyses } from "@/lib/db/analysis";
+import { getAdministrativeRegions } from "@/lib/territory/territory-actions";
 import { RoteiroContent } from "./roteiro-content";
 
 export const dynamic = "force-dynamic";
@@ -29,7 +30,10 @@ export default async function RoteiroPage(props: { searchParams: Promise<{ anali
     }
   }
 
-  const savedProfiles = await getAnalyses();
+  const [savedProfiles, regions] = await Promise.all([
+    getAnalyses(),
+    getAdministrativeRegions(),
+  ])
 
   return (
     <Suspense fallback={
@@ -42,6 +46,7 @@ export default async function RoteiroPage(props: { searchParams: Promise<{ anali
         initialProfileId={searchParams.profileId}
         analysisData={analysisData}
         savedProfiles={savedProfiles}
+        regions={regions}
       />
     </Suspense>
   );

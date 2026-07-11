@@ -16,16 +16,6 @@ async function main() {
 
   const client = createClient({ url, authToken })
 
-  // Find the latest migration SQL file
-  const migrationsDir = resolve(__dirname, '..', 'prisma', 'migrations')
-  const { readdirSync } = await import('fs')
-  const dirs = readdirSync(migrationsDir, { withFileTypes: true })
-    .filter(d => d.isDirectory())
-    .map(d => d.name)
-    .sort()
-
-  // Execute all migration files that haven't been applied yet
-  // We check by trying to create the _prisma_migrations table and tracking applied migrations
   try {
     await client.execute(`CREATE TABLE IF NOT EXISTS _prisma_migrations (
       id TEXT PRIMARY KEY,
@@ -35,6 +25,13 @@ async function main() {
       migration_file TEXT
     )`)
   } catch { /* table may already exist */ }
+
+  const migrationsDir = resolve(__dirname, '..', 'prisma', 'migrations')
+  const { readdirSync } = await import('fs')
+  const dirs = readdirSync(migrationsDir, { withFileTypes: true })
+    .filter(d => d.isDirectory())
+    .map(d => d.name)
+    .sort()
 
   for (const dir of dirs) {
     const migrationFile = resolve(migrationsDir, dir, 'migration.sql')
@@ -50,22 +47,26 @@ async function main() {
     } catch { /* continue */ }
 
     const sql = readFileSync(migrationFile, 'utf-8')
-    const statements = sql
-      .split(';')
-      .map(s => s.trim())
-      .filter(s => s.length > 0 && !s.startsWith('--'))
+    const rawParts = sql.split(';').map(s => s.trim()).filter(s => s.length > 0)
+
+    const statements = []
+    for (const part of rawParts) {
+      const lines = part.split('\n')
+        .map(l => l.trim())
+        .filter(l => l.length > 0 && !l.startsWith('--'))
+      if (lines.length > 0) statements.push(lines.join('\n'))
+    }
 
     for (const stmt of statements) {
       console.log(`Executing: ${stmt.substring(0, 80)}...`)
       try {
         await client.execute(stmt)
       } catch (err) {
-        console.error(`Error executing statement: ${stmt}`)
-        console.error(err)
+        console.error(`Error: ${stmt.substring(0, 80)}`)
+        console.error(`  ${err.message}`)
       }
     }
 
-    // Mark as applied
     const migrationId = `${dir}-${Date.now()}`
     try {
       await client.execute({
