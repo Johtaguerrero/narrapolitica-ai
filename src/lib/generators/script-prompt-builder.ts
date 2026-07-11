@@ -177,41 +177,67 @@ export function buildPrompt(input: PromptInput): PromptResult {
   }
 
   if (name) {
-    bodyLines.push(`Olá, sou ${name}.`);
+    const greetings = [
+      `Oi, eu sou ${name}.`,
+      `Fala comigo, sou ${name}.`,
+      `E aí, aqui é ${name}.`,
+    ];
+    if (tone.includes("institucional") || tone.includes("técnico") || tone.includes("formal")) {
+      bodyLines.push(`Olá, eu sou ${name}.`);
+    } else if (tone.includes("jovem") || tone.includes("popular") || tone.includes("emocional")) {
+      bodyLines.push(greetings[Math.floor(Math.random() * greetings.length)]);
+    } else {
+      bodyLines.push(`Olá, sou ${name}.`);
+    }
     if (username) bodyLines.push(`(@${username})`);
     bodyLines.push("");
   }
 
-  bodyLines.push(`${hook}`);
+  if (input.objective === "prestar_contas" || input.objective === "informar") {
+    bodyLines.push(`${hook}`);
+  } else {
+    const hooks = [
+      `${hook}`,
+      `Deixa eu começar com uma pergunta: você já parou pra pensar sobre ${themeContext}?`,
+      `Sabe aquela sensação de que algo precisa mudar? É sobre isso que quero conversar.`,
+      `${hook} — e é exatamente sobre isso que quero falar hoje.`,
+    ];
+    bodyLines.push(hooks[Math.floor(Math.random() * hooks.length)]);
+  }
   bodyLines.push("");
 
-  const bridges = [
-    `Vamos conversar sobre ${themeContext}.`,
-    `Quero trazer uma reflexão sincera sobre ${themeContext}.`,
-    `Hoje quero falar sobre algo que impacta diretamente a nossa vida: ${themeContext}.`,
-  ];
-  bodyLines.push(bridges[Math.floor(Math.random() * bridges.length)]);
+  const transition = audience
+    ? [
+        `Quero conversar com ${audience.toLowerCase()} sobre ${themeContext}.`,
+        `Hoje quero chamar a atenção de ${audience.toLowerCase()} pra um tema urgente: ${themeContext}.`,
+        `Se você é ${audience.toLowerCase()}, esse papo é direto com você.`,
+      ][Math.floor(Math.random() * 3)]
+    : [
+        `Quero conversar sobre ${themeContext}.`,
+        `Vou ser sincero com você sobre ${themeContext}.`,
+        `Deixa eu compartilhar uma visão sincera sobre ${themeContext}.`,
+      ][Math.floor(Math.random() * 3)];
+  bodyLines.push(transition);
   bodyLines.push("");
 
-  const development = buildDevelopmentText(input.theme, input.objective, wordRange.avg, input.territoryName, input.territoryContext);
+  const development = buildDevelopmentText(input.theme, input.objective, wordRange.avg, input.territoryName, input.territoryContext, name, tone, audience, strengths);
   bodyLines.push(development);
   bodyLines.push("");
 
   const closings = [
-    "E é assim que a gente constrói política pública de verdade: com diálogo, transparência e ação.",
-    "No final, o que importa é o que a gente faz junto. E juntos a gente vai mais longe.",
-    "Porque política se faz com escuta, trabalho e responsabilidade. E é isso que nos move.",
-    "Comunicação pública de verdade é sobre conectar pessoas. E é isso que estamos fazendo aqui.",
+    `É assim que a gente constrói política pública de verdade: com diálogo, transparência e ação.${strengths ? ` E é isso que a gente sabe fazer: ${strengths.toLowerCase().substring(0, 80)}.` : ""}`,
+    `No final, o que importa é o que a gente faz junto. ${strengths ? `E juntos a gente vai mais longe — essa é a nossa força.` : `E juntos a gente vai mais longe.`}`,
+    `Política se faz com escuta, trabalho e responsabilidade. E é isso que nos move.`,
+    `Comunicação pública de verdade é sobre conectar pessoas. ${audience ? `E é com ${audience.toLowerCase()} que a gente quer estar.` : `E é isso que estamos fazendo aqui.`}`,
   ];
   bodyLines.push(closings[Math.floor(Math.random() * closings.length)]);
   bodyLines.push("");
 
-  const personalCTA = `${cta}`;
-  bodyLines.push(personalCTA);
+  bodyLines.push(`${cta}`);
 
   const scriptText = bodyLines.join("\n");
 
-  const captionText = buildCaption(input, name, hashtags, cta);
+  const captionText = buildCaption(input, name, hashtags, cta, tone, audience);
 
   const strategicNotes = [
     input.territoryName ? `Território: ${input.territoryName}.` : "",
@@ -243,54 +269,155 @@ export function buildPrompt(input: PromptInput): PromptResult {
   };
 }
 
-function buildDevelopmentText(theme: string, _objective: string, targetWords: number, territoryName?: string, territoryContext?: string): string {
+function buildDevelopmentText(theme: string, _objective: string, targetWords: number, territoryName?: string, territoryContext?: string, name?: string, tone?: string, audience?: string, strengths?: string): string {
   const themeLabel = theme.replace(/_/g, " ");
   const paragraphs: string[] = [];
   let wordCount = 0;
 
+  const toneStyle = tone ? tone.toLowerCase() : "";
+  const isDireto = toneStyle.includes("direto") || toneStyle.includes("popular");
+  const isEmocional = toneStyle.includes("emocional");
+  const isInstitucional = toneStyle.includes("institucional") || toneStyle.includes("técnico");
+  const isJovem = toneStyle.includes("jovem") || toneStyle.includes("cultural");
+
+  const aud = audience ? audience.toLowerCase() : "";
+  const audRef = aud ? [`É com ${aud} que esse papo importa.`, `Quem vive ${aud === "jovens" || aud === "pessoas" ? "" : "na "}${aud} sabe do que tô falando.`, `E ${aud} merece resposta, não promessa.`] : [];
+
+  const strengthRef = strengths
+    ? [
+        `A gente tem um jeito próprio de fazer as coisas: ${strengths.substring(0, 100).toLowerCase()}.`,
+        `O que nos move é ${strengths.substring(0, 100).toLowerCase()}.`,
+      ]
+    : [];
+
   const locationRef = territoryName
-    ? [`Aqui em ${territoryName}, a realidade não é diferente.`, `Na nossa ${territoryName}, a gente sente isso no dia a dia.`, `${territoryName} merece atenção e cuidado.`]
+    ? [
+        `Aqui em ${territoryName}, a realidade não é diferente.`,
+        `Na nossa ${territoryName}, a gente sente isso no dia a dia.`,
+        `${territoryName} merece atenção e cuidado.`,
+      ]
     : [];
 
   const problemRef = territoryContext
-    ? [`A gente sabe que ${territoryContext.substring(0, 80).toLowerCase()}... isso precisa mudar.`, `Não dá pra ignorar o que a gente vê todo dia: ${territoryContext.substring(0, 100).toLowerCase()}.`, `É sobre isso que a gente precisa conversar: ${territoryContext.substring(0, 100).toLowerCase()}.`]
+    ? [
+        `A gente sabe que ${territoryContext.substring(0, 80).toLowerCase()}... isso precisa mudar.`,
+        `Não dá pra ignorar o que a gente vê todo dia: ${territoryContext.substring(0, 100).toLowerCase()}.`,
+        `É sobre isso que a gente precisa conversar: ${territoryContext.substring(0, 100).toLowerCase()}.`,
+      ]
     : [];
 
-  const templates = [
-    territoryName
-      ? `Quando a gente fala de ${themeLabel} em ${territoryName}, não tem como não pensar no impacto que isso tem na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais. É sobre a mãe que luta por um futuro melhor, o jovem que busca oportunidade, o trabalhador que quer ser ouvido.`
-      : `Quando a gente fala de ${themeLabel}, não tem como não pensar no impacto que isso tem na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais. É sobre a mãe que luta por um futuro melhor, o jovem que busca oportunidade, o trabalhador que quer ser ouvido.`,
-    `E é por isso que esse tema é tão importante. Porque ele mexe com a vida de verdade. Não é sobre promessa vazia — é sobre compromisso assumido. E a gente sabe que compromisso se prova com ação, não com palavras bonitas.`,
-    `O que a gente propõe é simples: diálogo aberto, escuta ativa e ação concreta. Nada de discurso decorado. A gente quer conversar de igual pra igual, porque política pública se faz com participação de verdade.`,
-    `E você, o que pensa sobre isso? Sua opinião é fundamental pra construir soluções que realmente funcionem. Porque ninguém conhece melhor a realidade de um lugar do que quem vive lá todo dia.`,
-    `Seguimos trabalhando com responsabilidade, transparência e respeito. Esse é o nosso compromisso. E é por isso que estamos aqui: pra construir junto com você um futuro melhor para todos.`,
-    `Não é sobre partido. É sobre pessoas. É sobre fazer o que é certo, mesmo quando é difícil. É sobre olhar no olho e dizer a verdade. Porque é assim que a gente conquista confiança.`,
-  ];
+  const allBridges = [...locationRef, ...problemRef, ...audRef, ...strengthRef];
 
-  for (const template of templates) {
+  const templatePool = buildTemplatePool(themeLabel, territoryName, isDireto, isEmocional, isInstitucional, isJovem, name, aud);
+
+  for (const template of templatePool) {
     if (wordCount >= targetWords) break;
     paragraphs.push(template);
     wordCount += template.split(" ").length;
 
-    if (wordCount < targetWords && Math.random() > 0.5) {
-      const bridges = [
-        `Pense bem: ${themeLabel} está mais perto da sua realidade do que você imagina.`,
-        `É importante a gente lembrar que toda mudança começa com uma conversa sincera.`,
-        `Não precisa ser especialista pra entender o impacto de ${themeLabel} na nossa vida.`,
-        ...locationRef,
-        ...problemRef,
-      ];
-      const bridge = bridges[Math.floor(Math.random() * bridges.length)];
+    if (wordCount < targetWords && allBridges.length > 0 && Math.random() > 0.4) {
+      const bridge = allBridges[Math.floor(Math.random() * allBridges.length)];
       paragraphs.push(bridge);
       wordCount += bridge.split(" ").length;
+    }
+
+    if (wordCount < targetWords && Math.random() > 0.6) {
+      const genericBridges = [
+        `Pense bem: ${themeLabel} está mais perto da sua realidade do que você imagina.`,
+        `Toda mudança começa com uma conversa sincera.`,
+        `Não precisa ser especialista pra entender o impacto de ${themeLabel} na nossa vida.`,
+        `Se tem uma coisa que aprendi, é que política se constrói com escuta.`,
+        `É sobre isso: olhar nos olhos, ouvir, e agir.`,
+      ];
+      paragraphs.push(genericBridges[Math.floor(Math.random() * genericBridges.length)]);
+      wordCount += genericBridges[Math.floor(Math.random() * genericBridges.length)].split(" ").length;
     }
   }
 
   return paragraphs.join("\n\n");
 }
 
-function buildCaption(input: PromptInput, name: string, hashtags: string, cta: string): string {
+function buildTemplatePool(themeLabel: string, territoryName: string | undefined, isDireto: boolean, isEmocional: boolean, isInstitucional: boolean, isJovem: boolean, name: string | undefined, aud: string): string[] {
+  const loc = territoryName || "nossa cidade";
+
+  const templates: string[] = [];
+
+  if (isDireto) {
+    templates.push(
+      `Vou ser direto: ${themeLabel} não pode esperar. A gente precisa de ação, não de conversa fiada. Enquanto uns empurram com a barriga, a realidade aperta. E quem sente no bolso e no dia a dia é o povo.`,
+      `${themeLabel} afeta sua vida mais do que você imagina. Não adianta fechar os olhos. O problema tá aí, batendo na porta. E a gente precisa encarar de frente, com coragem e honestidade.`,
+      `Sabe o que eu vejo na rua todo dia? Pessoas lutando, se virando, tentando sobreviver. E o poder público muitas vezes empurrando com a barriga. Isso tem que mudar.`,
+      `Não vou ficar aqui dando rodeio. O que importa é o seguinte: ${themeLabel} é prioridade. E a gente precisa tratar como tal. Com seriedade, com responsabilidade e com ação.`,
+      `A verdade é uma só: ou a gente age agora, ou depois é tarde. ${themeLabel} não é pauta de campanha — é compromisso de mandato.`,
+    );
+  }
+
+  if (isEmocional) {
+    templates.push(
+      `Sabe aquela sensação de olhar pro lado e ver alguém que precisa de ajuda? É assim que me sinto quando penso em ${themeLabel}. Não é sobre números — é sobre pessoas reais, com sonhos, medos e esperanças.`,
+      `Eu acredito que política é sobre cuidar. E cuidar de verdade é olhar nos olhos, ouvir em silêncio e agir com o coração. ${themeLabel} mexe com a vida de verdade. E isso não tem preço.`,
+      `Teve um dia desses que eu parei e pensei: será que a gente tem feito o suficiente? Porque ${themeLabel} não é só pauta — é vida real. E cada história que a gente ouve, cada abraço que a gente recebe, me lembra por que eu tô aqui.`,
+      `Não é fácil falar sobre ${themeLabel} sem se emocionar. Porque por trás de cada dado, tem uma família. Por trás de cada estatística, tem um sonho. E a gente não pode esquecer disso.`,
+      `O que me move é saber que a gente pode fazer diferente. Que ${themeLabel} pode ser um motivo de orgulho, não de dor. E é por isso que eu acordo todo dia com vontade de trabalhar.`,
+    );
+  }
+
+  if (isJovem) {
+    templates.push(
+      `Fala sério: ${themeLabel} é assunto que mexe com todo mundo. E a galera nova tem um papel fundamental nessa mudança. É a nossa vez de ocupar espaço, de falar o que pensa, de cobrar e de propor.`,
+      `A real é que ${themeLabel} não pode ficar pra depois. A gente vive num mundo que muda rápido, e quem não acompanha, fica pra trás. É hora de trazer a juventude pra dentro da conversa.`,
+      `Se tem uma coisa que a nova geração entende, é que esperar sentado não resolve. A gente quer participação, quer voz ativa. E ${themeLabel} é o ponto de partida pra construir algo novo.`,
+      `${themeLabel} é isso: movimento, troca, energia. Não é sobre discurso pronto — é sobre atitude. E a juventude tem atitude de sobra pra transformar a realidade.`,
+    );
+  }
+
+  if (isInstitucional) {
+    templates.push(
+      `A gestão pública tem o dever de priorizar ${themeLabel} com planejamento, transparência e eficiência. É assim que a gente transforma recursos em resultados e promessas em entregas concretas.`,
+      `Quando a gente fala de ${themeLabel}, a gente tá falando de compromisso firmado com a população. Cada passo precisa ser dado com responsabilidade fiscal e responsabilidade social.`,
+      `A população espera resultados — e a gente tem a obrigação de entregar. ${themeLabel} exige trabalho sério, baseado em dados, diálogo e planejamento estratégico.`,
+    );
+  }
+
+  templates.push(
+    territoryName
+      ? `Quando a gente fala de ${themeLabel} em ${territoryName}, não tem como não pensar no impacto na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais.`
+      : `Quando a gente fala de ${themeLabel}, não tem como não pensar no impacto que isso tem na vida de cada pessoa. Não é sobre estatística — é sobre histórias reais.`,
+  );
+
+  if (aud) {
+    templates.push(
+      `E ${aud} é quem mais sente isso no dia a dia. É pra vocês que esse trabalho existe. Porque a gente sabe que ${themeLabel} não é um tema distante — é uma necessidade real de quem vive ${aud === "jovens" || aud === "pessoas" ? "essa" : "nessa"} realidade.`,
+    );
+  }
+
+  if (name) {
+    templates.push(
+      `Eu, ${name}, acredito que a política precisa ser feita com verdade. E verdade em relação a ${themeLabel} é reconhecer os desafios, mas também apresentar caminhos.`,
+    );
+  }
+
+  templates.push(
+    `O que move a gente é simples: vontade de acertar, de fazer o melhor, de não desistir. ${themeLabel} é um desses temas que exige perseverança. E a gente não vai parar.`,
+    `É por isso que a gente não pode se calar. Porque ${themeLabel} diz respeito a todo mundo. Não é sobre agradar — é sobre fazer o que é certo.`,
+    `E você, o que pensa sobre isso? Sua opinião é essencial pra construir soluções que realmente funcionem. Porque ninguém conhece melhor a realidade de um lugar do que quem vive lá todo dia.`,
+    `Seguimos trabalhando com responsabilidade, transparência e respeito. Esse é o compromisso. E é por isso que estamos aqui: pra construir junto um futuro melhor.`,
+  );
+
+  if (isDireto || isJovem) {
+    templates.push(
+      `Resumo da ópera: ${themeLabel} importa. E a gente tá aqui pra isso. Pra trabalhar, pra ouvir, pra agir. Sem firula, sem joguinho.`,
+    );
+  }
+
+  return templates;
+}
+
+function buildCaption(input: PromptInput, name: string, hashtags: string, cta: string, tone?: string, audience?: string): string {
   const themeLabel = input.theme.replace(/_/g, " ");
+  const toneLower = (tone || "").toLowerCase();
+  const aud = audience ? audience.toLowerCase() : "";
+
   const impactLines = [
     `${themeLabel} é mais do que pauta — é compromisso.`,
     `${themeLabel} não é promessa, é prioridade.`,
@@ -302,10 +429,19 @@ function buildCaption(input: PromptInput, name: string, hashtags: string, cta: s
 
   const explanations = [
     `É por isso que seguimos trabalhando com responsabilidade, escutando a população e construindo soluções reais.`,
-    `A comunicação pública de verdade começa com diálogo, transparência e ação.`,
-    `Porque política se faz com conversa sincera, não com discurso pronto.`,
+    `Comunicação pública de verdade começa com diálogo, transparência e ação.`,
+    `Política se faz com conversa sincera, não com discurso pronto.`,
     `Informação de qualidade é o primeiro passo para uma sociedade mais participativa.`,
   ];
+
+  if (aud) {
+    explanations.push(`Especialmente pra ${aud} — essa mensagem é pra vocês.`);
+  }
+
+  if (toneLower.includes("direto") || toneLower.includes("popular")) {
+    explanations.push(`Sem enrolação — o recado é claro e direto pra quem quer entender.`);
+  }
+
   const explanation = explanations[Math.floor(Math.random() * explanations.length)];
 
   let caption = `${impact}\n\n${explanation}\n\n${cta}`;
@@ -314,6 +450,7 @@ function buildCaption(input: PromptInput, name: string, hashtags: string, cta: s
     const intros = [
       `${name} fala sobre ${themeLabel}.`,
       `${name} compartilha uma reflexão sobre ${themeLabel}.`,
+      `📢 ${name} traz um papo sincero sobre ${themeLabel}.`,
     ];
     caption = `${intros[Math.floor(Math.random() * intros.length)]}\n\n${caption}`;
   }
