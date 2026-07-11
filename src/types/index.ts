@@ -117,6 +117,9 @@ export interface ScriptFormData {
     goal?: string;
   };
   objective?: Objective;
+  territoryName?: string;
+  territoryContext?: string;
+  territorialObjectives?: string;
 }
 
 export interface InstagramAnalysisData {

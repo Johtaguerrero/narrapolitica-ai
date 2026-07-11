@@ -13,6 +13,9 @@ export function generateScript(formData: ScriptFormData): GeneratedScript {
     objective: formData.objective || "conscientizar",
     analysisData: formData.analysisData,
     modoLivreData: formData.modoLivreData,
+    territoryName: formData.territoryName,
+    territoryContext: formData.territoryContext,
+    territorialObjectives: formData.territorialObjectives,
   });
 
   let legacy: GeneratedScript;

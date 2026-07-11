@@ -225,6 +225,9 @@ export function RoteiroContent({ analysisData: initialAnalysisData, savedProfile
       modoLivreData: modoLivre
         ? { name: mlName, theme: mlTheme, audience: mlAudience, tone: mlTone }
         : undefined,
+      territoryName: territoryRegionId ? regions.find(r => r.id === territoryRegionId)?.officialName : undefined,
+      territoryContext: territoryContext || undefined,
+      territorialObjectives: territoryObjectives || undefined,
     });
 
     setResult(script);

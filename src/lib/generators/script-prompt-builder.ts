@@ -16,6 +16,9 @@ interface PromptInput {
     tone?: string;
     goal?: string;
   } | null;
+  territoryName?: string;
+  territoryContext?: string;
+  territorialObjectives?: string;
 }
 
 export interface PromptResult {
@@ -160,6 +163,17 @@ export function buildPrompt(input: PromptInput): PromptResult {
 
   const bodyLines: string[] = [];
 
+  if (input.territoryContext && input.territoryName) {
+    bodyLines.push(`Estou aqui na ${input.territoryName}.`);
+    bodyLines.push("");
+    bodyLines.push(`${input.territoryContext}`);
+    bodyLines.push("");
+    if (input.territorialObjectives) {
+      bodyLines.push(`Meu compromisso aqui é: ${input.territorialObjectives.replace(/_/g, " ")}.`);
+      bodyLines.push("");
+    }
+  }
+
   if (name) {
     bodyLines.push(`Olá, sou ${name}.`);
     if (username) bodyLines.push(`(@${username})`);
@@ -198,6 +212,9 @@ export function buildPrompt(input: PromptInput): PromptResult {
   const captionText = buildCaption(input, name, hashtags, cta);
 
   const strategicNotes = [
+    input.territoryName ? `Território: ${input.territoryName}.` : "",
+    input.territorialObjectives ? `Objetivos territoriais: ${input.territorialObjectives.replace(/_/g, " ")}.` : "",
+    input.territoryContext ? `Contexto local informado: ${input.territoryContext.substring(0, 200)}${input.territoryContext.length > 200 ? "..." : ""}.` : "",
     strengths ? `Pontos fortes do perfil: ${strengths}.` : "",
     risks ? `Atenção aos riscos: ${risks}.` : "",
     audience ? `Público-alvo: ${audience}.` : "",
